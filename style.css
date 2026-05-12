@@ -1,0 +1,768 @@
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: Arial, sans-serif;
+   }
+
+   #main-layout {
+     display: flex;
+     height: calc(100vh - 60px);
+   }
+
+   #exercise-setting {
+     width: 70%;
+     background: #f5f5f5;
+     padding: 15px;
+     overflow-y: auto;
+     border-right: 1px solid #ddd;
+   }
+
+   #quiz-config {
+     width: 30%;
+     padding: 20px;
+   }
+
+   .menu-icon {
+     width: 30px;
+     cursor: pointer;
+     font-size: 30px;
+   }
+
+   .menu-icon div {
+     height: 4px;
+     background: white;
+     margin: 5px 0;
+     border-radius: 2px;
+   }
+
+   .user-icon {
+     width: 40px;
+     height: 40px;
+     background: white;
+     border-radius: 50%;
+     position: relative;
+   }
+
+   .user-icon::after {
+     content: "";
+     position: absolute;
+     bottom: -12px;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 50px;
+     height: 25px;
+     background: white;
+     border-radius: 25px 25px 0 0;
+   }
+
+   /* Main Buttons */
+   .container {
+     padding: 40px 20px;
+     display: flex;
+     flex-direction: column;
+     gap: 30px;
+     align-items: center;
+   }
+
+   .card {
+     width: 90%;
+     max-width: 600px;
+     padding: 50px 20px;
+     border: 5px solid #c40000;
+     border-radius: 40px;
+     text-align: center;
+     font-size: 32px;
+     font-weight: bold;
+     background: white;
+     cursor: pointer;
+     transition: 0.2s;
+   }
+
+   .card:hover {
+     transform: scale(1.03);
+     background-color: #f9f9f9;
+   }
+
+   /* ========================= */
+   /* 🔹 MCQ-QUIZ 🔹 */
+   /* ========================= */
+   .p {
+     white-space: pre-line;
+   }
+
+   body {
+     background-color: #eee;
+   }
+
+   /* ========================= */
+   /* 🔹 TOP BAR 🔹 */
+   /* ========================= */
+   #topbar {
+     background: #2a0000;
+     color: #fff;
+     padding: 16px;
+     text-align: center;
+     padding: 10px;
+     display: flex;
+     align-items: center;
+   }
+
+   #topbar h1 {
+     margin: 0;
+     color: white;
+   }
+
+   /* ========================= */
+   /* 🔹 SETTINGS PANEL 🔹 */
+   /* ========================= */
+   #quiz-setting {
+     max-width: 700px;
+     background: #ffffff;
+     padding: 25px;
+     border-radius: 12px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+   }
+
+   /* Section labels */
+   #quiz-setting label {
+     display: block;
+     margin-top: 18px;
+     margin-bottom: 8px;
+     font-weight: 600;
+     font-size: 15px;
+   }
+
+   /* Input box */
+   .user-box input {
+     width: 100%;
+     max-width: 400px;
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 8px;
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+   }
+
+   .user-box input:focus {
+     border-color: #007bff;
+   }
+
+   .radio-group {
+     display: flex;
+     flex-direction: column;
+     align-items: left;
+     justify-content: flex-start;
+     gap: 2px;
+   }
+
+   .radio-group label {
+     margin: 0;
+   }
+
+   .radio-option {
+     display: flex;
+     align-items: center;
+     gap: 2px;
+     padding: 8px 8px;
+     border: 1px solid #ddd;
+     border-radius: 8px;
+     background: #fafafa;
+     cursor: pointer;
+     transition: 0.2s;
+     font-size: 14px;
+   }
+
+   .radio-option:hover {
+     background: #f0f0f0;
+     border-color: #aaa;
+   }
+
+   /* ========================= */
+   /* 🔹 QUESTION CONTAINER 🔹 */
+   /* ========================= */
+   #quiz-ui {
+     text-align: center;
+   }
+
+   #quiz-ui span {
+     display: inline-block;
+   }
+
+   #quiz-ui button {
+     min-width: 90px;
+   }
+
+   #question-progress {
+     text-align: center;
+     padding: 10px 0;
+     font-weight: 600;
+     color: #333;
+   }
+
+   #question-counter {
+     font-weight: 600;
+     font-size: 14px;
+     color: #444;
+   }
+
+   .question-widget {
+     max-width: 800px;
+     margin: 0 auto;
+     background: #ffffff;
+     padding: 20px 25px;
+     border-radius: 12px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+     text-align: left;
+   }
+
+   #question-progress {
+     text-align: center;
+     padding: 12px 0;
+     font-weight: 600;
+   }
+
+   #question-counter {
+     font-size: 24px;
+     font-weight: 800;
+     background: #2a0000;
+     color: white;
+     padding: 6px 14px;
+     border-radius: 20px;
+     display: inline-block;
+   }
+
+   /* ========================= */
+   /* 🔹 TEXT / DESCRIPTION 🔹 */
+   /* ========================= */
+   .description {
+     margin-bottom: 15px;
+     font-size: 16px;
+     line-height: 1.6;
+   }
+
+   .description p {
+     margin: 0;
+   }
+
+   /* ========================= */
+   /* 🔹 IMAGE 🔹 */
+   /* ========================= */
+   .image {
+     margin: 15px 0;
+     text-align: center;
+   }
+
+   .image img {
+     max-width: 100%;
+     border-radius: 8px;
+   }
+
+   /* ========================= */
+   /* 🔹 TABLE 🔹 */
+   /* ========================= */
+   .table {
+     margin: 15px 0;
+     overflow-x: auto;
+   }
+
+   .table table {
+     width: 100%;
+     border-collapse: collapse;
+   }
+
+   .table td,
+   .table th {
+     border: 1px solid #ddd;
+     padding: 8px;
+     text-align: center;
+   }
+
+   /* ========================= */
+   /* 🔹 OPTIONS LIST 🔹 */
+   /* ========================= */
+   .options-list {
+     margin-top: 20px;
+   }
+
+   /* ========================= */
+   /* 🔹 OPTION CARD 🔹 */
+   /* ========================= */
+   .option-container {
+     margin-bottom: 10px;
+   }
+
+   .option-container label {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     padding: 12px 15px;
+     border-radius: 10px;
+     border: 1px solid #ddd;
+     cursor: pointer;
+     transition: all 0.2s ease;
+     background: #fafafa;
+   }
+
+   /* Hover effect */
+   .option-container label:hover {
+     background: #f0f0f0;
+     border-color: #aaa;
+   }
+
+   /* ========================= */
+   /* 🔹 RADIO BUTTON 🔹 */
+   /* ========================= */
+   .option-radio-container input[type="radio"] {
+     transform: scale(1.2);
+     cursor: pointer;
+   }
+
+   /* ========================= */
+   /* 🔹 OPTION TEXT 🔹 */
+   /* ========================= */
+   .option-text-container {
+     flex: 1;
+     font-size: 15px;
+   }
+
+   /* ========================= */
+   /* 🔹 STATES 🔹 */
+   /* ========================= */
+
+   /* Selected (before checking) */
+   .option-container input[type="radio"]:checked+.option-text-container {
+     font-weight: 600;
+   }
+
+   /* Correct answer */
+   .answer {
+     background: #d4edda;
+     border-color: #28a745
+   }
+
+   /* Wrong selected */
+   .incorrect {
+     background: #f8d7da;
+     border-color: #dc3545
+   }
+
+   /* Correct + selected */
+   .correct {
+     background: #c3f7c3;
+     border-color: #28a745;
+   }
+
+   /* ========================= */
+   /* 🔹 BUTTONS 🔹 */
+   /* ========================= */
+   button {
+     padding: 8px 14px;
+     border: none;
+     border-radius: 6px;
+     background: #222;
+     color: white;
+     cursor: pointer;
+     transition: 0.2s;
+   }
+
+   button:hover {
+     background: #444;
+   }
+
+   button:disabled {
+     background: #aaa;
+     cursor: not-allowed;
+   }
+
+   /* ========================= */
+   /* 🔹 PAGE TRANSITION 🔹 */
+   /* ========================= */
+   .page {
+     animation: fadeIn 0.25s ease;
+   }
+
+   @keyframes fadeIn {
+     from {
+       opacity: 0;
+       transform: translateX(10px);
+     }
+
+     to {
+       opacity: 1;
+       transform: translateX(0);
+     }
+   }
+
+   /* ========================= */
+   /* 🔹 RESULT SCREEN 🔹 */
+   /* ========================= */
+
+   #score-screen {
+     max-width: 500px;
+     margin: 80px auto;
+     background: #ffffff;
+     padding: 30px;
+     border-radius: 14px;
+     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+     text-align: center;
+     animation: fadeIn 0.3s ease;
+   }
+
+   /* Score label */
+   #score-screen>div:first-child {
+     font-size: 20px;
+     font-weight: 600;
+     color: #333;
+     margin-bottom: 20px;
+   }
+
+   /* Score numbers */
+   #score-screen #final-score {
+     font-size: 48px;
+     font-weight: 700;
+     color: #28a745;
+   }
+
+   #score-screen #total-score {
+     font-size: 24px;
+     color: #555;
+   }
+
+   /* Score wrapper */
+   #score-screen>div>div {
+     margin-top: 10px;
+   }
+
+   /* Back button */
+   #back-btn {
+     margin-top: 25px;
+     padding: 10px 18px;
+     border: none;
+     border-radius: 8px;
+     background: #222;
+     color: white;
+     font-size: 14px;
+     cursor: pointer;
+     transition: 0.2s ease;
+   }
+
+   #back-btn:hover {
+     background: #444;
+   }
+
+   /* Optional: score highlight animation */
+   #final-score {
+     display: inline-block;
+     animation: pop 0.4s ease;
+   }
+
+   @keyframes pop {
+     0% {
+       transform: scale(0.7);
+       opacity: 0;
+     }
+
+     100% {
+       transform: scale(1);
+       opacity: 1;
+     }
+   }
+
+   /* ========================= */
+   /* 🔹 CONFIRM BOX 🔹 */
+   /* ========================= */
+   .confirm-box {
+     position: fixed;
+     inset: 0;
+     background: rgba(0, 0, 0, 0.5);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+
+   .confirm-content {
+     background: #fff;
+     padding: 20px;
+     border-radius: 12px;
+     text-align: center;
+     min-width: 280px;
+   }
+
+   .confirm-content button {
+     margin: 5px;
+   }
+
+   .hidden {
+     display: none;
+   }
+
+
+   .unit-wrapper {
+     margin-left: 15px;
+   }
+
+   /* ========================= */
+   /* 🔹 CHECKBOX IMPROVEMENT 🔹 */
+   /* ========================= */
+   .year-label:hover,
+   .unit-label:hover,
+   .chapter-label:hover {
+     background-color: #eaeaea;
+   }
+
+   .year-label {
+     font-weight: bold;
+     display: block;
+     cursor: pointer;
+     padding: 6px 2px;
+   }
+
+   .unit-label {
+     display: block;
+     cursor: pointer;
+     font-weight: 600;
+     padding: 6px 2px;
+   }
+
+   .chapter-label {
+     display: block;
+     margin-left: 20px;
+     cursor: pointer;
+     padding: 6px 2px;
+   }
+
+   .year-label:has(input:checked),
+   .unit-label:has(input:checked),
+   .chapter-label:has(input:checked) {
+     background-color: #dbeafe;
+   }
+
+   /* ===== NOTE APP LAYOUT ===== */
+   #app {
+     display: flex;
+     height: 100vh;
+     background: #f1f3f4;
+     font-family: Arial, sans-serif;
+   }
+
+   #homeScreen {
+     height: calc(100vh - 60px);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 30px;
+     flex-direction: column;
+     background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+   }
+
+   #homeScreen button {
+     width: 320px;
+     padding: 25px 20px;
+     font-size: 22px;
+     font-weight: 600;
+     color: #111;
+     background: #ffffff;
+     border: none;
+     border-radius: 18px;
+
+     background: white;
+     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+     cursor: pointer;
+     transition: all 0.25s ease;
+
+     text-align: center;
+   }
+
+   #homeScreen button:hover {
+     transform: translateY(-5px) scale(1.02);
+     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+     background: #f8fbff;
+   }
+
+   #homeScreen button:nth-child(1) {
+     border-left: 6px solid #1a73e8;
+   }
+
+   #homeScreen button:nth-child(2) {
+     border-left: 6px solid #34a853;
+   }
+
+   #homeScreen button {
+     animation: popIn 0.4s ease;
+   }
+
+   @keyframes popIn {
+     from {
+       opacity: 0;
+       transform: scale(0.9);
+     }
+
+     to {
+       opacity: 1;
+       transform: scale(1);
+     }
+   }
+
+   /* ===== LEFT SIDEBAR ===== */
+   #sidebar {
+     width: 280px;
+     background: white;
+     border-right: 1px solid #ddd;
+     overflow-y: auto;
+     padding: 15px;
+     transition: transform 0.3s ease;
+     transform: translateX(0);
+   }
+
+   #sidebar h2 {
+     font-size: 18px;
+     margin-bottom: 15px;
+   }
+
+   /* Chapter cards */
+   .chapter-item {
+     background: #fff;
+     border: 1px solid #eee;
+     border-radius: 10px;
+     padding: 12px;
+     margin-bottom: 10px;
+     cursor: pointer;
+     transition: 0.2s;
+   }
+
+   .chapter-item:hover {
+     background: #f6f9ff;
+   }
+
+   .chapter-item.active {
+     border-left: 4px solid #1a73e8;
+     background: #e8f0fe;
+   }
+
+   .chapter-item.disabled {
+     opacity: 0.4;
+     pointer-events: none;
+     cursor: not-allowed;
+   }
+
+   /* ===== RIGHT PANE ===== */
+   #main {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     overflow: hidden;
+   }
+
+   /* ===== STICKY NAV ===== */
+   #navBtns {
+     position: sticky;
+     top: 0;
+     background: white;
+     padding: 10px;
+     display: flex;
+     gap: 10px;
+     border-bottom: 1px solid #ddd;
+     z-index: 10;
+   }
+
+   #navBtns.hidden {
+     display: none;
+   }
+
+   #navBtns button {
+     padding: 6px 12px;
+     border: none;
+     border-radius: 6px;
+     background: #1a73e8;
+     color: white;
+     cursor: pointer;
+   }
+
+   #navBtns button:disabled {
+     background: #ccc;
+     cursor: not-allowed;
+   }
+
+   /* ===== TOPIC LIST ===== */
+   #items {
+     padding: 10px;
+     overflow-y: auto;
+   }
+
+   .click {
+     background: white;
+     padding: 12px;
+     margin-bottom: 10px;
+     border-radius: 10px;
+     border: 1px solid #eee;
+     cursor: pointer;
+   }
+
+   .click:hover {
+     background: #f6f9ff;
+   }
+
+   /* ===== READING PANE ===== */
+   #content {
+     flex: 1;
+     overflow-y: auto;
+     padding: 20px;
+     background: white;
+   }
+
+   /* card look */
+   .content-card {
+     max-width: 850px;
+     margin: auto;
+     font-size: 20px;
+     line-height: 1.7;
+     color: #222;
+   }
+
+   .content-card h2 {
+     font-size: 30px;
+     margin: 18px 0 10px;
+   }
+
+   .content-card h3 {
+     font-size: 24px;
+     margin: 16px 0 8px;
+     color: #333;
+   }
+
+   .content-card p {
+     margin: 10px 0;
+   }
+
+   .content-card ul {
+     margin: 10px 0 10px 20px;
+     padding-left: 20px;
+   }
+
+   .content-card li {
+     margin: 6px 0;
+     line-height: 1.6;
+   }
+
+   /* ===== TABLE PANE ===== */
+   .auto-table {
+     width: 100%;
+     border-collapse: collapse;
+     table-layout: auto;
+     font-size: 20px;
+   }
+
+   .auto-table th,
+   .auto-table td {
+     border: 1px solid #ddd;
+     padding: 6px;
+
+     text-align: center;
+     vertical-align: middle;
+
+     word-wrap: break-word;
+     overflow-wrap: break-word;
+   }

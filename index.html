@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edutube</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+
+<body>
+  <div id="topbar">
+    <span id="toggleBtn" class="menu-icon">≡</span>
+    <span>
+      <h1>EDUTUBE</h1>
+    </span>
+  </div>
+
+  <div id="homeScreen">
+    <button onclick="selectSyllabus('edexcel')">
+      Edexcel Biology Notes
+    </button>
+
+    <button onclick="selectSyllabus('cie')">
+      CIE Biology Notes
+    </button>
+  </div>
+
+  <div id="app" class="hidden">
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar">
+      <div id="chapterList"></div>
+    </div>
+
+    <!-- RIGHT PANE -->
+    <div id="main">
+
+      <!-- sticky nav -->
+      <div id="navBtns" class="hidden">
+        <button id="navBtns__home" onclick="goHome()">Home</button>
+        <button id="navBtns__prev" onclick="prevTopic()">Previous</button>
+        <button id="navBtns__next" onclick="nextTopic()">Next</button>
+      </div>
+
+      <!-- topic list -->
+      <div id="items"></div>
+
+      <!-- reading content -->
+      <div id="content"></div>
+    </div>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const toggleBtn = document.getElementById("toggleBtn");
+    const chapterList = document.getElementById("chapterList");
+    let selectedSyllabus = null;
+    let selectedChapter = null;
+    let currentPage = "home";
+    let topicIndex = 0;
+    let topicList = [];
+
+    function selectSyllabus(type) {
+      selectedSyllabus = type;
+      showSidebar();
+      document.getElementById("homeScreen").style.display = "none";
+      document.getElementById("app").style.display = "flex";
+      let data = [];
+      if (type === "edexcel") { data = edexcelBio; }
+      if (type === "cie") { data = cieBio; }
+      renderSidebar(data);
+    }
+
+    function renderSidebar(data) {
+      chapterList.innerHTML = "";
+
+      data.forEach(unit => {
+        if (!unit.chapters) return;
+
+        unit.chapters.forEach(chapter => {
+          const _div = document.createElement("div");
+          _div.className = "chapter-item";
+
+          const chapterContent = bioNotes.filter(note => note.id.startsWith(chapter.chapterId));
+          const isEmpty = chapterContent.length === 0;
+          if (isEmpty) { _div.classList.add("disabled"); }
+
+          _div.innerHTML = `
+            <div class="chapter-number">Chapter ${chapter.num}</div>
+            <div class="chapter-title">${chapter.title}</div>
+          `;
+          _div.addEventListener("click", () => {
+            document.querySelectorAll(".chapter-item")
+              .forEach(el => el.classList.remove("active"));
+            _div.classList.add("active");
+            hideSidebar();
+            loadChapter(chapter.chapterId);
+          });
+          chapterList.appendChild(_div);
+        });
+      });
+    }
+
+    function loadChapter(chapterId) {
+      const _chapterContent = bioNotes.filter(note => note.id.startsWith(chapterId));
+      topicList = _chapterContent.filter(note => note.type === "title");
+      topicIndex = 0;
+
+      document.getElementById("items").style.display = "block";
+      document.getElementById("content").innerHTML = "";
+      document.getElementById("navBtns").classList.add("hidden");
+
+      const _itemsDiv = document.getElementById("items");
+      _itemsDiv.innerHTML = "";
+
+      topicList.forEach((item, index) => {
+        const _card = document.createElement("div");
+        _card.className = "click";
+        _card.textContent = item.label;
+
+        _card.onclick = () => {
+          topicIndex = index;
+          showContent(item.id);
+        };
+
+        _itemsDiv.appendChild(_card);
+      });
+      updateNavBtns();
+    }
+
+    function showContent(id) {
+      document.getElementById("items").style.display = "none";
+      document.getElementById("navBtns").classList.remove("hidden");
+
+      const _filteredNotes = bioNotes.filter(n => n.id === id);
+      const _content = document.getElementById("content");
+
+      _content.innerHTML = "";
+
+      if (!_filteredNotes.length) return;
+
+      const _card = document.createElement("div");
+      _card.className = "content-card";
+
+      _filteredNotes.forEach(item => {
+        if (item.type === "title") {
+          _card.innerHTML += `<h2>${item.label}</h2>`;
+        }
+
+        if (item.label && item.type !== "title") {
+          _card.innerHTML += `<h3>${item.label}</h3>`;
+        }
+
+
+        if (item.type === "text") {
+          _card.innerHTML += `<p>${item.description.replace(/\n/g, "<br>")}</p>`;
+        }
+
+        if (item.type === "list") {
+          let ul = "<ul>";
+          item.description.split("\n").forEach(i => ul += `<li>${i}</li>`);
+          ul += "</ul>";
+          _card.innerHTML += ul;
+        }
+
+        if (item.type === "table") {
+          const _rows = item.description.split("\n");
+
+          let table = "<table class='auto-table'>";
+
+          _rows.forEach((row, i) => {
+            const _cols = row.split("|");
+            table += "<tr>";
+
+            _cols.forEach(col => {
+              table += i === 0
+                ? `<th>${col}</th>`
+                : `<td>${col}</td>`;
+            });
+
+            table += "</tr>";
+          });
+
+          table += "</table>";
+
+          _card.innerHTML += table;
+        }
+      });
+
+      _content.appendChild(_card);
+
+      updateNavBtns();
+    }
+
+    function goHome() {
+      topicIndex = 0;
+      showSidebar();
+      document.getElementById("items").style.display = "block";
+      document.getElementById("content").innerHTML = "";
+      document.getElementById("navBtns").classList.add("hidden");
+
+      updateNavBtns();
+    }
+
+    function prevTopic() {
+      if (!topicList.length) return;
+
+      if (topicIndex > 0) {
+        topicIndex--;
+        showContent(topicList[topicIndex].id);
+      }
+    }
+
+    function nextTopic() {
+      if (!topicList.length) return;
+
+      if (topicIndex < topicList.length - 1) {
+        topicIndex++;
+        showContent(topicList[topicIndex].id);
+      }
+    }
+
+    function updateNavBtns() {
+      const prev = document.getElementById("navBtns__prev");
+      const next = document.getElementById("navBtns__next");
+
+      if (!topicList || topicList.length === 0) {
+        prev.disabled = true;
+        next.disabled = true;
+        return;
+      }
+
+      prev.disabled = topicIndex <= 0;
+      next.disabled = topicIndex >= topicList.length - 1;
+    }
+
+    function hideSidebar() {
+      sidebar.classList.add("hidden");
+    }
+
+    function showSidebar() {
+      sidebar.classList.remove("hidden");
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("hidden");
+    });
+  </script>
+
+</body>
+
+</html>
