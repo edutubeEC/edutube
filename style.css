@@ -72,7 +72,7 @@
      border: 5px solid #c40000;
      border-radius: 40px;
      text-align: center;
-     font-size: 32px;
+     font-size: 24px;
      font-weight: bold;
      background: white;
      cursor: pointer;
@@ -130,7 +130,7 @@
      margin-top: 18px;
      margin-bottom: 8px;
      font-weight: 600;
-     font-size: 15px;
+     font-size: 16px;
    }
 
    /* Input box */
@@ -709,26 +709,28 @@
    #content {
      flex: 1;
      overflow-y: auto;
-     padding: 20px;
+     padding: 16px;
      background: white;
    }
 
    /* card look */
    .content-card {
-     max-width: 850px;
-     margin: auto;
-     font-size: 20px;
+     max-width: 600px;
+     margin: 0 auto;
+     font-size: 16px;
      line-height: 1.7;
+     background-color: #fff;
      color: #222;
+     border-radius: 10px;
    }
 
    .content-card h2 {
-     font-size: 30px;
+     font-size: 18px;
      margin: 18px 0 10px;
    }
 
    .content-card h3 {
-     font-size: 24px;
+     font-size: 16px;
      margin: 16px 0 8px;
      color: #333;
    }
@@ -752,7 +754,7 @@
      width: 100%;
      border-collapse: collapse;
      table-layout: auto;
-     font-size: 20px;
+     font-size: 16px;
    }
 
    .auto-table th,

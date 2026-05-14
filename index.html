@@ -4,9 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Free IGCSE Biology Notes for Edexcel and CIE students. Clear, exam-focused revision notes.">
   <title>Edutube</title>
   <link rel="stylesheet" href="style.css">
   <script src="data.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYWV6MV4GQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-QYWV6MV4GQ');
+  </script>
 </head>
 
 <body>
@@ -52,6 +62,8 @@
   </div>
 
   <script>
+    document.getElementById("app").style.display = "none";
+    document.getElementById("homeScreen").style.display = "flex";
     const sidebar = document.getElementById("sidebar");
     const toggleBtn = document.getElementById("toggleBtn");
     const chapterList = document.getElementById("chapterList");
@@ -133,6 +145,13 @@
       document.getElementById("items").style.display = "none";
       document.getElementById("navBtns").classList.remove("hidden");
 
+      if (typeof gtag === "function") {
+        gtag('event', 'page_view', {
+          page_title: id,
+          page_location: window.location.href + "#" + id
+        });
+      }
+
       const _filteredNotes = bioNotes.filter(n => n.id === id);
       const _content = document.getElementById("content");
 
@@ -191,6 +210,7 @@
       _content.appendChild(_card);
 
       updateNavBtns();
+      hideSidebar();
     }
 
     function goHome() {
