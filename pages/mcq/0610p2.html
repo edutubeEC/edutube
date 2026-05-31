@@ -70,13 +70,11 @@
 
     async function init() {
         utils.loadTopbar();
-<<<<<<< HEAD
         questions = await utils.fetchJson("../data/_0610.js", "_0610_qp2");
         yearList = await utils.fetchJson("../data/_0610.js", "_0610_qp2_list");
-=======
+
         questions = await import("../../data/_0610.js").then(module => module._0610_qp2);
         yearList = await import("../../data/_0610.js").then(module => module._0610_qp2_list);
->>>>>>> c4c01f9 (fix mcq page naming)
 
         const urlParams = new URLSearchParams(window.location.search);
         urlTopicFilter = urlParams.get("title");
