@@ -215,8 +215,8 @@
 
         let qDesc = q.desc.replace(/\n/g, "<br>");
 
-        if (q.i) { qDesc = qDesc.replace("[[i]]", utils.renderImage(q.i)); }
-        if (q.i2) { qDesc = qDesc.replace("[[i2]]", utils.renderImage(q.i2)); }
+        if (q.i) { qDesc = qDesc.replace("[[i]]", utils.renderImage(`../../${q.i}`)); }
+        if (q.i2) { qDesc = qDesc.replace("[[i2]]", utils.renderImage(`../../${q.i2}`)); }
         if (q.t) { qDesc = qDesc.replace("[[t]]", utils.convertToTable(q.t)); }
         if (q.t2) { qDesc = qDesc.replace("[[t2]]", utils.convertToTable(q.t2)); }
 
