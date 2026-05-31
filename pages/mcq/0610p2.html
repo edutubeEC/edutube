@@ -70,8 +70,8 @@
 
     async function init() {
         utils.loadTopbar();
-        questions = await utils.fetchJson("../../data/_0610.js", "_0610_qp2");
-        yearList = await utils.fetchJson("../../data/_0610.js", "_0610_qp2_list");
+        questions = await utils.fetchJson("../data/_0610.js", "_0610_qp2");
+        yearList = await utils.fetchJson("../data/_0610.js", "_0610_qp2_list");
 
         const urlParams = new URLSearchParams(window.location.search);
         urlTopicFilter = urlParams.get("title");
