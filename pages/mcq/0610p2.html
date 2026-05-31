@@ -70,13 +70,10 @@
 
     async function init() {
         utils.loadTopbar();
-<<<<<<< HEAD
-        questions = await utils.fetchJson("../data/_0610.js", "_0610_qp2");
-        yearList = await utils.fetchJson("../data/_0610.js", "_0610_qp2_list");
-=======
-        questions = await import("../../data/_0610.js").then(module => module._0610_qp2);
-        yearList = await import("../../data/_0610.js").then(module => module._0610_qp2_list);
->>>>>>> c4c01f9 (fix mcq page naming)
+
+        const data = await import("../../data/0610.js");
+        questions = data.qp2_0610_questions;
+        yearList = data.qp2_0610_list;
 
         const urlParams = new URLSearchParams(window.location.search);
         urlTopicFilter = urlParams.get("title");
@@ -242,7 +239,7 @@
             label.classList.add("option");
 
             label.innerHTML = `
-                <input type="radio" name="${name}" value="${opt}">
+                <input type="radio" name="option-${mcqState.currentIndex}" value="${opt}">
                 <div class="opt-description">
                     <div class="opt-letter">${opt}</div>
                     <div class="opt-text">${q[opt] ?? ""}</div>
@@ -264,7 +261,7 @@
     }
 
     function handleAnswer(selected) {
-        const q = questions[mcqState.currentIndex];
+        const q = mcqState.selectedQuestions[mcqState.currentIndex];
 
         if (selected === q.ans) {
             mcqState.score++;
@@ -288,8 +285,6 @@
     function handleNextQuestion() {
         mcqState.currentIndex++;
         if (mcqState.currentIndex < mcqState.selectedQuestions.length) {
-            console.log(mcqState.currentIndex);
-            console.log(mcqState.selectedQuestions.length);
             renderQuestion();
         } else {
             showResult();
@@ -314,8 +309,8 @@
                 break;
 
             case clickedButton === DOM.backBtn:
-                init();
-                handleBack();
+                location.reload();
+                break;
 
             default:
                 break;

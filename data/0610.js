@@ -1,4 +1,4 @@
-export const _0610_qp2_list = [
+export const qp2_0610_list = [
     { id: "0610_m26_qp_22", desc: "Feb/Mar 2026 QP 22", label: "0610/22/F/M/26", year: "2026" },
     { id: "0610_m25_qp_22", desc: "Feb/Mar 2025 QP 22", label: "0610/22/F/M/25", year: "2025" },
     { id: "0610_s25_qp_21", desc: "May/Jun 2025 QP 21", label: "0610/21/M/J/25", year: "2025" },
@@ -44,7 +44,7 @@ export const _0610_qp2_list = [
     { id: "0610_w20_qp_23", desc: "Oct/Nov 2020 QP 23", label: "0610/23/O/N/20", year: "2020" },
 ];
 
-export const _0610_qp2 = [
+export const qp2_0610_questions = [
     {
         "A": "excretion",
         "B": "movement",
