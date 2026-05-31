@@ -1,7 +1,9 @@
 import * as data from "./data.js";
 import * as classes from "./class.js";
+import * as ls__math from "./maths/ls-maths.js";
 
 let selectedSubject = null; // subject object
+let selectedChapterId = null;
 let selectedSubjectNotes = [];
 let selectedChapterNotes = [];
 let noteIndex = 0;
@@ -13,6 +15,17 @@ const DOM = {
   topicWrapper: document.getElementById("topic-wrapper"),
   noteWrapper: document.getElementById("note-wrapper"),
   navBtns: document.getElementById("navBtns-wrapper"),
+
+  lsmcq__counter: document.getElementById("lsmcq--counter"),
+  lsmcq__qDescription: document.getElementById("lsmcq--qDescription"),
+  lsmcq__options: document.getElementById("lsmcq--options"),
+  lsmcq__qBox: document.getElementById("lsmcq--qBox"),
+  lsmcq__nextBtn: document.getElementById("lsmcq--nextBtn")
+};
+
+let mcqState = {
+  currentIndex: 0,
+  score: 0
 };
 
 function loadTopbar() {
@@ -93,10 +106,17 @@ function loadNavBtns() {
   _showAllBtn.textContent = "Show All";
   _showAllBtn.addEventListener("click", showAllNotes);
 
+  const _paper2Btn = document.createElement("button");
+  _paper2Btn.className = "navBtn";
+  _paper2Btn.id = "paper2Btn";
+  _paper2Btn.textContent = "Paper 2";
+  _paper2Btn.addEventListener("click", navPaper2);
+
   DOM.navBtns.appendChild(_homeBtn);
   DOM.navBtns.appendChild(_prevBtn);
   DOM.navBtns.appendChild(_nextBtn);
   DOM.navBtns.appendChild(_showAllBtn);
+  DOM.navBtns.appendChild(_paper2Btn);
 }
 
 function loadChapters(subjectKey) {
@@ -121,10 +141,25 @@ function loadChapters(subjectKey) {
           label: chapter.label,
           chapterId: chapter.chapterId,
           color: chapter.color,
+          paper2: chapter.paper2,
           notes: chapterNotes,
           onClick: () => {
             selectedSubjectNotes = chapterNotes;
             loadTopics();
+            selectedChapterId = chapter.chapterId;
+
+            const _paper2Btn = document.getElementById("paper2Btn");
+            if (!paper2Btn || !chapter.paper2) { _paper2Btn.style.display = "none"; return; };
+            if (chapter.paper2 === "no") {
+              _paper2Btn.disabled = true;
+              _paper2Btn.classList.add("disabled");
+              _paper2Btn.removeEventListener("click", navPaper2);
+            } else {
+              _paper2Btn.disabled = false;
+              _paper2Btn.classList.remove("disabled");
+              _paper2Btn.removeEventListener("click", navPaper2);
+              _paper2Btn.addEventListener("click", navPaper2);
+            }
           }
         }
       );
@@ -209,6 +244,14 @@ function showAllNotes() {
   setNoteUIState("allNotes");
 }
 
+function navPaper2() {
+  if (!selectedChapterId) {
+    console.error("No chapter selected to navigate with.");
+    return;
+  }
+  window.location.href = `/pages/mcq/_0610_p2.html?title=${selectedChapterId}`;
+}
+
 function setNoteUIState(state) {
   const _chaptersWrapper = DOM.chaptersWrapper;
   const _topicsWrapper = DOM.topicWrapper;
@@ -282,3 +325,92 @@ function updateVisibleNotes() {
 function toggleSidebar() {
   DOM.chaptersWrapper.classList.toggle("hidden");
 }
+
+// function loadLSMathMCQ() {
+//   const q = ls__math.LMA11[mcqState.currentIndex];
+
+//   DOM.lsmcq__counter.textContent = `Question ${mcqState.currentIndex + 1} / ${ls__math.LMA11.length}`;
+
+//   // 1. Process the description: replace newlines first
+//   let processedDescription = q.description.replace(/\n/g, "<br>");
+
+//   // 2. Safely swap the [[svg]] tag with the actual inline SVG code if it exists
+//   if (q.svg) {
+//     processedDescription = processedDescription.replace("[[svg]]", q.svg);
+//   } else {
+//     // Fallback if there is no SVG, clear out the placeholder token
+//     processedDescription = processedDescription.replace("[[svg]]", "");
+//   }
+
+//   // 3. Inject the finalized markup into the container
+//   DOM.lsmcq__qDescription.innerHTML = processedDescription;
+
+//   DOM.lsmcq__options.innerHTML = "";
+
+//   const options = ["A", "B", "C", "D"];
+
+//   options.forEach(opt => {
+//     const label = document.createElement("label");
+//     label.classList.add("option");
+
+//     label.innerHTML = `
+//             <input type="radio" name="q${q.num}" value="${opt}">
+//             ${q["option" + opt]}
+//         `;
+
+//     const input = label.querySelector("input");
+//     input.addEventListener("change", (e) => handleAnswer(e.target.value));
+
+//     DOM.lsmcq__options.appendChild(label);
+//   });
+
+//   DOM.lsmcq__qBox.disabled = false;
+
+//   if (window.MathJax && MathJax.typesetPromise) {
+//     MathJax.typesetPromise();
+//   }
+// }
+
+// function handleAnswer(selected) {
+//   const q = ls__math.LMA11[mcqState.currentIndex];
+
+//   // check answer
+//   if (selected === q.answer) {
+//     mcqState.score++;
+//   }
+
+//   // highlight correct answer
+//   const labels = document.querySelectorAll(".option");
+
+//   labels.forEach(label => {
+//     const input = label.querySelector("input");
+
+//     if (input.value === q.answer) {
+//       label.style.background = "#c8f7c5"; // correct
+//     } else if (input.checked) {
+//       label.style.background = "#f7c5c5"; // wrong
+//     }
+//   });
+
+//   // FIX 2: Lock the question AFTER the grading logic runs
+//   DOM.lsmcq__qBox.disabled = true;
+// }
+
+// DOM.lsmcq__nextBtn.addEventListener("click", () => {
+//   mcqState.currentIndex++;
+
+//   if (mcqState.currentIndex < ls__math.LMA11.length) {
+//     loadLSMathMCQ();
+//   } else {
+//     showResult();
+//   }
+// });
+
+// function showResult() {
+//   document.getElementById("lsmcq--result").innerHTML = `
+//         <h2>Quiz Completed</h2>
+//         <p>Your score: ${mcqState.score} / ${ls__math.LMA11.length}</p>
+//     `;
+// }
+
+// loadLSMathMCQ();

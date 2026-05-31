@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description">
+    <title>Edutube</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYWV6MV4GQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QYWV6MV4GQ');
+    </script>
+</head>
+
+<body>
+    <nav id="topbar"> </nav>
+    <main id="quiz-screen">
+        <div id="quiz-setting"> </div>
+
+        <div id="quiz-wrapper">
+            <div id="counter"></div>
+            <fieldset id="qBox">
+                <div id="qDescription"> </div>
+                <div id="options"> </div>
+            </fieldset>
+            <div id="btn-wrapper">
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+        <div id="result-wrapper">
+            <div id="result"></div><br><br>
+            <button id="backBtn">Back</button>
+        </div>
+    </main>
+</body>
+<script type="module">
+    import * as utils from "../../js/utils.js";
+
+    const DOM = {
+        counter: document.getElementById("counter"),
+        quizSetting: document.getElementById("quiz-setting"),
+        quizWrapper: document.getElementById("quiz-wrapper"),
+        qBox: document.getElementById("qBox"),
+        qDescription: document.getElementById("qDescription"),
+        options: document.getElementById("options"),
+
+
+        resultWrapper: document.getElementById("result-wrapper"),
+        result: document.getElementById("result"),
+
+        // btnWrapper: document.getElementById("btn-wrapper"),
+        nextBtn: document.getElementById("nextBtn"),
+        backBtn: document.getElementById("backBtn")
+    };
+
+    const mcqState = {
+        selectedQuestions: [],
+        currentIndex: 0,
+        score: 0
+    };
+
+    let questions = [];
+    let yearList = [];
+    let selectedPaper;
+    let urlTopicFilter = null;
+
+    async function init() {
+        utils.loadTopbar();
+        questions = await utils.fetchJson("../../data/_0610.js", "_0610_qp2");
+        yearList = await utils.fetchJson("../../data/_0610.js", "_0610_qp2_list");
+
+        const urlParams = new URLSearchParams(window.location.search);
+        urlTopicFilter = urlParams.get("title");
+
+        DOM.quizWrapper.classList.add("hidden");
+        DOM.resultWrapper.classList.add("hidden");
+        DOM.quizSetting.classList.remove("hidden");
+
+        if (urlTopicFilter) {
+            renderPaperListByTopic();
+        } else {
+            renderPaperListByYear();
+        }
+    }
+
+    function renderPaperListByYear() {
+        const quizSetting = DOM.quizSetting;
+        quizSetting.innerHTML = "";
+
+        const list = yearList;
+        const years = utils.getYears(list);
+        const grouped = utils.groupByYear(list);
+
+        years.forEach(year => {
+            const block = utils.createYearWrapper(year, grouped[year]);
+            quizSetting.appendChild(block);
+        });
+
+        utils.addAllClassesProperty(".year-content", "hidden");
+
+        quizSetting.onclick = (e) => {
+            const header = e.target.closest(".year-header");
+            if (!header) return;
+
+            const year = header.dataset.year;
+
+            utils.addAllClassesProperty(".year-content", "hidden");
+            utils.removeIdProperty(`year-${year}`, "hidden");
+        };
+
+        quizSetting.onchange = (e) => {
+            if (e.target.name !== "paper") return;
+
+            selectedPaper = e.target.value;
+
+            filterMcqByYear();
+
+            DOM.quizSetting.classList.add("hidden");
+            DOM.quizWrapper.classList.remove("hidden");
+        };
+    }
+
+    function filterMcqByYear() {
+        mcqState.selectedQuestions = questions.filter(q => q.paper === selectedPaper);
+        startQuiz();
+    }
+
+    function renderPaperListByTopic() {
+        const quizSetting = DOM.quizSetting;
+        quizSetting.innerHTML = "";
+
+        const labelTitle = document.createElement("div");
+        labelTitle.className = "title";
+        labelTitle.textContent = "Number of Questions";
+
+        const numSelector = document.createElement("div");
+
+        const numQuestions = [
+            { text: "10 Questions", value: "10" },
+            { text: "20 Questions", value: "20" },
+            { text: "All Questions", value: "all" }
+        ];
+
+        numQuestions.forEach((choice) => {
+            const label = document.createElement("label");
+            label.className = "num-selector";
+
+            const radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = "num-questions";
+            radio.value = choice.value;
+
+            label.appendChild(radio);
+            label.append(choice.text);
+            numSelector.appendChild(label);
+        });
+
+        quizSetting.appendChild(labelTitle);
+        quizSetting.appendChild(numSelector);
+
+        quizSetting.onchange = (e) => {
+            if (e.target.name !== "num-questions") return;
+
+            filterMcqByTopic();
+            DOM.quizSetting.classList.add("hidden");
+            DOM.quizWrapper.classList.remove("hidden");
+        };
+    }
+
+    function filterMcqByTopic() {
+        let filteredQuestions = questions.filter(q => q.topic === urlTopicFilter && (!q.show || q.show === "yes"));
+
+        const selectedRadio = DOM.quizSetting.querySelector('input[name="num-questions"]:checked');
+        const numQuestions = selectedRadio ? selectedRadio.value : "all";
+
+        if (numQuestions === "all") {
+            mcqState.selectedQuestions = filteredQuestions;
+        } else {
+            const limit = parseInt(numQuestions, 10);
+
+            const shuffled = [...filteredQuestions];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            mcqState.selectedQuestions = shuffled.slice(0, limit);
+        }
+
+        startQuiz();
+    }
+
+    function startQuiz() {
+        mcqState.currentIndex = 0;
+        mcqState.score = 0;
+        renderQuestion();
+    }
+
+    function renderQuestion() {
+        if (mcqState.selectedQuestions.length === 0) {
+            DOM.qDescription.innerHTML = "Please select a paper to start the quiz.";
+            DOM.options.innerHTML = "";
+            DOM.qBox.disabled = true;
+            return;
+        }
+
+        const q = mcqState.selectedQuestions[mcqState.currentIndex];
+
+        DOM.counter.textContent = `Question ${mcqState.currentIndex + 1} / ${mcqState.selectedQuestions.length}`;
+
+        let qDesc = q.desc.replace(/\n/g, "<br>");
+
+        if (q.i) { qDesc = qDesc.replace("[[i]]", utils.renderImage(q.i)); }
+        if (q.i2) { qDesc = qDesc.replace("[[i2]]", utils.renderImage(q.i2)); }
+        if (q.t) { qDesc = qDesc.replace("[[t]]", utils.convertToTable(q.t)); }
+        if (q.t2) { qDesc = qDesc.replace("[[t2]]", utils.convertToTable(q.t2)); }
+
+        DOM.qDescription.innerHTML = qDesc;
+
+        const options = ["A", "B", "C", "D"];
+        DOM.options.innerHTML = "";
+
+        const optionsWrapper = document.createElement("div");
+        optionsWrapper.classList.add("options-wrapper");
+
+        const hasDescription = options.some(opt => q[opt]);
+
+        optionsWrapper.classList.add(
+            hasDescription ? "block-options" : "inline-options"
+        );
+
+        options.forEach(opt => {
+            const label = document.createElement("label");
+            label.classList.add("option");
+
+            label.innerHTML = `
+                <input type="radio" name="${name}" value="${opt}">
+                <div class="opt-description">
+                    <div class="opt-letter">${opt}</div>
+                    <div class="opt-text">${q[opt] ?? ""}</div>
+                </div>
+            `;
+
+            const input = label.querySelector("input");
+
+            input.addEventListener("change", (e) => {
+                handleAnswer(e.target.value);
+            });
+
+            optionsWrapper.appendChild(label);
+        });
+
+        DOM.options.appendChild(optionsWrapper);
+
+        DOM.qBox.disabled = false;
+    }
+
+    function handleAnswer(selected) {
+        const q = questions[mcqState.currentIndex];
+
+        if (selected === q.ans) {
+            mcqState.score++;
+        }
+
+        const labels = document.querySelectorAll(".option");
+
+        labels.forEach(label => {
+            const input = label.querySelector("input");
+
+            if (input.value === q.ans) {
+                label.style.background = "#c8f7c5";
+            } else if (input.checked) {
+                label.style.background = "#f7c5c5";
+            }
+        });
+
+        DOM.qBox.disabled = true;
+    }
+
+    function handleNextQuestion() {
+        mcqState.currentIndex++;
+        if (mcqState.currentIndex < mcqState.selectedQuestions.length) {
+            console.log(mcqState.currentIndex);
+            console.log(mcqState.selectedQuestions.length);
+            renderQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function handleBack() {
+        DOM.resultWrapper.classList.add("hidden");
+        DOM.quizSetting.classList.remove("hidden");
+
+        mcqState.currentIndex = 0;
+        mcqState.score = 0;
+    }
+
+    document.addEventListener("click", (event) => {
+        const clickedButton = event.target.closest("button");
+        if (!clickedButton) return;
+
+        switch (true) {
+            case clickedButton === DOM.nextBtn:
+                handleNextQuestion();
+                break;
+
+            case clickedButton === DOM.backBtn:
+                init();
+                handleBack();
+
+            default:
+                break;
+        }
+    });
+
+    function showResult() {
+        const result = DOM.result;
+        result.textContent = "";
+
+        const heading = document.createElement("h2");
+        heading.textContent = "Quiz Completed";
+
+        const scoreText = document.createElement("p");
+        scoreText.textContent = `Your score: ${mcqState.score} / ${mcqState.selectedQuestions.length}`;
+
+        result.appendChild(heading);
+        result.appendChild(scoreText);
+
+        DOM.quizWrapper.classList.add("hidden");
+        DOM.resultWrapper.classList.remove("hidden");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        init();
+    });
+</script>
+
+</html>

@@ -1,24 +1,24 @@
 export const cieBioNotes = [
   {
     "description": "",
-    "label": "Characteristics of living organisms",
     "id": "0610_01_01",
+    "label": "Characteristics of living organisms",
     "type": "title",
     "status": "show",
     "order": 1
   },
   {
     "description": "Term|Definition\nMovement|an action by an organism causing a change in position or place\r\nRespiration|the chemical reactions in cells that break down nutrient molecules and release energy for metabolism\r\nSensitivity|the ability to detect and respond to changes in the internal or external environment\r\nGrowth|a permanent increase in size and dry mass\r\nReproduction|the process that make more of the same kind of organism\r\nExcretion|the removal of waste products of metabolism and substances in excess of requirements\r\nNutrition|taking in of materials for energy, growth and development",
-    "label": "",
     "id": "0610_01_01",
+    "label": "",
     "type": "table",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "",
-    "label": "Classification systems",
     "id": "0610_01_02",
+    "label": "Classification systems",
     "type": "title",
     "status": "show",
     "order": 1
@@ -28,48 +28,48 @@ export const cieBioNotes = [
     "id": "0610_01_02",
     "label": "Binomial nomenclature",
     "type": "text",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "A genus is a group of species that have similar or specific characteristics.",
-    "id": "0610_01_02",
     "label": "Genus",
+    "id": "0610_01_02",
     "type": "text",
     "order": 3,
     "status": "show"
   },
   {
     "description": "A species is a group of organisms that can reproduce to produce a fertile offspring.",
-    "id": "0610_01_02",
     "label": "Species",
+    "id": "0610_01_02",
     "type": "text",
     "status": "show",
     "order": 4
   },
   {
     "description": "Keys simplify the process of identification.\r\nEach key is made up of pairs of contrasting features.\r\nKeys start with quite general characteristics and move on to more specific ones.",
-    "id": "0610_01_02",
     "label": "Dichotomous keys",
+    "id": "0610_01_02",
     "type": "list",
     "status": "show",
     "order": 5
   },
   {
     "description": "All vertebrates share the same basic anatomy; a body with four limbs and one head (two ears, two eyes, two nostrils, one mouth).\nThe forelimb has humerus, radius, ulna, carpals, metacarpals and phalanges.\nEmbryos of different species can have similarities that are not visible when the organisms are fully formed.\nMany animals have body parts that they no longer need.",
-    "id": "0610_01_02",
     "label": "Anatomical relationship",
+    "id": "0610_01_02",
     "type": "list",
-    "status": "show",
-    "order": 6
+    "order": 6,
+    "status": "show"
   },
   {
     "description": "Comparing broad similarities in DNA can determine which organisms are closely related.\nGenetic evidence is likely to be more accurate.\nThe shorter branch represents fewer DNA differences and less time for mutation or evolution.",
     "label": "DNA sequencing",
     "id": "0610_01_02",
     "type": "list",
-    "order": 7,
-    "status": "show"
+    "status": "show",
+    "order": 7
   },
   {
     "description": "Animalia\nPlantae\nFungi\nProtoctista\nProkaryotes",
@@ -81,35 +81,35 @@ export const cieBioNotes = [
   },
   {
     "description": "",
-    "id": "0610_01_02",
     "label": "",
+    "id": "0610_01_02",
     "type": "image",
     "order": 9,
     "status": "show"
   },
   {
     "description": "",
-    "id": "0610_01_03",
     "label": "The Animal kingdom",
+    "id": "0610_01_03",
     "type": "title",
     "status": "show",
     "order": 1
   },
   {
     "description": "eukaryotic\nmulticellular\nheterotrophs (animals get energy by eating other plants and animals)\nanimal cells do not have chloroplasts and cell walls\nanimals usually have nervous coordination and are able to move from one place to another\nstore carbohydrates as glycogen\nmost animals reproduce sexually",
-    "id": "0610_01_03",
     "label": "",
+    "id": "0610_01_03",
     "type": "list",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "Insects|Arachnids|Crustacea|Myriapods\r\ndragonfly, wasp|spider, mite|crab, woodlouse|centipede, millipede\r\n3 pairs of legs|4 pairs of legs|5 or more pairs of limbs|10 or more pairs of legs\r\n3 body cavities (head, thorax and abdomen)|2 body cavities (cephalothorax and abdomen)|2 body cavities (cephalothorax and abdomen)|No distinct body cavity\r\n1 pair of antennae|no antennae|2 pairs of antennae|1 pair of antennae\r\n1 pair of compound eyes|several pairs of simple eyes|one pair of compound eyes|simple eyes\r\n2 pairs of wings|pair of pedipalps for biting and poisoning preys|exoskeleton covers over most of the body|",
-    "id": "0610_01_03",
     "label": "Key features of arthropods",
+    "id": "0610_01_03",
     "type": "table",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Class|Characteristic features\nFish|live in water, breath through gills covered by operculum, have fins and scales, lay jelly-covered eggs in water\nAmphibians|live on land and in water, smooth and moist skin, breathe through lungs and skin, lays jelly-covered eggs in water\nReptiles|dry and scaly skin, breathe through lungs, lays eggs on land with a rubbery and water-proof shells\nBirds|have feathers and wings, breathe through lungs lay eggs with hard shells, have beaks\nMammals|have external ears (pinnae), have hair or fur, breathe through lungs, give birth to live young, feed young with milk",
@@ -121,27 +121,27 @@ export const cieBioNotes = [
   },
   {
     "description": "",
-    "label": "The Plant kingdom",
     "id": "0610_01_04",
+    "label": "The Plant kingdom",
     "type": "title",
     "order": 1,
     "status": "show"
   },
   {
     "description": "eukaryotic\nmulticellular\r\nautotrophs (plant cells have chloroplasts and they make their own food by photosynthesis)\r\nplant cells have cell walls made up of cellulose\r\nstore glucose as starch",
-    "label": "",
     "id": "0610_01_04",
+    "label": "",
     "type": "list",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "non-flowering plants\r\nreproduce by spores (not seeds)\r\nhave xylem and phloem like tissues\r\nsporangia are formed on the lower side of the leaf (fronds)\r",
     "label": "Key features of ferns",
     "id": "0610_01_04",
     "type": "list",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Feature|Monocotyledon|Dicotyledon\nleaf shape|long and narrow|broad\nleaf veins|parallel|branching\ncotyledons|one|two\ngrouping of flower parts|multiple of three|multiple of five",
@@ -153,15 +153,31 @@ export const cieBioNotes = [
   },
   {
     "description": "",
-    "id": "0610_01_05",
     "label": "The Fungi kingdom",
+    "id": "0610_01_05",
+    "type": "title",
+    "order": 1,
+    "status": "show"
+  },
+  {
+    "description": "eukaryotic\nmostly multicellular\norganised into a mycelium made from thread-like structures called hyphae, which contain many nuclei\ncell walls made of chitin.\nsaprotrophs; they feed by extracellular secretion of digestive enzymes onto food material and absorption of the digested products\ne.g. Mucor is a typical fungus with hyphae and yeast is a single-celled fungus.",
+    "id": "0610_01_05",
+    "label": "",
+    "type": "list",
+    "order": 2,
+    "status": "show"
+  },
+  {
+    "description": "",
+    "id": "0610_01_06",
+    "label": "The Protoctist kingdom",
     "type": "title",
     "status": "show",
     "order": 1
   },
   {
-    "description": "eukaryotic\nmostly multicellular\norganised into a mycelium made from thread-like structures called hyphae, which contain many nuclei\ncell walls made of chitin.\nsaprotrophs; they feed by extracellular secretion of digestive enzymes onto food material and absorption of the digested products\ne.g. Mucor is a typical fungus with hyphae and yeast is a single-celled fungus.",
-    "id": "0610_01_05",
+    "description": "eukaryotic\nunicellular\nsome are heterotrophic; they have features like an animal cell (e.g. Amoeba)\nsome are autotrophic; and they have features like a plant cell (e.g. Chlorella)\nsome are pathogens (e.g. Plasmodium causes malaria)",
+    "id": "0610_01_06",
     "label": "",
     "type": "list",
     "status": "show",
@@ -169,24 +185,8 @@ export const cieBioNotes = [
   },
   {
     "description": "",
-    "label": "The Protoctist kingdom",
-    "id": "0610_01_06",
-    "type": "title",
-    "status": "show",
-    "order": 1
-  },
-  {
-    "description": "eukaryotic\nunicellular\nsome are heterotrophic; they have features like an animal cell (e.g. Amoeba)\nsome are autotrophic; and they have features like a plant cell (e.g. Chlorella)\nsome are pathogens (e.g. Plasmodium causes malaria)",
-    "label": "",
-    "id": "0610_01_06",
-    "type": "list",
-    "order": 2,
-    "status": "show"
-  },
-  {
-    "description": "",
-    "label": "The Prokaryote kingdom",
     "id": "0610_01_07",
+    "label": "The Prokaryote kingdom",
     "type": "title",
     "status": "show",
     "order": 1
@@ -196,85 +196,85 @@ export const cieBioNotes = [
     "id": "0610_01_07",
     "label": "",
     "type": "list",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "",
-    "id": "0610_01_08",
     "label": "Viruses",
+    "id": "0610_01_08",
     "type": "title",
     "order": 1,
     "status": "show"
   },
   {
     "description": "have a protein coat and contain either DNA or RNA (viruses are not cells)\nmuch smaller than bacteria\nreproduce only inside living cells\ndo not feed, respire, excrete or grow",
-    "id": "0610_01_08",
     "label": "",
+    "id": "0610_01_08",
     "type": "list",
     "status": "show",
     "order": 2
   },
   {
     "description": "",
-    "id": "0610_02_01",
     "label": "Cell structure",
+    "id": "0610_02_01",
     "type": "title",
     "status": "show",
     "order": 1
   },
   {
     "description": "",
-    "id": "0610_02_01",
     "label": "",
+    "id": "0610_02_01",
     "type": "image",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "Structure|Function\ncell membrane|controls substances in and out of the cells (selectively permeable)\ncytoplasm|jelly-like part, where many chemical reactions occur\nnucleus|contains genetic materials and controls the activity of the cell\nribosomes|protein synthesis\nmitochondria|provide ATP from aerobic respiration\nendoplasmic reticulum|transports proteins to part of the cells where they are needed\ncell wall|prevent the cell from bursting, allow water and salts to pass through (freely permeable)\ncentral vacuole|stores salts and sugars, and helps to keep plant cell firm\nchloroplasts|traps light energy for photosynthesis",
     "label": "Parts of a cell",
     "id": "0610_02_01",
     "type": "table",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "Structure|Plant cell|Animal cell\ncell membrane|✓|✓\ncytoplasm|✓|✓\nnucleus|✓|✓\nribosomes|✓|✓\nmitochondria|✓|✓\nendoplasmic reticulum|✓|✓\ncell wall|✓|✗\ncentral vacuole|✓|✗\nchloroplasts|✓|✗",
-    "label": "Similarities and differences in the structure of plant and animal cells",
     "id": "0610_02_01",
+    "label": "Similarities and differences in the structure of plant and animal cells",
     "type": "table",
     "status": "show",
     "order": 4
   },
   {
     "description": "Structure|Function\ncell membrane|controls substances in and out of the cells (selectively permeable)\ncytoplasm|jelly-like part, where many chemical reactions occur\ncircular DNA|controls cell division, cell development and cell activities\nplasmids|contain gene that help the process of survival and reproduction of the bacterium\nribosomes|protein synthesis\ncell wall|prevent the cell from bursting, allow water and salts to pass through (freely permeable)\nflagellum|helps movement in some bacteria",
-    "label": "Structure of a bacterial cell",
     "id": "0610_02_01",
+    "label": "Structure of a bacterial cell",
     "type": "table",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
     "description": "",
-    "label": "Specialised cells",
     "id": "0610_02_02",
+    "label": "Specialised cells",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "When cells are specialised: they do one special job, they develop a distinct shape and special kinds of chemical changes take place in their cytoplasm.",
-    "label": "",
     "id": "0610_02_02",
+    "label": "",
     "type": "text",
     "order": 2,
     "status": "show"
   },
   {
     "description": "",
-    "label": "",
     "id": "0610_02_02",
+    "label": "",
     "type": "image",
     "status": "show",
     "order": 3
@@ -284,32 +284,32 @@ export const cieBioNotes = [
     "id": "0610_02_02",
     "label": "",
     "type": "table",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "",
     "label": "Levels of organisation in organisms",
     "id": "0610_02_03",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "organelles → cells → tissue → organ → organ system → organism",
-    "label": "",
     "id": "0610_02_03",
+    "label": "",
     "type": "text",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "An organelle is a specialized component within a cell that performs specific function.",
     "label": "Organelle",
     "id": "0610_02_03",
     "type": "text",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "All living organisms are made up of cells. Cells are basic structure and organization in all living organisms. All cells arise from the original cell.",
@@ -321,11 +321,11 @@ export const cieBioNotes = [
   },
   {
     "description": "A tissue is a group of cells with similar structures working together to perform a specific function.",
-    "id": "0610_02_03",
     "label": "Tissue",
+    "id": "0610_02_03",
     "type": "text",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
     "description": "An organ is a group of tissues working together to perform a specific function.",
@@ -345,16 +345,16 @@ export const cieBioNotes = [
   },
   {
     "description": "An organism a living thing that has an organised structure, can react to stimuli, reproduce, grow, adapt and maintain homeostasis.",
-    "label": "Organism",
     "id": "0610_02_03",
+    "label": "Organism",
     "type": "text",
     "order": 8,
     "status": "show"
   },
   {
     "description": "",
-    "label": "Microscopy",
     "id": "0610_02_04",
+    "label": "Microscopy",
     "type": "title",
     "order": 1,
     "status": "show"
@@ -369,128 +369,128 @@ export const cieBioNotes = [
   },
   {
     "description": "1 mm = 1000 µm\n1 cm = 10 mm\r\n1 m = 100 cm",
-    "id": "0610_02_04",
     "label": "Converting measurements",
+    "id": "0610_02_04",
     "type": "list",
     "order": 3,
     "status": "show"
   },
   {
     "description": "",
-    "id": "0610_03_01",
     "label": "Diffusion",
+    "id": "0610_03_01",
     "type": "title",
     "status": "show",
     "order": 1
   },
   {
     "description": "Diffusion is the net movement of particles from a region of their higher concentration to a region of their lower concentration (down a concentration gradient), as a result of their random movement.",
-    "id": "0610_03_01",
     "label": "",
+    "id": "0610_03_01",
     "type": "text",
     "status": "show",
     "order": 2
   },
   {
     "description": "Gas exchange\nTranspiration\nGlucose absorption (both by diffusion and active transport)\nAbsorption of water soluble vitamins",
-    "id": "0610_03_01",
     "label": "Diffusion in living organisms",
+    "id": "0610_03_01",
     "type": "list",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Particles move around randomly using kinetic energy. The speed with which a particle diffuses through a cell wall or cell membrane will depend on many conditions.",
     "label": "",
     "id": "0610_03_01",
     "type": "text",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "Factor|Effect on rate of diffusion\nSurface area to volume ratio|A larger surface area to volume ratio allows more particles to diffuse at once.\nTemperature|Higher temperature gives particles more kinetic energy, making them move and diffuse faster.\nConcentration gradient|A greater concentration difference increases the rate of diffusion.\nDiffusion distance|A shorter distance allows particles to cross more quickly.",
-    "id": "0610_03_01",
     "label": "Factors affecting the rate of diffusion",
+    "id": "0610_03_01",
     "type": "table",
-    "status": "show",
-    "order": 5
+    "order": 5,
+    "status": "show"
   },
   {
     "description": "",
-    "id": "0610_03_02",
     "label": "Osmosis",
+    "id": "0610_03_02",
     "type": "title",
     "order": 1,
     "status": "show"
   },
   {
     "description": "Osmosis is the net movement of water from a region of higher water potential to a region of lower water potential across the partially permeable membrane.",
-    "id": "0610_03_02",
     "label": "",
+    "id": "0610_03_02",
     "type": "text",
     "status": "show",
     "order": 2
   },
   {
     "description": "If an animal cell is surrounded by distilled water, water enters the cell making it swell up. Unless the extra water is removed, the cell will burst.\r\nIf an animal cell is surrounded by a concentrated solution, water leaves the cell making it shrink.",
-    "id": "0610_03_02",
     "label": "Effect of osmosis on animal cells",
+    "id": "0610_03_02",
     "type": "list",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "If a plant cell is surrounded by distilled water, water enters the cell. The vacuole expands and the cell becomes turgid.\r\nIf a plant cell is surrounded by a concentrated solution, water leaves the cell. The vacuole shrinks and the cell becomes flaccid. Eventually, the cell membrane is detached from the cell wall (plasmolysis).",
     "id": "0610_03_02",
     "label": "Effect of osmosis on plant cells",
     "type": "list",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "",
-    "id": "0610_03_03",
     "label": "Active transport",
+    "id": "0610_03_03",
     "type": "title",
     "order": 1,
     "status": "show"
   },
   {
     "description": "Active transport is the movement of particles from a region of lower concentration to a region of higher concentration against the concentration gradient using energy from respiration.",
-    "id": "0610_03_03",
     "label": "",
+    "id": "0610_03_03",
     "type": "text",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "During active transport, a substance binds to the carrier protein molecule in the cell membrane. The carrier protein changes shape using energy from aerobic respiration to transport the substance into the cell.",
-    "id": "0610_03_03",
     "label": "",
+    "id": "0610_03_03",
     "type": "text",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "",
     "id": "0610_04_01",
     "label": "Biological molecules",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "Polymers|Element|Examples|Sub-units\nCarbohydrates|C, H, O|starch, glycogen, cellulose, sucrose|glucose\nFat, oil|C, H, O|vegetable oil, animal fats|fatty acids and glycerol\nProtein|C, H, O, N|enzymes, muscle, haemoglobin, cell membrane proteins|amino acids",
     "id": "0610_04_01",
     "label": "",
     "type": "table",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "",
-    "label": "Structure of DNA",
     "id": "0610_04_02",
+    "label": "Structure of DNA",
     "type": "title",
     "status": "show",
     "order": 1
@@ -505,27 +505,27 @@ export const cieBioNotes = [
   },
   {
     "description": "A nucleotide is a complex molecule which contains a sugar molecule joined to a phosphate group and an organic base. The organic bases are adenine (A), thymine (T), cytosine (C) and guanine (G). The nucleotides are joined by the complementary base pairing rule: A always pairs with T and C always pairs with G.",
-    "id": "0610_04_02",
     "label": "Nucleotide",
+    "id": "0610_04_02",
     "type": "text",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "",
-    "id": "0610_04_03",
     "label": "Food tests",
+    "id": "0610_04_03",
     "type": "title",
     "order": 1,
     "status": "show"
   },
   {
     "description": "Biomolecule|Reagent|Observation\nStarch|iodine solution|If starch is present, iodine solution turns brown to blue-black.\nReducing sugar|Benedict's solution and then heat|If glucose is present, the solution turns blue to green, yellow, orange or brick-red.\nProtein|biuret solution|If protein is present, biuret solution turns blue to purple (lilac).\nFat|ethanol and cool water|If fat is present, a white cloudy layer (emulsion) is formed above water.",
-    "id": "0610_04_03",
     "label": "",
+    "id": "0610_04_03",
     "type": "table",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "",
@@ -537,32 +537,32 @@ export const cieBioNotes = [
   },
   {
     "description": "Enzymes are proteins that function as biological catalysts that increase the rate of a metabolic reaction without being used up.",
-    "label": "",
     "id": "0610_05_01",
+    "label": "",
     "type": "text",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "Enzymes are important because they control the reactions in the cell. They make sure that these reactions occur quickly enough for the cell to function.",
-    "label": "",
     "id": "0610_05_01",
+    "label": "",
     "type": "text",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "",
-    "label": "",
     "id": "0610_05_01",
+    "label": "",
     "type": "image",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "A catalyst is a substance that increases the rate of a chemical reaction and is not changed by the reaction.",
-    "label": "Catalyst",
     "id": "0610_05_01",
+    "label": "Catalyst",
     "type": "text",
     "status": "show",
     "order": 5
@@ -585,24 +585,24 @@ export const cieBioNotes = [
   },
   {
     "description": "",
-    "label": "Effect of temperature on the enzyme function",
     "id": "0610_05_02",
+    "label": "Effect of temperature on the enzyme function",
     "type": "title",
     "order": 1,
     "status": "show"
   },
   {
     "description": "",
-    "label": "",
     "id": "0610_05_02",
+    "label": "",
     "type": "image",
     "order": 2,
     "status": "show"
   },
   {
     "description": "As temperature increases, the molecules have more kinetic energy and move faster. Enzymes and substrates collide more often and more enzyme-substrate complexes are formed. As a result, the rate of reaction increases up to the optimum temperature.",
-    "label": "",
     "id": "0610_05_02",
+    "label": "",
     "type": "text",
     "order": 3,
     "status": "show"
@@ -612,32 +612,32 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_05_02",
     "type": "text",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "When the temperature rises beyond optimum temperature, the enzymes become denatured. The shape of the active site changes and it is no longer complementary to the substrate. An enzyme-substrate complex cannot be formed. The rate of reaction decreases.",
-    "label": "",
     "id": "0610_05_02",
+    "label": "",
     "type": "text",
     "order": 5,
     "status": "show"
   },
   {
     "description": "",
-    "label": "Effect of pH on the enzyme function",
     "id": "0610_05_03",
+    "label": "Effect of pH on the enzyme function",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "",
-    "label": "",
     "id": "0610_05_03",
+    "label": "",
     "type": "image",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "The rate of reaction is highest at optimum pH.",
@@ -649,8 +649,8 @@ export const cieBioNotes = [
   },
   {
     "description": "Extreme pH levels denature enzymes. The shape of the active site changes and it is no longer complementary to the substrate. An enzyme-substrate complex cannot be formed. The rate of reaction decreases.",
-    "label": "",
     "id": "0610_05_03",
+    "label": "",
     "type": "text",
     "order": 4,
     "status": "show"
@@ -660,8 +660,8 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_05_03",
     "type": "text",
-    "status": "show",
-    "order": 5
+    "order": 5,
+    "status": "show"
   },
   {
     "description": "",
@@ -673,19 +673,19 @@ export const cieBioNotes = [
   },
   {
     "description": "Photosynthesis is the process by which plants synthesise carbohydrates from raw materials using energy from light.",
-    "id": "0610_06_01",
     "label": "",
+    "id": "0610_06_01",
     "type": "text",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "carbon dioxide + water → glucose + oxygen",
-    "id": "0610_06_01",
     "label": "Word equation",
+    "id": "0610_06_01",
     "type": "text",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂",
@@ -697,43 +697,43 @@ export const cieBioNotes = [
   },
   {
     "description": "Water is absorbed from the soil by roots and transported to leaves through the xylem.\nCarbon dioxide enters the leaf from the air through stomata.\nPhotosynthesis takes place in chloroplasts within leaf cells.\nChlorophyll (green pigment) absorbs light energy from the Sun.\nLight energy is used to split water molecules into hydrogen and oxygen.\nOxygen is released from the leaf as a waste product.\nHydrogen combines with carbon dioxide to form sugar (glucose).\nLight energy is converted into chemical energy stored in carbohydrates.",
-    "id": "0610_06_01",
     "label": "The process of photosynthesis",
+    "id": "0610_06_01",
     "type": "list",
-    "status": "show",
-    "order": 5
+    "order": 5,
+    "status": "show"
   },
   {
     "description": "stored as starch, which is insoluble in water, compact, and can be broken down into glucose when needed\nconverted into cellulose to form the cell wall\nbroken down during respiration to release energy\nconverted into sucrose for transport in the phloem vessels (translocation)\nused to produce nectar to attract insects for pollination",
-    "id": "0610_06_01",
     "label": "Uses of glucose in plants",
+    "id": "0610_06_01",
     "type": "list",
     "order": 6,
     "status": "show"
   },
   {
     "description": "",
-    "id": "0610_06_02",
     "label": "Plant minerals",
+    "id": "0610_06_02",
     "type": "title",
     "status": "show",
     "order": 1
   },
   {
     "description": "Mineral|Uses\nnitrates|to make amino acids and proteins\nmagnesium|to make chlorophyll\nphosphate|making DNA and part of cell membranes\npotassium|making enzymes of respiration",
-    "id": "0610_06_02",
     "label": "",
+    "id": "0610_06_02",
     "type": "table",
     "order": 2,
     "status": "show"
   },
   {
     "description": "",
-    "id": "0610_06_03",
     "label": "Limiting factors of photosynthesis",
+    "id": "0610_06_03",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "A limiting factor is the condition or substance that is in the lowest supply and limits the rate of photosynthesis. The rate of photosynthesis is affected by three main limiting factors: carbon dioxide concentration, light intensity, and temperature.",
@@ -745,35 +745,35 @@ export const cieBioNotes = [
   },
   {
     "description": "Photosynthesis increases as carbon dioxide levels rise, but beyond a certain point, the rate no longer increases because another factor becomes limiting. Under most conditions, carbon dioxide is the limiting factor for photosynthesis.",
-    "label": "Carbon dioxide",
     "id": "0610_06_03",
+    "label": "Carbon dioxide",
     "type": "text",
     "order": 3,
     "status": "show"
   },
   {
     "description": "More light provides more energy for photosynthesis, increasing the rate until the chloroplasts work at maximum capacity. Light is the limiting factor of photosynthesis in shaded conditions or at night.",
-    "label": "Light intensity",
     "id": "0610_06_03",
+    "label": "Light intensity",
     "type": "text",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "Temperature becomes a limiting factor for photosynthesis when it is too low or too high. The rate of photosynthesis speeds up with temperature, but if temperature becomes too high, the enzymes denature and the rate decreases.",
-    "label": "Temperature",
     "id": "0610_06_03",
+    "label": "Temperature",
     "type": "text",
     "status": "show",
     "order": 5
   },
   {
     "description": "",
-    "label": "Leaf structure",
     "id": "0610_06_04",
+    "label": "Leaf structure",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "",
@@ -785,27 +785,27 @@ export const cieBioNotes = [
   },
   {
     "description": "Their broad, flat shape gives a large surface area for the absorption of sunlight and carbon dioxide.\nMost leaves are thin, so the carbon dioxide only needs to diffuse across short distances to reach the inner cells.",
-    "id": "0610_06_04",
     "label": "Adaptation for photosynthesis",
+    "id": "0610_06_04",
     "type": "list",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Part|Detail\ncuticle|A waxy layer secreted by the upper epidermis. It is waterproof and helps reduce water loss.\nupper epidermis|A thin, transparent layer that allows light to pass through. It does not contain chloroplasts and acts as a barrier against disease-causing organisms.\npalisade mesophyll|The main region for photosynthesis. Cells are long and column-shaped, and are packed with chloroplasts to absorb light energy. They receive carbon dioxide by diffusion from the air spaces in the spongy mesophyll.\nspongy mesophyll|Made up of loosely packed, irregularly shaped cells. These cells contain fewer chloroplasts than palisade cells. Large air spaces between the cells allow efficient gas exchange (carbon dioxide in and oxygen out).\nvascular bundle|A leaf vein consisting of xylem and phloem. The xylem transports water and mineral ions to the leaf, while the phloem transports sugars and amino acids away from the leaf (translocation).\nlower epidermis|A protective layer that contains stomata. It helps regulate water loss through transpiration and controls gas exchange by diffusion.\nstomata|Tiny pores surrounded by a pair of guard cells, which control opening and closing. Water vapour diffuses out during transpiration, while carbon dioxide diffuses in and oxygen diffuses out during photosynthesis.",
-    "id": "0610_06_04",
     "label": "",
+    "id": "0610_06_04",
     "type": "table",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "",
-    "id": "0610_07_01",
     "label": "Balanced diet",
+    "id": "0610_07_01",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "A balanced diet is a diet that contains all the essential nutrients in the correct proportions to maintain good health.",
@@ -817,8 +817,8 @@ export const cieBioNotes = [
   },
   {
     "description": "carbohydrate\nfat\nprotein\nvitamins\nminerals\nfibre (roughage)\nwater.",
-    "label": "Nutrients",
     "id": "0610_07_01",
+    "label": "Nutrients",
     "type": "list",
     "status": "show",
     "order": 3
@@ -828,8 +828,8 @@ export const cieBioNotes = [
     "label": "Carbohydrates",
     "id": "0610_07_02",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Good food sources: rice, potato, yam, cassava, bread, millet, sugary foods (cake, jam, honey)",
@@ -844,8 +844,8 @@ export const cieBioNotes = [
     "label": "Functions",
     "id": "0610_07_02",
     "type": "list",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "",
@@ -865,43 +865,43 @@ export const cieBioNotes = [
   },
   {
     "description": "",
-    "id": "0610_07_04",
     "label": "Lipid (fat or oil)",
+    "id": "0610_07_04",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Fats are solid at room temperature. Oils are liquid at room temperature.",
     "id": "0610_07_04",
     "label": "",
     "type": "text",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "Good food sources: butter, milk, cheese, egg-yolk, animal fat, groundnuts (peanuts)",
-    "label": "",
     "id": "0610_07_04",
+    "label": "",
     "type": "text",
     "order": 3,
     "status": "show"
   },
   {
     "description": "source of energy (twice as much as carbohydrate)\r\ninsulation against heat loss\r\ninsulation of nerve fibres\r\nmaking some hormones (oestrogen, progesterone, testosterone)\r\nmaking cell membranes",
-    "label": "Functions",
     "id": "0610_07_04",
+    "label": "Functions",
     "type": "list",
     "status": "show",
     "order": 4
   },
   {
     "description": "",
-    "label": "Protein",
     "id": "0610_07_05",
+    "label": "Protein",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Good food sources: meat, fish, eggs, soya, groundnuts, milk, Quorn, cowpeas, falafel",
@@ -913,88 +913,88 @@ export const cieBioNotes = [
   },
   {
     "description": "growth and repair of body tissue\r\nmaking enzymes and some hormones (insulin)\r\nmaking cell membrane channels and carriers\r\ncan be broken down to provide energy",
-    "id": "0610_07_05",
     "label": "Functions",
-    "type": "list",
-    "status": "show",
-    "order": 3
-  },
-  {
-    "description": "",
-    "id": "0610_07_06",
-    "label": "Vitamins",
-    "type": "title",
-    "order": 1,
-    "status": "show"
-  },
-  {
-    "description": "water-soluble vitamin\ngood food sources: oranges, lemons, grapefruit, fresh green vegetables, potatoes\nmaking connective tissues of skin, blood vessels, gums\nprevents scurvy (bleeding gum, poor wound healing)",
-    "id": "0610_07_06",
-    "label": "Vitamin C (ascorbic acid)",
-    "type": "list",
-    "order": 2,
-    "status": "show"
-  },
-  {
-    "description": "fat-soluble vitamin\r\ngood food sources: butter, milk, cheese, egg-yolk, liver, fish-liver oil\r\nhelps calcium absorption from the intestine and calcium salt deposition in the bones\r\nprevents rickets (soft and deformed bones) in children",
-    "id": "0610_07_06",
-    "label": "Vitamin D (calciferol)",
+    "id": "0610_07_05",
     "type": "list",
     "order": 3,
     "status": "show"
   },
   {
     "description": "",
-    "label": "Mineral ions",
-    "id": "0610_07_07",
+    "label": "Vitamins",
+    "id": "0610_07_06",
     "type": "title",
     "status": "show",
     "order": 1
   },
   {
-    "description": "good food sources: milk, cheese, fish\r\nhealthy bones and teeth\r\nnormal blood clotting\r\nprevents rickets and osteoporosis",
-    "label": "Calcium",
-    "id": "0610_07_07",
+    "description": "water-soluble vitamin\ngood food sources: oranges, lemons, grapefruit, fresh green vegetables, potatoes\nmaking connective tissues of skin, blood vessels, gums\nprevents scurvy (bleeding gum, poor wound healing)",
+    "label": "Vitamin C (ascorbic acid)",
+    "id": "0610_07_06",
     "type": "list",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
-    "description": "good food sources: red meat, liver, kidney, eggs, green vegetables\nformation of haemoglobin in red blood cells, for transport of oxygen\nprevents anaemia",
-    "label": "Iron",
-    "id": "0610_07_07",
+    "description": "fat-soluble vitamin\r\ngood food sources: butter, milk, cheese, egg-yolk, liver, fish-liver oil\r\nhelps calcium absorption from the intestine and calcium salt deposition in the bones\r\nprevents rickets (soft and deformed bones) in children",
+    "label": "Vitamin D (calciferol)",
+    "id": "0610_07_06",
     "type": "list",
     "status": "show",
     "order": 3
   },
   {
     "description": "",
-    "label": "Water",
-    "id": "0610_07_08",
+    "label": "Mineral ions",
+    "id": "0610_07_07",
     "type": "title",
     "order": 1,
     "status": "show"
+  },
+  {
+    "description": "good food sources: milk, cheese, fish\r\nhealthy bones and teeth\r\nnormal blood clotting\r\nprevents rickets and osteoporosis",
+    "id": "0610_07_07",
+    "label": "Calcium",
+    "type": "list",
+    "order": 2,
+    "status": "show"
+  },
+  {
+    "description": "good food sources: red meat, liver, kidney, eggs, green vegetables\nformation of haemoglobin in red blood cells, for transport of oxygen\nprevents anaemia",
+    "id": "0610_07_07",
+    "label": "Iron",
+    "type": "list",
+    "order": 3,
+    "status": "show"
+  },
+  {
+    "description": "",
+    "id": "0610_07_08",
+    "label": "Water",
+    "type": "title",
+    "status": "show",
+    "order": 1
   },
   {
     "description": "component of most tissues (70% water)\r\ncomponent of body fluids, blood, lymph and tissue fluids\r\ntransport medium for nutrients and waste products (in the blood)\r\nreactant and solvent for chemical reactions (metabolism)\r\nlost as evaporation, sweating, urinating and breathing",
     "label": "",
     "id": "0610_07_08",
     "type": "list",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "",
     "label": "Human digestive system",
     "id": "0610_07_09",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "A - mouth\nB - salivary gland\nC - oesophagus\nD - stomach\nE - duodenum\nF - ileum\nG - colon\nH - rectum\nI - anus\nJ - liver\nK - gall bladder\nL - pancreas",
-    "id": "0610_07_09",
     "label": "",
+    "id": "0610_07_09",
     "type": "image",
     "status": "show",
     "order": 2
@@ -1012,8 +1012,8 @@ export const cieBioNotes = [
     "id": "0610_07_09",
     "label": "Parts of the digestive system",
     "type": "table",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "",
@@ -1028,13 +1028,13 @@ export const cieBioNotes = [
     "id": "0610_07_10",
     "label": "",
     "type": "image",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "|position in the mouth|shape|function\nA - incisors|front|chisel-shaped|biting off pieces of food\nB - canine|either side of incisors|more pointed|biting off pieces of food\nC - premolar|behind canines|have 2 cusps, 1-2 roots|chewing and grinding\nD - molar|back|have 4-5 cusps, 2-3 roots|chewing and grinding",
-    "label": "",
     "id": "0610_07_10",
+    "label": "",
     "type": "table",
     "status": "show",
     "order": 3
@@ -1044,29 +1044,29 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_07_10",
     "type": "image",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "",
     "label": "Bile",
     "id": "0610_07_11",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "Bile made in the liver and stored in the gall bladder, and secreted into duodenum through the bile duct.\nIt contains bile salts, but does not contain enzymes.\nBile salts emulsify the fats, breaking into small droplets with a large surface area for more efficient digestion by lipase.\nBile is slightly alkaline, neutralising the acidic mixture of food and gastric juices in the duodenum. The enzymes secreted into duodenum work best under alkaline conditions.",
-    "id": "0610_07_11",
     "label": "",
+    "id": "0610_07_11",
     "type": "list",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "",
-    "id": "0610_07_12",
     "label": "Chemical digestion",
+    "id": "0610_07_12",
     "type": "title",
     "status": "show",
     "order": 1
@@ -1076,45 +1076,45 @@ export const cieBioNotes = [
     "id": "0610_07_12",
     "label": "Chemical digestion of carbohydrates",
     "type": "list",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "",
-    "id": "0610_07_12",
     "label": "",
+    "id": "0610_07_12",
     "type": "image",
     "status": "show",
     "order": 3
   },
   {
     "description": "In the stomach, pepsin breaks down proteins into peptides.\r\nThe pancreas secretes trypsin into the duodenum, where it continues the digestion of proteins into peptides.\r\nThe membranes of the epithelial cells lining the villi contain peptidase, which breaks down peptides into amino acids.",
-    "id": "0610_07_12",
     "label": "Chemical digestion of proteins",
+    "id": "0610_07_12",
     "type": "list",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "",
-    "id": "0610_07_12",
     "label": "",
+    "id": "0610_07_12",
     "type": "image",
-    "status": "show",
-    "order": 5
+    "order": 5,
+    "status": "show"
   },
   {
     "description": "enzyme|source of enzyme|digestive action|site of action\namylase|salivary glands|starch → maltose|mouth\npepsin|stomach|proteins → peptides|stomach\namylase|pancreas|starch → maltose|small intestine\ntrypsin|pancreas|proteins → peptides|small intestine\nlipase|pancrease|lipids → glycerol and fatty acids|small intestine\nmaltase|wall of small intestine|maltose → glucose| small intestine\npeptidases|wall of small intestine|peptides → amino acids|small intestine",
-    "id": "0610_07_12",
     "label": "",
+    "id": "0610_07_12",
     "type": "table",
     "order": 6,
     "status": "show"
   },
   {
     "description": "",
-    "id": "0610_07_13",
     "label": "Absorption of nutrients",
+    "id": "0610_07_13",
     "type": "title",
     "status": "show",
     "order": 1
@@ -1124,160 +1124,336 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_07_13",
     "type": "text",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "a long tube that provides a large surface to absorb the digested food\r\ninternal surface contains folds, which contains tiny projections called villi\r\nlining epithelium is very thin and outer membrane of each epithelial cell has microvilli\r\neach villus contains a dense network of blood capillaries and lacteal",
-    "label": "Adaptive features of ileum",
     "id": "0610_07_13",
+    "label": "Adaptive features of ileum",
     "type": "list",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "",
-    "label": "",
     "id": "0610_07_13",
+    "label": "",
     "type": "image",
     "order": 4,
     "status": "show"
   },
   {
     "description": "",
-    "label": "Circulatory systems",
+    "label": "Xylem and phloem",
+    "id": "0610_08_01",
+    "type": "title",
+    "status": "",
+    "order": 1
+  },
+  {
+    "description": "Vascular bundles are made up of groups of specialised cells that carry water, dissolved salts and food up or down the stem. The vascular bundles in the roots, stem, leaf stalks and leaf veins all join to form a transport system through the whole plant. The two main tissues in the vascular bundles are called xylem and phloem. The position of xylem and phloem in the root and shoot helps the stem to withstand sideways bending and the root to resist pulling forces.",
+    "label": "",
+    "id": "0610_08_01",
+    "type": "text",
+    "status": "",
+    "order": 2
+  },
+  {
+    "description": "sucrose and amino acids are transported in the phloem\nwater and mineral ions are transported in the xylem",
+    "label": "",
+    "id": "0610_08_01",
+    "type": "list",
+    "order": 3,
+    "status": ""
+  },
+  {
+    "description": "made up of a series of long cells joined end to end\nhollow and has no cell contents\nlined by lignin, which makes the cell walls very strong and impermeable",
+    "id": "0610_08_01",
+    "label": "Structure of xylem vessel",
+    "type": "list",
+    "order": 4,
+    "status": ""
+  },
+  {
+    "description": "",
+    "id": "0610_08_01",
+    "label": "",
+    "type": "image",
+    "status": "",
+    "order": 5
+  },
+  {
+    "description": "",
+    "id": "0610_08_02",
+    "label": "Water uptake",
+    "type": "title",
+    "status": "",
+    "order": 1
+  },
+  {
+    "description": "The root hairs make very close contact with soil particles and are the main route by which water and mineral salts enter the plant. The root hair cells have tiny projections, which provide a large surface area to take up water from the soil by osmosis and to absorb mineral ions by active transport.",
+    "id": "0610_08_02",
+    "label": "Root hair cells",
+    "type": "text",
+    "status": "",
+    "order": 2
+  },
+  {
+    "description": "The water enters the root hair cells and is then passed on to cells in the root cortex. It enters the xylem vessels and moves up the stem and into the leaves.",
+    "id": "0610_08_02",
+    "label": "Transport of water and ions",
+    "type": "text",
+    "order": 3,
+    "status": ""
+  },
+  {
+    "description": "",
+    "label": "Transpiration",
+    "id": "0610_08_03",
+    "type": "title",
+    "order": 1,
+    "status": ""
+  },
+  {
+    "description": "Transpiration is the loss of water vapour from leaves. Water evaporates from mesophyll cells and water vapour diffuses out through stomata.",
+    "label": "",
+    "id": "0610_08_03",
+    "type": "text",
+    "order": 2,
+    "status": ""
+  },
+  {
+    "description": "Evaporation at the leaf creates a low water potential in mesophyll cells, drawing water out of the leaf xylem.\nThis creates a tension that is transmitted all the way down the xylem vessels.\nWater molecules stay intact as a continuous column due to cohesion (water molecules sticking to each other) and adhesion (water molecules sticking to the cellulose walls of the xylem).\nThis tension pulls water up from the roots, driving water uptake from the soil into root hairs via osmosis.",
+    "label": "Transpiration stream",
+    "id": "0610_08_03",
+    "type": "list",
+    "status": "",
+    "order": 3
+  },
+  {
+    "description": "Condition|Effect\nLight intensity|The rate of transpiration increases in light because of the opening of the stomata in the leaves.\nTemperature|High temperatures increase the rate of transpiration by increasing the rate of evaporation of water from the mesoophyll cells.\nHumidity|Humid condition decreases the rate of transpiration by reducing the diffusion gradient between the air spaces in the leaf and external air.\nWind speed|Faster air movement across the surface of the leaf increases the rate of transpiration as moving air remove water vapour near the stomata.",
+    "label": "Factors affecting the rate of transpiration",
+    "id": "0610_08_03",
+    "type": "table",
+    "order": 4,
+    "status": ""
+  },
+  {
+    "description": "Wilting happens when the rate of transpiration exceeds the rate of water absorption by the root hairs.",
+    "label": "Wilting",
+    "id": "0610_08_03",
+    "type": "text",
+    "order": 5,
+    "status": ""
+  },
+  {
+    "description": "Cells lose water and change from a turgid state to a flaccid state.\nThe turgor pressure inside the plant cells drops, meaning the cell contents no longer push firmly against the cell walls.\nWithout turgor pressure for structural support, the stems, leaves, and soft tissues of the plant collapse and droop.",
+    "id": "0610_08_03",
+    "label": "",
+    "type": "list",
+    "order": 6,
+    "status": ""
+  },
+  {
+    "description": "",
+    "id": "0610_08_04",
+    "label": "Translocation",
+    "type": "title",
+    "order": 1,
+    "status": ""
+  },
+  {
+    "description": "Translocation is the movement of sucrose and amino acids in the phloem from source to sinks.",
+    "id": "0610_08_04",
+    "label": "",
+    "type": "text",
+    "status": "",
+    "order": 2
+  },
+  {
+    "description": "Sources are the parts of plants that release sucrose or amino acids.",
+    "id": "0610_08_04",
+    "label": "Source",
+    "type": "text",
+    "status": "",
+    "order": 3
+  },
+  {
+    "description": "Mature green leaves\nStorage organs (tuber/bulb) during early spring",
+    "id": "0610_08_04",
+    "label": "",
+    "type": "list",
+    "order": 4,
+    "status": ""
+  },
+  {
+    "description": "Sinks are the parts of plants that use or store sucrose or amino acids.",
+    "id": "0610_08_04",
+    "label": "Sink",
+    "type": "text",
+    "order": 5,
+    "status": ""
+  },
+  {
+    "description": "Growing roots and stem tips (meristems)\nDeveloping flowers, fruits, and seeds\nStorage organs (tubers/roots) during late summer",
+    "label": "",
+    "id": "0610_08_04",
+    "type": "list",
+    "order": 6,
+    "status": ""
+  },
+  {
+    "description": "",
+    "id": "0610_08_05",
+    "label": "Comparison of transpiration stream and translocation",
+    "type": "title",
+    "order": 1,
+    "status": ""
+  },
+  {
+    "description": "Feature|Transpiration Stream|Translocation\nTransport tissue|xylem|phloem\nSubstances transported|water and dissolved mineral ions|sucrose and amino acids\nDirection of Flow|one way only: upwards from roots to leaves|two ways: up or down from sources to sinks\nMechanism|passive physical forces (evaporation pull, cohesion, adhesion, tension)|active transport (energy required to load sucrose into phloem)",
+    "id": "0610_08_05",
+    "label": "",
+    "type": "table",
+    "status": "",
+    "order": 2
+  },
+  {
+    "description": "",
     "id": "0610_09_01",
+    "label": "Circulatory systems",
     "type": "title",
     "status": "show",
     "order": 1
   },
   {
     "description": "The circulatory system is a system of blood vessels with a pump and valves to ensure a one-way flow of blood.",
-    "label": "",
     "id": "0610_09_01",
+    "label": "",
     "type": "text",
     "order": 2,
     "status": "show"
   },
   {
     "description": "The blood goes through the heart once for each complete circulation of the body.",
-    "id": "0610_09_01",
     "label": "Single circulatory system",
+    "id": "0610_09_01",
     "type": "text",
     "order": 3,
     "status": "show"
   },
   {
     "description": "A - The atrium receives blood.\nB - The ventricle pumps blood.\nC - Blood is oxygenated in the gills.\nD - The blood flows to all parts of the body before returning to the heart.",
-    "id": "0610_09_01",
     "label": "",
+    "id": "0610_09_01",
     "type": "image",
     "status": "show",
     "order": 4
   },
   {
     "description": "The blood passes twice through the heart during one complete circuit: once on its way to the body and again on its way to the lungs.",
-    "id": "0610_09_01",
     "label": "Double circulatory system",
+    "id": "0610_09_01",
     "type": "text",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
     "description": "A - atria\r\nB - ventricles\r\nC - pulmonary circuit\r\nD - systemic circuit\r\nE - septum\r",
-    "id": "0610_09_01",
     "label": "",
+    "id": "0610_09_01",
     "type": "image",
-    "order": 6,
-    "status": "show"
+    "status": "show",
+    "order": 6
   },
   {
     "description": "septum prevents mixing of oxygenated and deoxygenated blood\r\nhigher blood pressure in the systemic circuit to provide oxygenated blood and nutrients to body cells\r\nlower pressure in the pulmonary circuit to prevent damage to capillaries in the lungs",
-    "id": "0610_09_01",
     "label": "Advantages of double circulation",
+    "id": "0610_09_01",
     "type": "list",
     "status": "show",
     "order": 7
   },
   {
     "description": "",
-    "label": "Heart",
     "id": "0610_09_02",
+    "label": "Heart",
     "type": "title",
     "status": "show",
     "order": 1
   },
   {
     "description": "RA - right atrium\r\nRV - right ventricle\r\nLA - left atrium\r\nLV - left ventricle\r\nVC - vena cava\r\nPA - pulmonary artery\r\nPV - pulmonary vein\r\nA - aorta\r\nAV - atrioventricular valve\r\nSV - semilunar valve\r\nS - septum\r\nM - muscle",
-    "label": "Vertical section of the heart",
     "id": "0610_09_02",
+    "label": "Vertical section of the heart",
     "type": "image",
     "order": 2,
     "status": "show"
   },
   {
     "description": "RA - right atrium\r\nRV - right ventricle\r\nLA - left atrium\r\nLV - left ventricle\r\nVC - vena cava\r\nPA - pulmonary artery\r\nPV - pulmonary vein\r\nA - aorta\r\nC - coronary artery",
-    "label": "External view of the heart",
     "id": "0610_09_02",
+    "label": "External view of the heart",
     "type": "image",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "The wall of the chambers are made up of cardiac muscle. The atria have thinner muscle walls than ventricles. The left ventricle wall is thicker than the right ventricle wall because the left ventricle needs to produce enough pressure to pump blood to all main organs of the body.",
-    "label": "",
     "id": "0610_09_02",
+    "label": "",
     "type": "text",
     "status": "show",
     "order": 4
   },
   {
-    "description": "The vena cava brings deoxygenated blood from the body tissues into the right atrium.\r\nThe blood passes from the right atrium into the left ventricle below.\r\nThe left ventricle pumps blood into the pulmonary arteries.\r\nBlood is oxygenated in the lungs.\r\nThe pulmonary veins bring oxygenated blood from the lungs into the left atrium.\r\nThe blood passes from the left atrium into the left ventricle below.\r\nThe left ventricle pumps blood into the aorta, which carries oxygenated blood to the body.",
-    "label": "Cardiac cycle",
+    "description": "The vena cava brings deoxygenated blood from the body tissues into the right atrium.\nThe blood passes from the right atrium into the right ventricle below.\nThe left ventricle pumps blood into the pulmonary arteries.\nBlood is oxygenated in the lungs.\nThe pulmonary veins bring oxygenated blood from the lungs into the left atrium.\nThe blood passes from the left atrium into the left ventricle below.\nThe left ventricle pumps blood into the aorta, which carries oxygenated blood to the body.",
     "id": "0610_09_02",
+    "label": "Cardiac cycle",
     "type": "list",
-    "status": "show",
-    "order": 5
+    "order": 5,
+    "status": "show"
   },
   {
     "description": "The septum separates oxygenated blood in the left chambers mixing with deoxygenated blood in the right chambers.",
-    "id": "0610_09_02",
     "label": "Septum",
+    "id": "0610_09_02",
     "type": "text",
     "order": 6,
     "status": "show"
   },
   {
     "description": "The atrioventricular valves and the semilunar valves prevent blood flowing backwards.",
-    "id": "0610_09_02",
     "label": "Valves",
+    "id": "0610_09_02",
     "type": "text",
-    "status": "show",
-    "order": 7
+    "order": 7,
+    "status": "show"
   },
   {
     "description": "",
-    "id": "0610_09_03",
     "label": "Effect of physical activity on the heart rate",
+    "id": "0610_09_03",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Heart is the number of heart beats per minute.\nHeart rate can be monitored by measuring pulse rate, listening to heart sound or ECG.\nAt rest, the heart beats 70 times a minute.\nExercise increases heart rate to supply more oxygen and glucose to muscles.\nAfter exercise, the heart rate gradually drops to its resting state.\nAdrenaline released during exercise or stress also increases heart rate.",
     "id": "0610_09_03",
     "label": "",
     "type": "list",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "",
     "id": "0610_09_04",
     "label": "Coronary heart disease",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Coronary arteries supply oxygenated blood to the cardiac muscle.",
@@ -1292,8 +1468,8 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_09_04",
     "type": "text",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "Genetics: family history of coronary heart disease\r\nOlder age\r\nMale gender: oestrogen has some protection from coronary heart disease in women\r\nUnhealthy diet: too much fat or energy\r\nEmotional stress\r\nLack of physical exercise\r\nSmoking\r\nHigh blood pressure\r\nDiabetes\r",
@@ -1305,40 +1481,40 @@ export const cieBioNotes = [
   },
   {
     "description": "Eat a balanced diet (low in saturated fats, cholesterol and salt)\r\nStay at a healthy body weight\r\nRegular physical exercise\r\nQuit smoking\r\nControl high blood pressure\r\nControl blood glucose level",
-    "id": "0610_09_04",
     "label": "Prevention of coronary heart disease",
+    "id": "0610_09_04",
     "type": "list",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
     "description": "",
-    "id": "0610_09_05",
     "label": "Comparison of blood vessels",
+    "id": "0610_09_05",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "Structure|Related function\nthick and tough wall with muscles, elastic fibres and fibrous tissue|prevents bursting and maintains pressure wave\nnarrow lumen|helps to maintain blood pressure\nno valve|high pressure prevents blood flowing backwards",
-    "id": "0610_09_05",
     "label": "Artery",
+    "id": "0610_09_05",
     "type": "table",
     "order": 2,
     "status": "show"
   },
   {
     "description": "Structure|Related function\nthin wall, mainly fibrous tissue with little muscle or elastic fibres|carries blood at low pressure\nlarge lumen|to reduce resistance to blood flow\nvalves present|to prevent back-flow of blood",
-    "label": "Vein",
     "id": "0610_09_05",
+    "label": "Vein",
     "type": "table",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Structure|Related function\npermeable wall, one cell thick, with no muscle or elastic tissue|allows diffusion of materials between the capillary and surrounding tissues\nlumen approximately one red blood cell wide|blood cells pass through slowly to allow diffusion of materials and tissue fluid",
-    "label": "Capillary",
     "id": "0610_09_05",
+    "label": "Capillary",
     "type": "table",
     "status": "show",
     "order": 4
@@ -1388,8 +1564,8 @@ export const cieBioNotes = [
     "label": "White blood cells",
     "id": "0610_09_07",
     "type": "list",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "pieces of blood cells\r\nhelp to clot blood at wounds, stop bleeding and prevent pathogen entering the body",
@@ -1404,8 +1580,8 @@ export const cieBioNotes = [
     "label": "Plasma",
     "id": "0610_09_07",
     "type": "list",
-    "status": "show",
-    "order": 6
+    "order": 6,
+    "status": "show"
   },
   {
     "description": "Substance|From|To\r\noxygen|lungs|whole body\r\ncarbon dioxide|whole body|lungs\r\nurea|liver|kidneys\r\nhormones|endocrine glands|target organs\r\ndigested food|intestine|whole body\r\nheat|liver and muscles|whole body",
@@ -1420,16 +1596,16 @@ export const cieBioNotes = [
     "id": "0610_09_08",
     "label": "Blood clotting",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "When blood vessels are damaged, platelets clump together and block smaller capillaries.\nSoluble fibrinogen is changed into insoluble fibrin by the action of enzymes.\nFibrin forms a network (mash) trapping red blood vessels to form a blood clot.\nThe clot stops further loss of blood and prevents entry of pathogens into the wound.",
     "id": "0610_09_08",
     "label": "",
     "type": "list",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "",
@@ -1444,13 +1620,13 @@ export const cieBioNotes = [
     "label": "Pathogen",
     "id": "0610_10_01",
     "type": "text",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "A transmissible disease is a disease in which the pathogen can be passed from one host to another.",
-    "id": "0610_10_01",
     "label": "Transmissible disease",
+    "id": "0610_10_01",
     "type": "text",
     "status": "show",
     "order": 3
@@ -1460,24 +1636,24 @@ export const cieBioNotes = [
     "id": "0610_10_01",
     "label": "",
     "type": "list",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "Transmission|Description|Example\nDirect contact|transfer of pathogens through direct contact with blood or other body fluids|HIV\nIndirect contact|infection caused by pathogens present on contaminated surfaces|food poisoning\nAirborne, droplet or aerosol infection|infection caused by inhaling droplets containing viruses or bacteria|colds, flu, measles, chickenpox\nContamination by houseflies|transmission of pathogens by houseflies from waste to food|Food poisoning, amoebic dysentery, polio",
     "id": "0610_10_01",
     "label": "",
     "type": "table",
-    "status": "show",
-    "order": 5
+    "order": 5,
+    "status": "show"
   },
   {
     "description": "clean water supply\nwater treatment\nhygienic food preparation\ngood personal hygiene\nwaste disposal\nsewage treatment",
     "label": "Controlling disease",
     "id": "0610_10_01",
     "type": "list",
-    "order": 6,
-    "status": "show"
+    "status": "show",
+    "order": 6
   },
   {
     "description": "",
@@ -1500,8 +1676,8 @@ export const cieBioNotes = [
     "id": "0610_10_02",
     "label": "Pathophysiology",
     "type": "list",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "",
@@ -1524,24 +1700,24 @@ export const cieBioNotes = [
     "id": "0610_10_03",
     "label": "Immunity",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Immunity is the ability of the body to resist or fight against pathogens.",
     "id": "0610_10_03",
     "label": "",
     "type": "text",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "Defense mechanism|Example\nMechanical barriers|skin and nose hair\nChemical barriers|stomach acid and mucus layer\nCellular immunity|phagocytosis and antibody production",
     "label": "",
     "id": "0610_10_03",
     "type": "table",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "|Active immunity|Passive immunity\nDefinition|the defence against a pathogen by antibody production in the body|defence against pathogens by antibodies acquired from another individual\nResponse|slower|faster\nDuration|long-lasting|short-lived\nMemory cells|formed|not formed\nExamples|infection (natural), vaccination (artificial)|antibodies from mother (natural), antibody injection (artificial)",
@@ -1556,8 +1732,8 @@ export const cieBioNotes = [
     "label": "Vaccination",
     "id": "0610_10_04",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "A vaccine contains antigens, killed microorganisms, harmless forms of microorganisms, or a toxoid (an inactivated toxin).\nWhen a vaccine is given, it stimulates lymphocytes to produce antibodies against a specific antigen. Some lymphocytes develop into memory cells.\nIf the person later encounters the same antigen, these memory cells enable lymphocytes to produce a large number of antibodies rapidly, triggering a secondary immune response.\nThese antibodies bind to the antigens on the pathogen and neutralise them.",
@@ -1572,8 +1748,8 @@ export const cieBioNotes = [
     "label": "Antibodies",
     "id": "0610_10_04",
     "type": "text",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "When a large proportion of the population is vaccinated, the spread of infection is greatly reduced. As a result, even unvaccinated individuals are protected. This community protection is called herd immunity.",
@@ -1588,16 +1764,16 @@ export const cieBioNotes = [
     "id": "0610_11_01",
     "label": "Human breathing system",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "",
     "id": "0610_11_01",
     "label": "",
     "type": "image",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "Structure|Function\nnose/nasal cavity|filters, warm and moistens air\npharynx|passage for air from nose to trachea\nepiglottis|prevents food and water entering the airway during swallowing\nlarynx (voice box)|contains vocal cords, joins onto trachea\ntrachea (wind pipe)|carries air to and from the lungs\nbronchi|two main branches of trachea leading to each lung\nbronchioles|smaller branches of bronchi inside the lungs\nalveoli|tiny air sacs adapted for gas exchange by diffusion\npleural membrane|double layer surrounding the lungs\nribs and sternum|protects the lungs and heart, move to ventilate the lungs",
@@ -1620,8 +1796,8 @@ export const cieBioNotes = [
     "id": "0610_11_02",
     "label": "Cartilage",
     "type": "text",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "Goblet cells secrete mucus, which traps pathogens and dust, preventing them from entering the alveoli.",
@@ -1636,16 +1812,16 @@ export const cieBioNotes = [
     "label": "Ciliated epithelium",
     "id": "0610_11_02",
     "type": "text",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "",
     "id": "0610_11_03",
     "label": "Alveoli",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "",
@@ -1684,24 +1860,24 @@ export const cieBioNotes = [
     "label": "Inhalation",
     "id": "0610_11_04",
     "type": "list",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "The diaphragm relaxes and returns to its dome shape.\nExternal intercostal muscles relax while internal intercostal muscles contract, pulling the ribcage downwards.\nThe lungs are elastic, and they shrink back to their relaxed volume.\nAir pressure in the lungs increases, and air is forced out of the lungs to equalise the air pressure.",
     "label": "Exhalation",
     "id": "0610_11_04",
     "type": "list",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "",
-    "label": "Differences in composition of inspired and expired air",
     "id": "0610_11_05",
+    "label": "Differences in composition of inspired and expired air",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "|Inhaled air|Exhaled air\nOxygen|21%|16%|O₂ is absorbed into the blood during gas exchange and body cells use oxygen for respiration\nCarbon dioxide|0.04%|4%|CO₂ is produced during respiration and released from blood into alveoli\nWater vapour|variable|saturated|Air is warmed and moistened in the alveoli\nTemperature|variable|warmer|",
@@ -1716,24 +1892,24 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_11_05",
     "type": "text",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "",
     "label": "Effects of physical activity on the rate and depth of breathing",
     "id": "0610_11_06",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "At rest, the breathing rate is about 12 breaths per minute, with about 500 cm³ of air exchanged each breath. During exercise, the rate and depth of breathing increase.",
     "label": "",
     "id": "0610_11_06",
     "type": "text",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "During exercise, muscles carry out more aerobic respiration, producing more carbon dioxide in the blood.\nThe medulla detects the increase in carbon dioxide and signals the diaphragm and intercostal muscles to contract and relax more rapidly.\nFaster and deeper breathing supplies extra oxygen to the muscles and removes excess carbon dioxide.",
@@ -1748,8 +1924,8 @@ export const cieBioNotes = [
     "id": "0610_12_01",
     "label": "Respiration",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "Respiration is the chemical reactions in living cells that release energy from glucose.",
@@ -1761,8 +1937,8 @@ export const cieBioNotes = [
   },
   {
     "description": "muscle contraction\nprotein synthesis\ncell division\nactive transport\ngrowth\nnerve impulse transmission\nmaintenance of a constant body temperature",
-    "label": "Uses of energy released in respiration",
     "id": "0610_12_01",
+    "label": "Uses of energy released in respiration",
     "type": "list",
     "status": "show",
     "order": 3
@@ -1785,19 +1961,19 @@ export const cieBioNotes = [
   },
   {
     "description": "glucose + oxygen → carbon dioxide + water",
-    "id": "0610_12_02",
     "label": "Word equation for aerobic respiration",
+    "id": "0610_12_02",
     "type": "text",
     "order": 3,
     "status": "show"
   },
   {
     "description": "C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O",
-    "id": "0610_12_02",
     "label": "Balanced chemical equation for aerobic respiration",
+    "id": "0610_12_02",
     "type": "text",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "",
@@ -1817,8 +1993,8 @@ export const cieBioNotes = [
   },
   {
     "description": "glucose → ethanol + carbon dioxide",
-    "id": "0610_12_03",
     "label": "Word equation for anaerobic respiration in yeast",
+    "id": "0610_12_03",
     "type": "text",
     "order": 3,
     "status": "show"
@@ -1828,24 +2004,24 @@ export const cieBioNotes = [
     "label": "Balanced chemical equation for anaerobic respiration in yeast",
     "id": "0610_12_03",
     "type": "text",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "glucose → lactate",
     "id": "0610_12_03",
     "label": "Word equation for anaerobic respiration in muscles",
     "type": "text",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
     "description": "During vigorous exercise, oxygen demand is very high and muscle cells respire anaerobically and produce lactate.\r\nLactate builds up in the muscles and is transported in the blood to the liver.\r\nOxygen is required to remove lactate in the liver.\r\nThe volume of oxygen needed to completely oxidize the lactate is called oxygen debt.\r\nThe person continues to breathe faster and deeper to repay the oxygen debt.",
     "id": "0610_12_03",
     "label": "Oxygen debt",
     "type": "text",
-    "order": 6,
-    "status": "show"
+    "status": "show",
+    "order": 6
   },
   {
     "description": "",
@@ -1876,16 +2052,16 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_13_01",
     "type": "text",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "Organ|Waste products\nLungs|excrete carbon dioxide, water vapour\nKidneys|excrete urea, excess water, ions, hormones and drugs\nLiver|breaks down excess amino acids and produces urea, detoxifis chemicals and excretes bile",
     "label": "Excretory organs",
     "id": "0610_13_01",
     "type": "table",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "",
@@ -1900,13 +2076,13 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_13_02",
     "type": "image",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "Organ|Function\nkidneys|filter the blood to form urine\nrenal arteries|supply blood to the kidneys\nrenal veins|carry blood away from the kidneys\nureter|allows the flow of urine from the kidneys to the bladder\nbladder|temporarily stores urine until it is released\nurethra|carries urine out of the body.",
-    "id": "0610_13_02",
     "label": "",
+    "id": "0610_13_02",
     "type": "table",
     "status": "show",
     "order": 3
@@ -1916,8 +2092,8 @@ export const cieBioNotes = [
     "id": "0610_13_02",
     "label": "Microscopic structure of the kidneys",
     "type": "text",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "",
@@ -1932,16 +2108,16 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_13_02",
     "type": "table",
-    "order": 6,
-    "status": "show"
+    "status": "show",
+    "order": 6
   },
   {
     "description": "",
     "label": "Nephron",
     "id": "0610_13_03",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "A nephron is a single glomerulus with its renal capsule, renal tubule and blood capillaries.",
@@ -1956,8 +2132,8 @@ export const cieBioNotes = [
     "id": "0610_13_03",
     "label": "",
     "type": "image",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Structure|Description\nglomerulus|a network of capillaries where blood is filtered under high pressure\nbasement membrane|a thin layer that filters small molecules but preventing proteins from passing\nBowman’s capsule|a cup-shaped structure that surrounds the glomerulus and collects the filtrate\nproximal convoluted tubule|a coiled tubule that selectively reabsorbs glucose, amino acids, and water and salts from the ultrafiltrate\nLoop of Henle|a U-shaped section that reabsorbs most water\ndistal convoluted tubule|a coiled tubule that fine-tunes ion and pH balance under hormonal control\ncollecting duct|a tube that regulates water reabsorption under ADH control before passing it to the renal pelvis",
@@ -1972,40 +2148,40 @@ export const cieBioNotes = [
     "label": "Filtration",
     "id": "0610_13_03",
     "type": "list",
-    "status": "show",
-    "order": 5
+    "order": 5,
+    "status": "show"
   },
   {
     "description": "The proximal convoluted tubule reabsorbs useful substances (glucose, water and some of the ions) into the blood.\nAll glucose is selectively reabsorbed into the blood at the proximal convoluted tubule by active transport.\nThe urine contains no glucose.",
     "label": "Reabsorption at the proximal convoluted urine",
     "id": "0610_13_03",
     "type": "list",
-    "order": 6,
-    "status": "show"
+    "status": "show",
+    "order": 6
   },
   {
     "description": "More water and ions are reabsorbed into the blood in the loop of Henle, which helps to concentrate the urine.\nThe collecting duct regulates the reabsorption of water to control urine concentration under the influence of ADH.\nThe urine contains urea, water and excess mineral ions.",
     "label": "Formation of urine",
     "id": "0610_13_03",
     "type": "list",
-    "status": "show",
-    "order": 7
+    "order": 7,
+    "status": "show"
   },
   {
     "description": "",
     "id": "0610_13_04",
     "label": "Liver",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "The liver absorbs amino acids from the blood and uses them to build proteins. This process is called assimilation, where amino acids are converted into body proteins such as plasma proteins (e.g. fibrinogen), which are important for blood clotting.",
     "id": "0610_13_04",
     "label": "Assimilation",
     "type": "text",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "The body cannot store excess amino acids. In the liver, they are broken down in a process called deamination.",
@@ -2028,8 +2204,8 @@ export const cieBioNotes = [
     "id": "0610_15_01",
     "label": "Drugs",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "A drug is any substance taken into the body that modifies or affects chemical reactions in the body.",
@@ -2044,40 +2220,40 @@ export const cieBioNotes = [
     "label": "Antibiotics",
     "id": "0610_15_01",
     "type": "text",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Viruses have a different structure to bacteria, so they are not affected by antibiotics.",
     "label": "",
     "id": "0610_15_01",
     "type": "text",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "",
     "label": "Antibiotic-resistant bacteria",
     "id": "0610_15_02",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "MRSA (methicillin-resistant Staphylococcus aureus) is one type of  bacteria resistant to several antibiotics (superbugs).",
     "label": "",
     "id": "0610_15_02",
     "type": "text",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "There is variation within a population of bacteria due to mutations. Some bacteria may have a mutation that gives resistance to an antibiotic.\nWhen an antibiotic is used, it acts as a selection pressure.\nNon-resistant bacteria are killed by the antibiotic, while antibiotic-resistant bacteria survive.\nThe antibiotic-resistant bacteria reproduce asexually by binary fission, passing the resistance gene to their offspring.\nOver many generations, the number of antibiotic-resistant bacteria increases.\nEventually, most of the bacterial population becomes resistant to the antibiotic by natural selection.\nOveruse and misuse of antibiotics increase the development of antibiotic-resistant bacteria.",
-    "label": "Development of antibiotic-resistant bacteria",
     "id": "0610_15_02",
+    "label": "Development of antibiotic-resistant bacteria",
     "type": "list",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Use antibiotics only when necessary (prescribed by doctors)\nComplete the full course of treatment\nDo not use antibiotics for viral infections",
@@ -2092,8 +2268,8 @@ export const cieBioNotes = [
     "label": "Inheritance",
     "id": "0610_17_01",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "A chromosome is a DNA molecule made up of sections called genes.",
@@ -2156,16 +2332,16 @@ export const cieBioNotes = [
     "id": "0610_17_02",
     "label": "Sex determination",
     "type": "list",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "The ratio of male to female offspring is 1 : 1.",
     "id": "0610_17_02",
     "label": "",
     "type": "text",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
     "description": "",
@@ -2188,32 +2364,32 @@ export const cieBioNotes = [
     "id": "0610_17_03",
     "label": "Transcription",
     "type": "list",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Translation occurs in the cytoplasm.\nmRNA attaches to ribosome.\nRibosome reads mRNA codons.\ntRNA brings specific amino acids.\nAmino acids join to form a polypeptide chain",
     "id": "0610_17_03",
     "label": "Translation",
     "type": "list",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "DNA is made of nucleotides containing nucleotides: A, T, C, G.\nThe sequence of nucleotides in a gene forms a genetic code.\nEvery 3 bases (a triplet / codon) codes for one amino acid\nEach protein is made of amino acids joined in a specific order, which determines the shape of a protein.",
     "label": "Genetic code",
     "id": "0610_17_03",
     "type": "list",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
     "description": "DNA contains genes, which control which amino acids are used and the sequence of amino acids.\nDifferent amino acid sequences gives different folding which create a specific 3D shape.\nThe shape determines function of a protein (e.g. enzymes, antibodies, membrane carriers, receptors).",
     "label": "DNA and cell function",
     "id": "0610_17_03",
     "type": "list",
-    "status": "show",
-    "order": 6
+    "order": 6,
+    "status": "show"
   },
   {
     "description": "All body cells contain the same genes in their nuclei. Only some genes are switched on (expressed) in a cell and unused genes are switched off. Cells make only the proteins they need and this allows cells to become specialised.",
@@ -2236,8 +2412,8 @@ export const cieBioNotes = [
     "label": "Mitosis",
     "id": "0610_17_04",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Mitosis is nuclear division giving rise to genetically identical cells.",
@@ -2252,32 +2428,32 @@ export const cieBioNotes = [
     "id": "0610_17_04",
     "label": "",
     "type": "list",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "Growth: increases number of cells in an organism\nRepair: replaces damaged or worn-out cells\nReplacement: replaces old cells (e.g. skin cells)\nAsexual reproduction: produces genetically identical offspring",
     "id": "0610_17_04",
     "label": "Role of mitosis",
     "type": "list",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "Stem cells are unspecialised cells.\nThey can divide by mitosis.\nThey produce new cells that can become specialised.",
     "id": "0610_17_04",
     "label": "Stem cells",
     "type": "list",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
     "description": "",
     "id": "0610_17_05",
     "label": "Meiosis",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "Meiosis is a reduction division in which the chromosome number is halved from diploid to haploid, resulting in genetically different cells.",
@@ -2292,8 +2468,8 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_17_05",
     "type": "text",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "The cells formed are gametes (sperm and egg cell in mammals; ovule and pollen grain nuclei in flowering plants).\nDuring fertilisation, a sperm cell and an egg cell fuse to form a zygote, which restore the diploid number of chromosomes.",
@@ -2332,8 +2508,8 @@ export const cieBioNotes = [
     "id": "0610_17_07",
     "label": "",
     "type": "text",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "Term|Definition\nInheritance|the transmission of genetic information from generation to generation\nGenotype|the genetic make-up of an organism in terms of the alleles present\nPhenotype|the observable features of an organism\nHomozygous|having two identical alleles of a particular gene\nHeterozygous|having two different alleles of a particular gene\nDominant|an allele that is expressed if it is present in the genotype\nRecessive|an allele that is only expressed when there is no dominant allele of the gene present in the genotype\nCodominance|both alleles in heterozygous organisms contribute to the phenotype\nSex-linked characteristic|a feature in which the gene responsible is located on a sex chromosome, which makes it more common in one sex than in other",
@@ -2345,8 +2521,8 @@ export const cieBioNotes = [
   },
   {
     "description": "When all the offspring have the same characteristic as the parents, this is called pure breeding for this characteristic.",
-    "label": "Pure breeding",
     "id": "0610_17_07",
+    "label": "Pure breeding",
     "type": "text",
     "order": 4,
     "status": "show"
@@ -2380,32 +2556,32 @@ export const cieBioNotes = [
     "id": "0610_17_08",
     "label": "Patterns of inheritance",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "autosomal dominant inheritance\nautosomal recessive inheritance\ncodominant inheritance\nsex-linked recessive inheritance",
     "id": "0610_17_08",
     "label": "",
     "type": "list",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "A dominant allele is expressed if at least one copy is present.",
-    "label": "Autosomal dominant inheritance",
     "id": "0610_17_08",
+    "label": "Autosomal dominant inheritance",
     "type": "text",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "A dominant allele is represented by a capital letter (A).\nA dominant allele masks the recessive allele.\nThe allele is expressed in homozygous dominant (AA) or heterozygous (Aa) genotypes.",
     "label": "",
     "id": "0610_17_08",
     "type": "list",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "A recessive allele is expressed only when two copies are present.",
@@ -2420,40 +2596,40 @@ export const cieBioNotes = [
     "id": "0610_17_08",
     "label": "",
     "type": "list",
-    "order": 6,
-    "status": "show"
+    "status": "show",
+    "order": 6
   },
   {
     "description": "Genotype of parents|Genotype of offsprings|Phenotype of offsprings\nAA × AA|AA|all dominant\naa × aa|aa|all recessive\nAA × aa|Aa|all dominant\nAA × Aa|1AA : 1Aa|all dominant\nAa × aa|1Aa : 1aa|1 dominant : 1 recessive\nAa × Aa|1AA : 2Aa : 1aa|3 dominant : 1 recessive",
     "id": "0610_17_08",
     "label": "",
     "type": "table",
-    "status": "show",
-    "order": 7
+    "order": 7,
+    "status": "show"
   },
   {
     "description": "A test cross is a genetic cross used to find out whether an organism with a dominant phenotype is homozygous dominant (AA) or heterozygous (Aa). It is done by crossing the unknown organism with a homozygous recessive (aa) individual.",
     "id": "0610_17_08",
     "label": "Test-cross",
     "type": "text",
-    "order": 8,
-    "status": "show"
+    "status": "show",
+    "order": 8
   },
   {
     "description": "If all offspring show dominant trait, parent is AA.\nIf offspring show 1:1 ratio, parent is Aa.",
     "id": "0610_17_08",
     "label": "",
     "type": "list",
-    "status": "show",
-    "order": 9
+    "order": 9,
+    "status": "show"
   },
   {
     "description": "Both alleles are fully expressed in the phenotype.",
     "id": "0610_17_08",
     "label": "Codominant inheritance",
     "type": "text",
-    "order": 10,
-    "status": "show"
+    "status": "show",
+    "order": 10
   },
   {
     "description": "The ABO blood group is controlled by three alleles: Iᴬ, Iᴮ and Iᵒ.\nIᴬ and Iᴮ are codominant\nIᵒ is recessive",
@@ -2468,32 +2644,32 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_17_08",
     "type": "table",
-    "status": "show",
-    "order": 12
+    "order": 12,
+    "status": "show"
   },
   {
     "description": "",
     "label": "",
     "id": "0610_17_08",
     "type": "image",
-    "status": "show",
-    "order": 13
+    "order": 13,
+    "status": "show"
   },
   {
     "description": "",
-    "label": "Sex-linked recessive inheritance",
     "id": "0610_17_08",
+    "label": "Sex-linked recessive inheritance",
     "type": "list",
-    "order": 14,
-    "status": "show"
+    "status": "show",
+    "order": 14
   },
   {
     "description": "Genes located on the sex chromosomes, usually the X chromosome (e.g. red-green colorblindness).",
     "id": "0610_17_08",
     "label": "",
     "type": "text",
-    "status": "show",
-    "order": 15
+    "order": 15,
+    "status": "show"
   },
   {
     "description": "Males have only one X chromosome.\nRecessive allele on X is always expressed in males.\nFemales need two recessive alleles to be affected.\nFemales can be carriers.",
@@ -2504,68 +2680,68 @@ export const cieBioNotes = [
     "status": "show"
   },
   {
-    "description": "The affected male inherits the recessive allele from mother. The affected male pass the recessive allele to his daughters.",
+    "description": "The affected male inherits the recessive allele from mother. The affected male passes the recessive allele to his daughters.",
     "label": "",
     "id": "0610_17_08",
     "type": "text",
-    "order": 17,
-    "status": "show"
+    "status": "show",
+    "order": 17
   },
   {
     "description": "",
     "label": "Variation",
     "id": "0610_18_01",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Variation is the differences between individuals of the same species.",
-    "label": "",
     "id": "0610_18_01",
+    "label": "",
     "type": "text",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "Type of variation|Definition|Example\nContinuous variation|results in a range of phenotypes between two extremes, usually controlled by a number of genes and can be influenced by the environment|height, body mass\nDiscontinuous variation|limited number of phenotypes with no intermediates, caused by a single gene and cannot be changed by the environment|tongue rolling, eye colour, ABO blood group",
-    "label": "",
     "id": "0610_18_01",
+    "label": "",
     "type": "table",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "",
-    "id": "0610_18_02",
     "label": "Mutation",
+    "id": "0610_18_02",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Gene mutation is a random change in the base sequence of DNA.",
-    "id": "0610_18_02",
     "label": "",
+    "id": "0610_18_02",
     "type": "text",
     "status": "show",
     "order": 2
   },
   {
-    "description": "The change may be substitution of one base for another, insertion or deletion of bases. Mutation can lead to a different protein,  a faulty or non-functional enzyme. Most mutations are harmful, but some are neutral or beneficial.",
-    "id": "0610_18_02",
+    "description": "The change may be substitution of one base for another, insertion or deletion of bases. Mutation can lead to a different protein, a faulty or non-functional enzyme. Most mutations are harmful, but some are neutral or beneficial.",
     "label": "",
+    "id": "0610_18_02",
     "type": "text",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "New alleles arise through mutations in genes. A change in the DNA base sequence creates a new version (allele) of that gene. If mutation occurs in a gamete, it can be inherited by offspring. The new alleles increase genetic diversity.",
     "label": "",
     "id": "0610_18_02",
     "type": "text",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "Chemical mutagens\nIonising radiation\nUltraviolet radiation\nSmoking cigarette",
@@ -2576,12 +2752,12 @@ export const cieBioNotes = [
     "status": "show"
   },
   {
-    "description": "Process|Method\nMutation|creates new alleles\nMeiosis|crossing over and independent assortment of chromosomes\nRandom fertilisation|any sperm can fuse with any egg",
+    "description": "Process|Method\nMutation|creates new alleles\nMeiosis|shuffles existing alleles during gamete formation\nRandom fertilisation|any random sperm can fuse with any egg\nRandom mating|mixes genotypes across the gene pool",
     "id": "0610_18_02",
     "label": "Sources of genetic variation",
     "type": "table",
-    "status": "show",
-    "order": 6
+    "order": 6,
+    "status": "show"
   },
   {
     "description": "",
@@ -2620,11 +2796,11 @@ export const cieBioNotes = [
     "id": "0610_18_03",
     "label": "Cacti",
     "type": "table",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
-    "description": "Adaptation|Feature\nLong roots|reach deep water in the sun\nLeaf rolling|reduces surface area for transpiration\nSunken stomata|increases humidity\nFine hairs around the stomata|reduces air movement",
+    "description": "Adaptation|Feature\nLong roots|reach deep water in the sand\nLeaf rolling|reduces surface area for transpiration\nSunken stomata|increases humidity\nFine hairs around the stomata|reduces air movement",
     "label": "Marram grass (Ammophilia)",
     "id": "0610_18_03",
     "type": "table",
@@ -2650,18 +2826,26 @@ export const cieBioNotes = [
   {
     "description": "",
     "id": "0610_18_04",
-    "label": "Natural Selection",
+    "label": "Adaptation",
     "type": "title",
-    "order": 1,
+    "status": "show",
+    "order": 1
+  },
+  {
+    "description": "Adaptation is the process resulting from natural selection by which populations become more suited to their environment over many generations.",
+    "id": "0610_18_04",
+    "label": "",
+    "type": "text",
+    "order": 2,
     "status": "show"
   },
   {
     "description": "There is variation within a species due to mutations and genetic differences.\nSome variations give advantages for survival in certain environmental conditions. These advantageous characteristics are called adaptive features.\nWhen the environment changes, it creates a selection pressure.\nOrganisms without adaptive features are less likely to survive, while organisms with adaptive features are more likely to survive.\nSurviving organisms reproduce and pass their advantageous alleles to their offspring.",
+    "label": "Natural Selection",
     "id": "0610_18_04",
-    "label": "",
     "type": "list",
-    "status": "show",
-    "order": 2
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Over many generations, the advantageous alleles become more common in the population. The number of organisms with adaptive features increases over time. As a result, the population becomes better adapted to the new environment. This gradual change in inherited characteristics over time is called evolution by natural selection.",
@@ -2669,51 +2853,19 @@ export const cieBioNotes = [
     "id": "0610_18_04",
     "type": "text",
     "status": "show",
-    "order": 3
-  },
-  {
-    "description": "",
-    "label": "Adaptation",
-    "id": "0610_18_05",
-    "type": "title",
-    "order": 1,
-    "status": "show"
-  },
-  {
-    "description": "Adaptation is the process resulting from natural selection by which populations become more suited to their environment over many generations.",
-    "label": "",
-    "id": "0610_18_05",
-    "type": "text",
-    "status": "show",
-    "order": 2
-  },
-  {
-    "description": "There is variation within a population of bacteria due to mutations. Some bacteria may have a mutation that gives resistance to an antibiotic.\nWhen an antibiotic is used, it acts as a selection pressure.\nNon-resistant bacteria are killed by the antibiotic, while antibiotic-resistant bacteria survive.\nThe antibiotic-resistant bacteria reproduce asexually by binary fission, passing the resistance gene to their offspring.\nOver many generations, the number of antibiotic-resistant bacteria increases.\nEventually, most of the bacterial population becomes resistant to the antibiotic by natural selection.",
-    "label": "Antibiotic-resistant bacteria",
-    "id": "0610_18_05",
-    "type": "list",
-    "status": "show",
-    "order": 3
-  },
-  {
-    "description": "Overuse and misuse of antibiotics increase the development of antibiotic-resistant bacteria.",
-    "label": "",
-    "id": "0610_18_05",
-    "type": "text",
-    "status": "show",
     "order": 4
   },
   {
     "description": "",
-    "id": "0610_18_06",
     "label": "Selective breeding (selective breeding)",
+    "id": "0610_18_05",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Selective breeding is the process where humans choose  rganisms with desirable characteristics and breed them together to produce offspring with those desired traits.",
-    "id": "0610_18_06",
+    "id": "0610_18_05",
     "label": "",
     "type": "",
     "status": "show",
@@ -2722,22 +2874,22 @@ export const cieBioNotes = [
   {
     "description": "give higher yields\nresistance to certain diseases\nresistance to pests\nsurvive in hostile environment\nto have a better nutrients",
     "label": "Benefits of traditional selective breeding in plants",
-    "id": "0610_18_06",
+    "id": "0610_18_05",
     "type": "list",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "produce more meat, eggs, milk\nproduce more fur or better quality fur\nproduce more offsprings\nincrease resistance to pests and diseases",
+    "id": "0610_18_05",
     "label": "Benefits of traditional selective breeding in animals",
-    "id": "0610_18_06",
     "type": "list",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "",
-    "id": "0610_18_07",
+    "id": "0610_18_06",
     "label": "Comparison of natural and artificial selection",
     "type": "title",
     "status": "show",
@@ -2746,10 +2898,10 @@ export const cieBioNotes = [
   {
     "description": "Natural selection|Artificial selection\nOccurs without human involvement|Occurs with human control\nOrganisms with advantageous traits survive and reproduce|Humans choose organisms with desired traits\nOther organisms die before reproducing|Selected organisms are bred together\nLeads to adaptation to the environment|Used to produce useful economic traits\nOccurs slowly over many generations|Occurs faster than natural selection\nMaintains some natural variation in population|Can reduce genetic variation",
     "label": "",
-    "id": "0610_18_07",
+    "id": "0610_18_06",
     "type": "table",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "",
@@ -2764,16 +2916,16 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_19_01",
     "type": "text",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "Term|Definition\nfood chain|the diagram that shows the transfer of energy from one organism to the next; a food chain always begins with a producer\nfood web|a network of interconnected food chains\r\nproducer|an organism that makes its own organic nutrients from sunlight through photosynthesis\r\nconsumer|an organism that gets energy by feeding on other organisms\r\nherbivore|an animal that gets energy by eating plants\r\ncarnivore|an animal that gets energy by eating other animals\r\ndecomposer|an organism that gets energy from dead or waste organic material\r\ntrophic level|the position of an organism in a food chain, food web or ecological pyramid",
     "id": "0610_19_01",
     "label": "",
     "type": "table",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "",
@@ -2785,27 +2937,27 @@ export const cieBioNotes = [
   },
   {
     "description": "The pyramid of numbers represents the relative number of organisms at each trophic level. Sometimes the pyramid of numbers is upside down, for example fleas feeding on a bird like a bee-eater.",
-    "label": "Pyramid of numbers",
     "id": "0610_19_02",
+    "label": "Pyramid of numbers",
     "type": "text",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "The pyramid of biomass represents the proportion of dry mass of organisms at each trophic level. The pyramid of biomass is nearly always the correct pyramid shape.",
-    "label": "Pyramid of biomass",
     "id": "0610_19_02",
+    "label": "Pyramid of biomass",
     "type": "text",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "The pyramid of energy represents the proportion of energy available at each trophic level. Producers have the greatest amount of energy. Each successive level shows a reduced amount of energy. Approximately 10% of the energy is transferred to the next trophic level.",
-    "label": "Pyramid of energy",
     "id": "0610_19_02",
+    "label": "Pyramid of energy",
     "type": "text",
-    "order": 4,
-    "status": "show"
+    "status": "show",
+    "order": 4
   },
   {
     "description": "not every organism in that trophic level is eaten\r\nnot all of the organism is eaten\r\nnot all of the organism is digested and energy lost in faeces\r\nsome energy is lost as heat during respiration\r\nsome energy is lost in movement",
@@ -2820,40 +2972,40 @@ export const cieBioNotes = [
     "label": "The carbon cycle",
     "id": "0610_19_03",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "",
     "label": "",
     "id": "0610_19_03",
     "type": "image",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "Process|Description\nPhotosynthesis|Plants take in carbon dioxide and convert it into glucose using light energy.\nFossilisation|Dead organisms are buried and, over millions of years, form fossil fuels containing carbon.\nRespiration|Living organisms release carbon dioxide into the atmosphere by breaking down glucose.\nDecomposition|Microorganisms break down dead organisms and release carbon dioxide back into the air.\nCombustion|Burning fossil fuels or biomass releases carbon dioxide into the atmosphere.",
-    "id": "0610_19_03",
     "label": "",
+    "id": "0610_19_03",
     "type": "table",
     "order": 3,
     "status": "show"
   },
   {
     "description": "",
-    "id": "0610_19_04",
     "label": "The nitrogen cycle",
+    "id": "0610_19_04",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Plants absorb nitrates to make amino acids and proteins\r\nAnimals eat the proteins.\r\nProteins are broken down to remove the nitrogen by the process of deamination.\r\nSoil nitrates are derived naturally from excretory products of animals and the dead remains of living organisms.\r\nMicroorganisms are an important part in the nitrogen cycle. They are involved in decomposition, nitrification, denitrification and nitrogen fixation.\r",
-    "id": "0610_19_04",
     "label": "",
+    "id": "0610_19_04",
     "type": "list",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "",
@@ -2876,8 +3028,8 @@ export const cieBioNotes = [
     "label": "Ecosystem",
     "id": "0610_19_05",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "An ecosystem is a community of organisms and their environment, interacting together.",
@@ -2897,19 +3049,19 @@ export const cieBioNotes = [
   },
   {
     "description": "A community is all the populations of different species in an ecosystem.",
-    "label": "Community",
     "id": "0610_19_05",
+    "label": "Community",
     "type": "text",
     "order": 4,
     "status": "show"
   },
   {
     "description": "A population is a group of organisms of one species, living and interacting in the same area, at the same time.",
-    "label": "Population",
     "id": "0610_19_05",
+    "label": "Population",
     "type": "text",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
     "description": "a good food supply increases the population size\r\ncompetition among same species or different species limits the population growth\r\nincrease in predator decreases the population of preys\r\ndiseases decrease the population size",
@@ -2953,27 +3105,27 @@ export const cieBioNotes = [
   },
   {
     "description": "",
-    "label": "Monoculture",
     "id": "0610_20_02",
+    "label": "Monoculture",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Monoculture is the growing of one crop species over a large area. It replaces natural vegetation (trees, shrubs, grasses) with a single crop.",
-    "label": "",
     "id": "0610_20_02",
+    "label": "",
     "type": "text",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "Higher yield\nEasier use of machinery\nMore efficient and profitable\nLess competition for crops",
-    "label": "Advantages",
     "id": "0610_20_02",
+    "label": "Advantages",
     "type": "list",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "Reduces biodiversity (loss of natural habitats)\nDisrupts natural ecosystems\nCrops are more vulnerable to disease, drought, or flooding\nCauses soil nutrient depletion\nLeads to soil erosion and degradation\nWildlife is restricted to small uncultivated areas",
@@ -2988,37 +3140,37 @@ export const cieBioNotes = [
     "label": "Intensive livestock production",
     "id": "0610_20_03",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Intensive livestock farming is also called factory farming where animals (e.g. chickens, calves) are kept in large indoor sheds.",
     "label": "",
     "id": "0610_20_03",
     "type": "text",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "Very high yield\nAutomated systems (feeding, milking, egg collection)\nLess labour required\nEasier management and protection",
-    "id": "0610_20_03",
     "label": "Advantages",
+    "id": "0610_20_03",
     "type": "list",
     "order": 3,
     "status": "show"
   },
   {
     "description": "Waste can enter rivers and cause eutrophication.\nOvergrazing occurs when grass is eaten down to the roots and the soil is compacted by hooves, leading to soil erosion.\nDiseases spread more easily because animals are kept in crowded conditions.\nAnimals are less able to cope with extreme conditions.",
-    "label": "Negative impacts of intensive livestock production",
     "id": "0610_20_03",
+    "label": "Negative impacts of intensive livestock production",
     "type": "list",
     "order": 4,
     "status": "show"
   },
   {
     "description": "",
-    "label": "Habitats and biodiversity",
     "id": "0610_20_04",
+    "label": "Habitats and biodiversity",
     "type": "title",
     "order": 1,
     "status": "show"
@@ -3028,40 +3180,40 @@ export const cieBioNotes = [
     "label": "",
     "id": "0610_20_04",
     "type": "text",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "Intensive agriculture: removal of hedgerows to create larger fields, and monoculture crops replace diverse plant communities\nUrbanisation: building towns and cities destroys habitats\nExtraction of natural resources: to meet the increasing demand for raw materials and energy\nChemical pollution: industrial waste, sewage, and fertilisers, which can lead to bioaccumulation\nPlastic pollution: non-biodegradable plastics can have detrimental\r\neffects on aquatic and terrestrial ecosystems.",
     "label": "Causes of habitat loss",
     "id": "0610_20_04",
     "type": "list",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "Habitat destruction can disrupt food chains and food webs.\nIf one species is lost, organisms that depend on it for food may also decline.\nLoss of a predator can cause prey populations to increase uncontrollably.\nThis leads to imbalance in ecosystems and reduced biodiversity.\nIndirect effects can be severe, even if only one species is removed.",
-    "id": "0610_20_04",
     "label": "Negative effects of habitat destruction on food chains and food webs",
+    "id": "0610_20_04",
     "type": "list",
     "order": 4,
     "status": "show"
   },
   {
     "description": "Loss of habitats and food sources leads to extinction and reduced biodiversity\nSoil erosion increases, damaging land and aquatic habitats\nFlooding becomes more frequent and disrupts ecosystems\nCarbon dioxide increases due to fewer trees, causing global warming and climate change",
-    "id": "0610_20_04",
     "label": "Negative effects of deforestation",
+    "id": "0610_20_04",
     "type": "list",
-    "status": "show",
-    "order": 5
+    "order": 5,
+    "status": "show"
   },
   {
     "description": "",
-    "id": "0610_20_05",
     "label": "Eutrophication",
+    "id": "0610_20_05",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "",
@@ -3089,19 +3241,19 @@ export const cieBioNotes = [
   },
   {
     "description": "Carbon dioxide increases due to deforestation, burning fossil fuels, and increasing number of animals.\nCarbon dioxide (and methane) traps heat, causing the enhanced greenhouse effect and global warming.\nEffects include ice melting, sea level rise, extreme weather, and species extinction.\nSince the Industrial Revolution, carbon dioxide levels have steadily increased due to human activity.",
-    "id": "0610_20_06",
     "label": "",
+    "id": "0610_20_06",
     "type": "list",
-    "order": 2,
-    "status": "show"
+    "status": "show",
+    "order": 2
   },
   {
     "description": "",
-    "id": "0610_20_07",
     "label": "Conservation programmes",
+    "id": "0610_20_07",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "A sustainable resource is one that can be removed from the environment without it running out.",
@@ -3116,56 +3268,56 @@ export const cieBioNotes = [
     "id": "0610_20_07",
     "label": "Conservation of forests",
     "type": "list",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Education\nClosed seasons\nProtected areas\nControl of net types and mesh size\nLegal quotas\nMonitoring species population",
-    "label": "Conservation of fish stocks",
     "id": "0610_20_07",
+    "label": "Conservation of fish stocks",
     "type": "list",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "Using laws to protect the habitat\nUsing wardens to protect the habitat\nReducing public access to the habitat\nControlling water drainage or grazing to protect habitat destruction\nEducation\nCaptive breeding and reintroduction\nSeed banks (for plants)\nUse of Artificial Insemenation (AI) and In Vitro Fertilisation (IVF)  in captive breeding programmes",
     "id": "0610_20_07",
     "label": "Conservation of endangered species",
     "type": "list",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
     "description": "Reduced genetic variation and increased disease vulnerablility\nInbreeding and appearance of recessive traits\nHigher risk of extinction",
-    "id": "0610_20_07",
     "label": "Effects of decreasing population of a species",
+    "id": "0610_20_07",
     "type": "list",
-    "status": "show",
-    "order": 6
+    "order": 6,
+    "status": "show"
   },
   {
     "description": "",
-    "label": "Reason for conservation programmes",
     "id": "0610_20_08",
+    "label": "Reason for conservation programmes",
     "type": "title",
     "order": 1,
     "status": "show"
   },
   {
     "description": "Preserve a wide range of species\nMaintain genetic variation within species\nProtect habitats so more species can survive\nUse breeding programmes to increase variation",
-    "id": "0610_20_08",
     "label": "Increasing biodiversity",
+    "id": "0610_20_08",
     "type": "list",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "Protect endangered species from dying out\nUse captive breeding programmes (AI and IVF)\nReintroduce species into the wild\nStore seeds and genes in gene banks or seed banks",
     "label": "Reducing extinction",
     "id": "0610_20_08",
     "type": "list",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   },
   {
     "description": "Protect fragile habitats (e.g. wetlands, forests)\nCreate national parks and nature reserves\nPrevent habitat destruction (deforestation, drainage)\nRestore damaged ecosystems",
@@ -3180,21 +3332,21 @@ export const cieBioNotes = [
     "label": "Maintaining ecosystem functions",
     "id": "0610_20_08",
     "type": "list",
-    "status": "show",
-    "order": 5
+    "order": 5,
+    "status": "show"
   },
   {
     "description": "",
-    "label": "Biotechnology",
     "id": "0610_21_01",
+    "label": "Biotechnology",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "Biotechnology is the application of biological organisms, systems or processes to manufacturing and service industries.",
-    "label": "",
     "id": "0610_21_01",
+    "label": "",
     "type": "text",
     "status": "show",
     "order": 2
@@ -3204,24 +3356,24 @@ export const cieBioNotes = [
     "id": "0610_21_01",
     "label": "",
     "type": "table",
-    "order": 3,
-    "status": "show"
+    "status": "show",
+    "order": 3
   },
   {
     "description": "Bacteria can be grown easily and raise few ethical concerns.\nAll organisms share the same genetic code, so genes can be transferred.\nThey reproduce very quickly and produce large amounts of useful products in a short time.\nThey are very small and do not take much space.\nBacteria contain plasmids which can be used in genetic modification.\nThey can make complex molecules (e.g. insulin)",
     "id": "0610_21_01",
     "label": "Bacteria in biotechnology",
     "type": "list",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "Yeast respires without oxygen (fermentation)\nGlucose → ethanol + carbon dioxide\nBiofuels: ethanol is used as a renewable fuel\nBread-making: carbon dioxide makes dough rise (ethanol evaporates during baking)",
     "id": "0610_21_01",
     "label": "Anaerobic respiration in yeast",
     "type": "list",
-    "order": 5,
-    "status": "show"
+    "status": "show",
+    "order": 5
   },
   {
     "description": "Pectinase breaks down pectin in plant cell walls\nIncreases juice yield\nProduces clearer juice",
@@ -3233,19 +3385,19 @@ export const cieBioNotes = [
   },
   {
     "description": "Remove stains effectively at low temperatures\nProtease breaks down proteins into amino acids\nLipase breaks down fats into fatty acids and glycerol\nAmylase breaks down starch into sugars",
-    "label": "Biological washing powders",
     "id": "0610_21_01",
+    "label": "Biological washing powders",
     "type": "list",
-    "status": "show",
-    "order": 7
+    "order": 7,
+    "status": "show"
   },
   {
     "description": "Lactase breaks down lactose into glucose and galactose\nMakes milk suitable for lactose-intolerant people\nMilk tastes sweeter",
-    "label": "Lactase in lactose-free milk",
     "id": "0610_21_01",
+    "label": "Lactase in lactose-free milk",
     "type": "list",
-    "order": 8,
-    "status": "show"
+    "status": "show",
+    "order": 8
   },
   {
     "description": "Penicillium is grown and reproduced in suitable conditions.\nThe microorganism is inoculated into a sterile fermenter.\nIt undergoes exponential growth in the fermenter.\nNutrients, oxygen, temperature, and pH are carefully controlled.\nPenicillin is produced as a byproduct during growth.\nSamples are taken regularly to check when penicillin production is maximum.\nThe culture is removed from the fermenter.\nPenicillin is extracted, filtered, and purified.",
@@ -3260,40 +3412,40 @@ export const cieBioNotes = [
     "id": "0610_21_02",
     "label": "Industrial fermenter",
     "type": "title",
-    "status": "show",
-    "order": 1
+    "order": 1,
+    "status": "show"
   },
   {
     "description": "An industrial fermenter is a large vessel used to grow microorganisms (like yeast or bacteria) under controlled conditions to produce useful products such as antibiotics, enzymes, alcohol, and food additives.",
     "id": "0610_21_02",
     "label": "",
     "type": "text",
-    "status": "show",
-    "order": 2
+    "order": 2,
+    "status": "show"
   },
   {
     "description": "",
-    "id": "0610_21_02",
     "label": "",
+    "id": "0610_21_02",
     "type": "image",
     "order": 3,
     "status": "show"
   },
   {
     "description": "Nutrients|Nutrients are added into the fermenter through an inlet.\nAir|If the organism respire aerobically, filtered air is supplied through air inlet. The air is filtered to prevent contamination.\nTemperature|Respiration produces heat. To prevent overheating, the fermenter is surrounded by a water jacket, through which cold water circulates, keeping the temperature at the best level for growth.\npH|The pH of the contents can be adjusted by adding acid or alkali to keep it constant.\nStirring paddles|Stirring paddles mix up contents. This keeps the microorganisms in the suspension in the liquid to get more exposure to nutrients and to keep the temperature even throughout the vessel.\nWaste products|Gases such as carbon dioxide may be produced and are removed through an outlet, as they can be toxic to the cultured microorganisms.\nSterilisation|Before the fermenter is filled with nutrients and culture, it is cleaned and sterilised using very hot steam under high pressure. This prevents bacteria or fungi from competing with the cultured organism and avoids contamination by unwanted microorganisms.",
-    "id": "0610_21_02",
     "label": "Conditions controlled in a fermenter",
+    "id": "0610_21_02",
     "type": "table",
-    "status": "show",
-    "order": 4
+    "order": 4,
+    "status": "show"
   },
   {
     "description": "",
     "label": "Genetic modification",
     "id": "0610_21_03",
     "type": "title",
-    "order": 1,
-    "status": "show"
+    "status": "show",
+    "order": 1
   },
   {
     "description": "Genetic modification involves the transfer of genes from one organism to an unrelated species.",
@@ -3321,8 +3473,8 @@ export const cieBioNotes = [
   },
   {
     "description": "",
-    "id": "0610_21_04",
     "label": "Genetically-modified crops",
+    "id": "0610_21_04",
     "type": "title",
     "order": 1,
     "status": "show"
@@ -3340,8 +3492,8 @@ export const cieBioNotes = [
     "label": "Disadvantages",
     "id": "0610_21_04",
     "type": "list",
-    "status": "show",
-    "order": 3
+    "order": 3,
+    "status": "show"
   }
 ]
 
@@ -9915,27 +10067,27 @@ export const edexcelHBioChapters = [
 export const cieBioChapters = [
   {
     chapters: [
-      { chapterId: "0610_01", num: 1, label: "Characteristics and classification of living organisms", color: "#0000C0" },
-      { chapterId: "0610_02", num: 2, label: "Organisation of the organism", color: "#0000C0" },
-      { chapterId: "0610_03", num: 3, label: "Movement into and out of cells", color: "#0000C0" },
-      { chapterId: "0610_04", num: 4, label: "Biological molecules", color: "#0000C0" },
-      { chapterId: "0610_05", num: 5, label: "Enzymes", color: "#0000C0" },
-      { chapterId: "0610_06", num: 6, label: "Plant nutrition", color: "#00C000" },
-      { chapterId: "0610_07", num: 7, label: "Human nutrition", color: "#C00000" },
-      { chapterId: "0610_08", num: 8, label: "Transport in plants", color: "#00C000" },
-      { chapterId: "0610_09", num: 9, label: "Transport in animals", color: "#C00000" },
-      { chapterId: "0610_10", num: 10, label: "Diseases and immunity", color: "#C00000" },
-      { chapterId: "0610_11", num: 11, label: "Gas exchange in humans", color: "#C00000" },
-      { chapterId: "0610_12", num: 12, label: "Respiration", color: "#C00000" },
-      { chapterId: "0610_13", num: 13, label: "Excretion in humans", color: "#C00000" },
-      { chapterId: "0610_14", num: 14, label: "Coordination and response", color: "#C00000" },
-      { chapterId: "0610_15", num: 15, label: "Drugs", color: "#800080" },
-      { chapterId: "0610_16", num: 16, label: "Reproduction", color: "#C00000" },
-      { chapterId: "0610_17", num: 17, label: "Inheritance", color: "#0000C0" },
-      { chapterId: "0610_18", num: 18, label: "Variation and selection", color: "#800080" },
-      { chapterId: "0610_19", num: 19, label: "Organisms and their environment", color: "#800080" },
-      { chapterId: "0610_20", num: 20, label: "Human influences on ecosystems", color: "#800080" },
-      { chapterId: "0610_21", num: 21, label: "Biotechnology and genetic modification", color: "#800080" }
+      { chapterId: "0610_01", num: 1, paper2: "yes", color: "#0000C0", label: "Characteristics and classification of living organisms" },
+      { chapterId: "0610_02", num: 2, paper2: "yes", color: "#0000C0", label: "Organisation of the organism" },
+      { chapterId: "0610_03", num: 3, paper2: "yes", color: "#0000C0", label: "Movement into and out of cells" },
+      { chapterId: "0610_04", num: 4, paper2: "yes", color: "#0000C0", label: "Biological molecules" },
+      { chapterId: "0610_05", num: 5, paper2: "yes", color: "#0000C0", label: "Enzymes" },
+      { chapterId: "0610_06", num: 6, paper2: "yes", color: "#00C000", label: "Plant nutrition" },
+      { chapterId: "0610_07", num: 7, paper2: "yes", color: "#C00000", label: "Human nutrition" },
+      { chapterId: "0610_08", num: 8, paper2: "yes", color: "#00C000", label: "Transport in plants" },
+      { chapterId: "0610_09", num: 9, paper2: "yes", color: "#C00000", label: "Transport in animals" },
+      { chapterId: "0610_10", num: 10, paper2: "yes", color: "#C00000", label: "Diseases and immunity" },
+      { chapterId: "0610_11", num: 11, paper2: "yes", color: "#C00000", label: "Gas exchange in humans" },
+      { chapterId: "0610_12", num: 12, paper2: "yes", color: "#C00000", label: "Respiration" },
+      { chapterId: "0610_13", num: 13, paper2: "yes", color: "#C00000", label: "Excretion in humans" },
+      { chapterId: "0610_14", num: 14, paper2: "yes", color: "#C00000", label: "Coordination and response" },
+      { chapterId: "0610_15", num: 15, paper2: "yes", color: "#800080", label: "Drugs" },
+      { chapterId: "0610_16", num: 16, paper2: "yes", color: "#C00000", label: "Reproduction" },
+      { chapterId: "0610_17", num: 17, paper2: "yes", color: "#0000C0", label: "Inheritance" },
+      { chapterId: "0610_18", num: 18, paper2: "yes", color: "#800080", label: "Variation and selection" },
+      { chapterId: "0610_19", num: 19, paper2: "yes", color: "#800080", label: "Organisms and their environment" },
+      { chapterId: "0610_20", num: 20, paper2: "yes", color: "#800080", label: "Human influences on ecosystems" },
+      { chapterId: "0610_21", num: 21, paper2: "yes", color: "#800080", label: "Biotechnology and genetic modification" }
     ]
   }
 ]
