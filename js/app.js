@@ -246,7 +246,7 @@ function showAllNotes() {
 
 function navPaper2() {
   if (!selectedChapterId) { return; }
-  top.location.href = `../pages/_0610_p2.html?title=${selectedChapterId}`;
+  top.location.href = `../pages/mcq/0610p2.html?title=${selectedChapterId}`;
 }
 
 function setNoteUIState(state) {
