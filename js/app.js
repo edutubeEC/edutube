@@ -249,7 +249,7 @@ function navPaper2() {
     console.error("No chapter selected to navigate with.");
     return;
   }
-  window.location.href = `/pages/mcq/_0610_p2.html?title=${selectedChapterId}`;
+  window.location.href = `../pages/mcq/_0610_p2.html?title=${selectedChapterId}`;
 }
 
 function setNoteUIState(state) {
