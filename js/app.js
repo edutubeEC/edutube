@@ -245,11 +245,8 @@ function showAllNotes() {
 }
 
 function navPaper2() {
-  if (!selectedChapterId) {
-    console.error("No chapter selected to navigate with.");
-    return;
-  }
-  window.location.href = `/pages/mcq/_0610_p2.html?title=${selectedChapterId}`;
+  if (!selectedChapterId) { return; }
+  top.location.href = `../pages/_0610_p2.html?title=${selectedChapterId}`;
 }
 
 function setNoteUIState(state) {
