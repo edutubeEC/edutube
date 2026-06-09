@@ -19,9 +19,14 @@
 <body>
     <nav id="topbar"> </nav>
     <main id="quiz-screen">
-        <div id="quiz-setting"> </div>
+        <div id="loading-wrapper" role="status" aria-live="polite">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <span>Loading</span>
+        </div>
 
-        <div id="quiz-wrapper">
+        <div id="quiz-setting" class="hidden"> </div>
+
+        <div id="quiz-wrapper" class="hidden">
             <div id="counter"></div>
             <fieldset id="qBox">
                 <div id="qDescription"> </div>
@@ -31,7 +36,7 @@
                 <button id="nextBtn">Next</button>
             </div>
         </div>
-        <div id="result-wrapper">
+        <div id="result-wrapper" class="hidden">
             <div id="result"></div><br><br>
             <button id="backBtn">Back</button>
         </div>
@@ -40,19 +45,31 @@
 <script type="module">
     import * as utils from "../../js/utils.js";
 
+    const VIEWS = {
+        LOADING: "loading",
+        SETTINGS: "settings",
+        QUIZ: "quiz",
+        RESULT: "result"
+    };
+
+    const OPTIONS = ["A", "B", "C", "D"];
+
+    const QUESTION_COUNT_CHOICES = [
+        { text: "10 Questions", value: "10" },
+        { text: "20 Questions", value: "20" },
+        { text: "All Questions", value: "all" }
+    ];
+
     const DOM = {
+        loadingWrapper: document.getElementById("loading-wrapper"),
         counter: document.getElementById("counter"),
         quizSetting: document.getElementById("quiz-setting"),
         quizWrapper: document.getElementById("quiz-wrapper"),
         qBox: document.getElementById("qBox"),
         qDescription: document.getElementById("qDescription"),
         options: document.getElementById("options"),
-
-
         resultWrapper: document.getElementById("result-wrapper"),
         result: document.getElementById("result"),
-
-        // btnWrapper: document.getElementById("btn-wrapper"),
         nextBtn: document.getElementById("nextBtn"),
         backBtn: document.getElementById("backBtn")
     };
@@ -69,6 +86,7 @@
     let urlTopicFilter = null;
 
     async function init() {
+        showView(VIEWS.LOADING);
         utils.loadTopbar();
 
         const data = await import("../../data/0610.js");
@@ -78,15 +96,24 @@
         const urlParams = new URLSearchParams(window.location.search);
         urlTopicFilter = urlParams.get("title");
 
-        DOM.quizWrapper.classList.add("hidden");
-        DOM.resultWrapper.classList.add("hidden");
-        DOM.quizSetting.classList.remove("hidden");
-
         if (urlTopicFilter) {
             renderPaperListByTopic();
         } else {
             renderPaperListByYear();
         }
+
+        showView(VIEWS.SETTINGS);
+    }
+
+    function showView(view) {
+        DOM.loadingWrapper.classList.toggle("hidden", view !== VIEWS.LOADING);
+        DOM.quizSetting.classList.toggle("hidden", view !== VIEWS.SETTINGS);
+        DOM.quizWrapper.classList.toggle("hidden", view !== VIEWS.QUIZ);
+        DOM.resultWrapper.classList.toggle("hidden", view !== VIEWS.RESULT);
+    }
+
+    function waitForLoadingPaint() {
+        return new Promise(resolve => requestAnimationFrame(resolve));
     }
 
     function renderPaperListByYear() {
@@ -118,17 +145,16 @@
             if (e.target.name !== "paper") return;
 
             selectedPaper = e.target.value;
-
-            filterMcqByYear();
-
-            DOM.quizSetting.classList.add("hidden");
-            DOM.quizWrapper.classList.remove("hidden");
+            startYearQuiz();
         };
     }
 
-    function filterMcqByYear() {
+    async function startYearQuiz() {
+        showView(VIEWS.LOADING);
+        await waitForLoadingPaint();
+
         mcqState.selectedQuestions = questions.filter(q => q.paper === selectedPaper);
-        startQuiz();
+        await startQuiz();
     }
 
     function renderPaperListByTopic() {
@@ -141,24 +167,8 @@
 
         const numSelector = document.createElement("div");
 
-        const numQuestions = [
-            { text: "10 Questions", value: "10" },
-            { text: "20 Questions", value: "20" },
-            { text: "All Questions", value: "all" }
-        ];
-
-        numQuestions.forEach((choice) => {
-            const label = document.createElement("label");
-            label.className = "num-selector";
-
-            const radio = document.createElement("input");
-            radio.type = "radio";
-            radio.name = "num-questions";
-            radio.value = choice.value;
-
-            label.appendChild(radio);
-            label.append(choice.text);
-            numSelector.appendChild(label);
+        QUESTION_COUNT_CHOICES.forEach(choice => {
+            numSelector.appendChild(createQuestionCountOption(choice));
         });
 
         quizSetting.appendChild(labelTitle);
@@ -167,14 +177,32 @@
         quizSetting.onchange = (e) => {
             if (e.target.name !== "num-questions") return;
 
-            filterMcqByTopic();
-            DOM.quizSetting.classList.add("hidden");
-            DOM.quizWrapper.classList.remove("hidden");
+            startTopicQuiz();
         };
     }
 
-    function filterMcqByTopic() {
-        let filteredQuestions = questions.filter(q => q.topic === urlTopicFilter && (!q.show || q.show === "yes"));
+    function createQuestionCountOption(choice) {
+        const label = document.createElement("label");
+        label.className = "num-selector";
+
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "num-questions";
+        radio.value = choice.value;
+
+        label.appendChild(radio);
+        label.append(choice.text);
+
+        return label;
+    }
+
+    async function startTopicQuiz() {
+        showView(VIEWS.LOADING);
+        await waitForLoadingPaint();
+
+        const filteredQuestions = questions.filter(q =>
+            q.topic === urlTopicFilter && (!q.show || q.show === "yes")
+        );
 
         const selectedRadio = DOM.quizSetting.querySelector('input[name="num-questions"]:checked');
         const numQuestions = selectedRadio ? selectedRadio.value : "all";
@@ -183,81 +211,116 @@
             mcqState.selectedQuestions = filteredQuestions;
         } else {
             const limit = parseInt(numQuestions, 10);
-
-            const shuffled = [...filteredQuestions];
-            for (let i = shuffled.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-            }
-            mcqState.selectedQuestions = shuffled.slice(0, limit);
+            mcqState.selectedQuestions = shuffleQuestions(filteredQuestions).slice(0, limit);
         }
 
-        startQuiz();
+        await startQuiz();
     }
 
-    function startQuiz() {
+    function shuffleQuestions(questionList) {
+        const shuffled = [...questionList];
+
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+
+        return shuffled;
+    }
+
+    async function startQuiz() {
         mcqState.currentIndex = 0;
         mcqState.score = 0;
-        renderQuestion();
+        await renderQuestion();
+        showView(VIEWS.QUIZ);
     }
 
-    function renderQuestion() {
+    async function renderQuestion() {
         if (mcqState.selectedQuestions.length === 0) {
-            DOM.qDescription.innerHTML = "Please select a paper to start the quiz.";
+            DOM.counter.textContent = "";
+            DOM.qDescription.textContent = "No questions found for this selection.";
             DOM.options.innerHTML = "";
             DOM.qBox.disabled = true;
             return;
         }
 
         const q = mcqState.selectedQuestions[mcqState.currentIndex];
+        await preloadQuestionImages(q);
 
         DOM.counter.textContent = `Question ${mcqState.currentIndex + 1} / ${mcqState.selectedQuestions.length}`;
 
-        let qDesc = q.desc.replace(/\n/g, "<br>");
+        DOM.qDescription.innerHTML = formatQuestionDescription(q);
 
-        if (q.i) { qDesc = qDesc.replace("[[i]]", utils.renderImage(`../../${q.i}`)); }
-        if (q.i2) { qDesc = qDesc.replace("[[i2]]", utils.renderImage(`../../${q.i2}`)); }
-        if (q.t) { qDesc = qDesc.replace("[[t]]", utils.convertToTable(q.t)); }
-        if (q.t2) { qDesc = qDesc.replace("[[t2]]", utils.convertToTable(q.t2)); }
-
-        DOM.qDescription.innerHTML = qDesc;
-
-        const options = ["A", "B", "C", "D"];
         DOM.options.innerHTML = "";
+        DOM.options.appendChild(createOptions(q));
 
+        DOM.qBox.disabled = false;
+        DOM.nextBtn.disabled = false;
+    }
+
+    function formatQuestionDescription(q) {
+        let description = q.desc.replace(/\n/g, "<br>");
+
+        if (q.i) { description = description.replace("[[i]]", utils.renderImage(`../../${q.i}`)); }
+        if (q.i2) { description = description.replace("[[i2]]", utils.renderImage(`../../${q.i2}`)); }
+        if (q.t) { description = description.replace("[[t]]", utils.convertToTable(q.t)); }
+        if (q.t2) { description = description.replace("[[t2]]", utils.convertToTable(q.t2)); }
+
+        return description;
+    }
+
+    function createOptions(q) {
         const optionsWrapper = document.createElement("div");
-        optionsWrapper.classList.add("options-wrapper");
-
-        const hasDescription = options.some(opt => q[opt]);
+        const hasDescription = OPTIONS.some(opt => q[opt]);
 
         optionsWrapper.classList.add(
+            "options-wrapper",
             hasDescription ? "block-options" : "inline-options"
         );
 
-        options.forEach(opt => {
-            const label = document.createElement("label");
-            label.classList.add("option");
-
-            label.innerHTML = `
-                <input type="radio" name="option-${mcqState.currentIndex}" value="${opt}">
-                <div class="opt-description">
-                    <div class="opt-letter">${opt}</div>
-                    <div class="opt-text">${q[opt] ?? ""}</div>
-                </div>
-            `;
-
-            const input = label.querySelector("input");
-
-            input.addEventListener("change", (e) => {
-                handleAnswer(e.target.value);
-            });
-
-            optionsWrapper.appendChild(label);
+        OPTIONS.forEach(opt => {
+            optionsWrapper.appendChild(createOption(q, opt));
         });
 
-        DOM.options.appendChild(optionsWrapper);
+        return optionsWrapper;
+    }
 
-        DOM.qBox.disabled = false;
+    function createOption(q, opt) {
+        const label = document.createElement("label");
+        label.classList.add("option");
+
+        label.innerHTML = `
+            <input type="radio" name="option-${mcqState.currentIndex}" value="${opt}">
+            <div class="opt-description">
+                <div class="opt-letter">${opt}</div>
+                <div class="opt-text">${q[opt] ?? ""}</div>
+            </div>
+        `;
+
+        const input = label.querySelector("input");
+        input.addEventListener("change", (e) => {
+            handleAnswer(e.target.value);
+        });
+
+        return label;
+    }
+
+    function preloadQuestionImages(q) {
+        const imagePaths = ["i", "i2"]
+            .map(key => q[key])
+            .filter(Boolean)
+            .map(src => `../../${src}`);
+
+        return Promise.all(imagePaths.map(preloadImage));
+    }
+
+    function preloadImage(src) {
+        return new Promise(resolve => {
+            const image = new Image();
+            image.onload = resolve;
+            image.onerror = resolve;
+            image.src = src;
+        });
     }
 
     function handleAnswer(selected) {
@@ -282,34 +345,44 @@
         DOM.qBox.disabled = true;
     }
 
-    function handleNextQuestion() {
+    async function handleNextQuestion() {
         mcqState.currentIndex++;
         if (mcqState.currentIndex < mcqState.selectedQuestions.length) {
-            renderQuestion();
+            showView(VIEWS.LOADING);
+            await waitForLoadingPaint();
+            await renderQuestion();
+            showView(VIEWS.QUIZ);
         } else {
             showResult();
         }
     }
 
     function handleBack() {
-        DOM.resultWrapper.classList.add("hidden");
-        DOM.quizSetting.classList.remove("hidden");
-
         mcqState.currentIndex = 0;
         mcqState.score = 0;
+        mcqState.selectedQuestions = [];
+
+        if (urlTopicFilter) {
+            renderPaperListByTopic();
+        } else {
+            renderPaperListByYear();
+        }
+
+        showView(VIEWS.SETTINGS);
     }
 
-    document.addEventListener("click", (event) => {
+    document.addEventListener("click", async (event) => {
         const clickedButton = event.target.closest("button");
         if (!clickedButton) return;
 
         switch (true) {
             case clickedButton === DOM.nextBtn:
-                handleNextQuestion();
+                DOM.nextBtn.disabled = true;
+                await handleNextQuestion();
                 break;
 
             case clickedButton === DOM.backBtn:
-                location.reload();
+                handleBack();
                 break;
 
             default:
@@ -330,8 +403,7 @@
         result.appendChild(heading);
         result.appendChild(scoreText);
 
-        DOM.quizWrapper.classList.add("hidden");
-        DOM.resultWrapper.classList.remove("hidden");
+        showView(VIEWS.RESULT);
     }
 
     document.addEventListener("DOMContentLoaded", () => {

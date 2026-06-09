@@ -1,8 +1,7 @@
 import * as data from "./data.js";
 import * as classes from "./class.js";
-import * as ls__math from "./maths/ls-maths.js";
 
-let selectedSubject = null; // subject object
+let selectedSubject = null;
 let selectedChapterId = null;
 let selectedSubjectNotes = [];
 let selectedChapterNotes = [];
@@ -14,18 +13,14 @@ const DOM = {
   chaptersWrapper: document.getElementById("chapter-wrapper"),
   topicWrapper: document.getElementById("topic-wrapper"),
   noteWrapper: document.getElementById("note-wrapper"),
-  navBtns: document.getElementById("navBtns-wrapper"),
-
-  lsmcq__counter: document.getElementById("lsmcq--counter"),
-  lsmcq__qDescription: document.getElementById("lsmcq--qDescription"),
-  lsmcq__options: document.getElementById("lsmcq--options"),
-  lsmcq__qBox: document.getElementById("lsmcq--qBox"),
-  lsmcq__nextBtn: document.getElementById("lsmcq--nextBtn")
+  navBtns: document.getElementById("navBtns-wrapper")
 };
 
-let mcqState = {
-  currentIndex: 0,
-  score: 0
+const NOTE_UI_STATES = {
+  CHAPTERS: "chapters",
+  TOPICS: "topics",
+  NOTE: "note",
+  ALL_NOTES: "allNotes"
 };
 
 function loadTopbar() {
@@ -35,7 +30,7 @@ function loadTopbar() {
   const toggleBtn = document.createElement("span");
   toggleBtn.id = "toggleBtn";
   toggleBtn.className = "menu-icon";
-  toggleBtn.textContent = "≡";
+  toggleBtn.textContent = "=";
 
   const title = document.createElement("h2");
   title.textContent = "EDUTUBE";
@@ -50,73 +45,60 @@ function loadHome() {
 
   homeScreen.innerHTML = "";
 
-  Object.keys(data.syllabusData).forEach(key => {
-    const _syllabus = data.syllabusData[key];
+  Object.entries(data.syllabusData).forEach(([key, syllabus]) => {
 
     const card = new classes.SyllabusCard({
       className: "syllabus-card",
-      label: _syllabus.label,
-      code: _syllabus.code,
-      color: _syllabus.color,
+      label: syllabus.label,
+      code: syllabus.code,
+      color: syllabus.color,
       href: `pages/${key}.html`
     });
 
     homeScreen.appendChild(card.cardUI());
   });
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   loadTopbar();
   loadHome();
   loadNavBtns();
 
-  const path = window.location.pathname;
-  const subjectKey = path.split("/").filter(Boolean).pop().replace(".html", "");
+  const subjectKey = getCurrentSubjectKey();
 
   if (data.syllabusData[subjectKey]) {
     loadChapters(subjectKey);
   }
 });
 
+function getCurrentSubjectKey() {
+  const pageName = window.location.pathname.split("/").filter(Boolean).pop() || "";
+  return pageName.replace(/\.html$/i, "");
+}
+
+function createNavButton({ id, label, onClick }) {
+  const button = document.createElement("button");
+  button.className = "navBtn";
+  button.id = id;
+  button.textContent = label;
+  button.addEventListener("click", onClick);
+  return button;
+}
+
 function loadNavBtns() {
   if (!DOM.navBtns) return;
   DOM.navBtns.innerHTML = "";
 
-  const _homeBtn = document.createElement("button");
-  _homeBtn.className = "navBtn";
-  _homeBtn.id = "homeBtn";
-  _homeBtn.textContent = "Home";
-  _homeBtn.addEventListener("click", showChapters);
+  const buttons = [
+    { id: "homeBtn", label: "Home", onClick: showChapters },
+    { id: "prevBtn", label: "Prev", onClick: prevNote },
+    { id: "nextBtn", label: "Next", onClick: nextNote },
+    { id: "showAllBtn", label: "Show All", onClick: showAllNotes },
+    { id: "paper2Btn", label: "Paper 2", onClick: navPaper2 }
+  ];
 
-  const _prevBtn = document.createElement("button");
-  _prevBtn.className = "navBtn";
-  _prevBtn.id = "prevBtn";
-  _prevBtn.textContent = "◀";
-  _prevBtn.addEventListener("click", prevNote);
-
-  const _nextBtn = document.createElement("button");
-  _nextBtn.className = "navBtn";
-  _nextBtn.id = "nextBtn";
-  _nextBtn.textContent = "▶";
-  _nextBtn.addEventListener("click", nextNote);
-
-  const _showAllBtn = document.createElement("button");
-  _showAllBtn.className = "navBtn";
-  _showAllBtn.id = "showAllBtn";
-  _showAllBtn.textContent = "Show All";
-  _showAllBtn.addEventListener("click", showAllNotes);
-
-  const _paper2Btn = document.createElement("button");
-  _paper2Btn.className = "navBtn";
-  _paper2Btn.id = "paper2Btn";
-  _paper2Btn.textContent = "Paper 2";
-  _paper2Btn.addEventListener("click", navPaper2);
-
-  DOM.navBtns.appendChild(_homeBtn);
-  DOM.navBtns.appendChild(_prevBtn);
-  DOM.navBtns.appendChild(_nextBtn);
-  DOM.navBtns.appendChild(_showAllBtn);
-  DOM.navBtns.appendChild(_paper2Btn);
+  buttons.forEach(button => {
+    DOM.navBtns.appendChild(createNavButton(button));
+  });
 }
 
 function loadChapters(subjectKey) {
@@ -145,28 +127,28 @@ function loadChapters(subjectKey) {
           notes: chapterNotes,
           onClick: () => {
             selectedSubjectNotes = chapterNotes;
-            loadTopics();
             selectedChapterId = chapter.chapterId;
 
-            const _paper2Btn = document.getElementById("paper2Btn");
-            if (!paper2Btn || !chapter.paper2) { _paper2Btn.style.display = "none"; return; };
-            if (chapter.paper2 === "no") {
-              _paper2Btn.disabled = true;
-              _paper2Btn.classList.add("disabled");
-              _paper2Btn.removeEventListener("click", navPaper2);
-            } else {
-              _paper2Btn.disabled = false;
-              _paper2Btn.classList.remove("disabled");
-              _paper2Btn.removeEventListener("click", navPaper2);
-              _paper2Btn.addEventListener("click", navPaper2);
-            }
+            updatePaper2Button(chapter.paper2);
+            loadTopics();
           }
         }
       );
       chaptersWrapper.appendChild(chapterCard.cardUI());
     });
   });
-  setNoteUIState("chapters");
+  setNoteUIState(NOTE_UI_STATES.CHAPTERS);
+}
+
+function updatePaper2Button(paper2Status) {
+  const paper2Btn = document.getElementById("paper2Btn");
+  if (!paper2Btn) return;
+
+  const hasPaper2Link = Boolean(paper2Status) && paper2Status !== "no";
+
+  paper2Btn.style.display = paper2Status ? "" : "none";
+  paper2Btn.disabled = !hasPaper2Link;
+  paper2Btn.classList.toggle("disabled", !hasPaper2Link);
 }
 
 function loadTopics() {
@@ -189,7 +171,7 @@ function loadTopics() {
     topicWrapper.appendChild(card.cardUI());
   });
 
-  setNoteUIState("topics");
+  setNoteUIState(NOTE_UI_STATES.TOPICS);
 }
 
 function createNotes() {
@@ -205,25 +187,25 @@ function createNotes() {
   });
 
   updateVisibleNotes();
-  setNoteUIState("note");
+  setNoteUIState(NOTE_UI_STATES.NOTE);
 }
 
 function showChapters() {
   noteIndex = 0;
   selectedChapterNotes = [];
-  setNoteUIState("chapters");
+  setNoteUIState(NOTE_UI_STATES.CHAPTERS);
 }
 
 function showTopics() {
   noteIndex = 0;
-  setNoteUIState("topics");
+  setNoteUIState(NOTE_UI_STATES.TOPICS);
 }
 
 function prevNote() {
   if (noteIndex > 0) {
     noteIndex--;
     updateVisibleNotes();
-    setNoteUIState("note");
+    setNoteUIState(NOTE_UI_STATES.NOTE);
   }
 }
 
@@ -231,7 +213,7 @@ function nextNote() {
   if (noteIndex < selectedChapterNotes.length - 1) {
     noteIndex++;
     updateVisibleNotes();
-    setNoteUIState("note");
+    setNoteUIState(NOTE_UI_STATES.NOTE);
   }
 }
 
@@ -241,12 +223,12 @@ function showAllNotes() {
   Array.from(allCards).forEach(card => {
     card.style.display = "block";
   });
-  setNoteUIState("allNotes");
+  setNoteUIState(NOTE_UI_STATES.ALL_NOTES);
 }
 
 function navPaper2() {
   if (!selectedChapterId) { return; }
-  top.location.href = `../pages/mcq/0610p2.html?title=${selectedChapterId}`;
+  window.location.href = `../pages/mcq/0610p2.html?title=${selectedChapterId}`;
 }
 
 function setNoteUIState(state) {
@@ -260,14 +242,23 @@ function setNoteUIState(state) {
   const _nextBtn = document.getElementById("nextBtn");
   const _showAllBtn = document.getElementById("showAllBtn");
 
-  if (!_chaptersWrapper || !_topicsWrapper || !_notesWrapper || !_navBtns) return;
+  if (
+    !_chaptersWrapper ||
+    !_topicsWrapper ||
+    !_notesWrapper ||
+    !_navBtns ||
+    !_homeBtn ||
+    !_prevBtn ||
+    !_nextBtn ||
+    !_showAllBtn
+  ) return;
 
   _chaptersWrapper.classList.add("hidden");
   _topicsWrapper.classList.add("hidden");
   _notesWrapper.classList.add("hidden");
   _navBtns.classList.add("hidden");
 
-  if (state === "chapters") {
+  if (state === NOTE_UI_STATES.CHAPTERS) {
     _chaptersWrapper.classList.remove("hidden");
 
     _homeBtn.disabled = true;
@@ -276,7 +267,7 @@ function setNoteUIState(state) {
     _showAllBtn.disabled = true;
   }
 
-  if (state === "topics") {
+  if (state === NOTE_UI_STATES.TOPICS) {
     _topicsWrapper.classList.remove("hidden");
     _navBtns.classList.remove("hidden");
 
@@ -286,7 +277,7 @@ function setNoteUIState(state) {
     _showAllBtn.disabled = false;
   }
 
-  if (state === "note") {
+  if (state === NOTE_UI_STATES.NOTE) {
     _notesWrapper.classList.remove("hidden");
     _navBtns.classList.remove("hidden");
 
@@ -296,7 +287,7 @@ function setNoteUIState(state) {
     _showAllBtn.disabled = false;
   }
 
-  if (state === "allNotes") {
+  if (state === NOTE_UI_STATES.ALL_NOTES) {
     _notesWrapper.classList.remove("hidden");
     _navBtns.classList.remove("hidden");
 
@@ -318,96 +309,3 @@ function updateVisibleNotes() {
     }
   });
 }
-
-function toggleSidebar() {
-  DOM.chaptersWrapper.classList.toggle("hidden");
-}
-
-// function loadLSMathMCQ() {
-//   const q = ls__math.LMA11[mcqState.currentIndex];
-
-//   DOM.lsmcq__counter.textContent = `Question ${mcqState.currentIndex + 1} / ${ls__math.LMA11.length}`;
-
-//   // 1. Process the description: replace newlines first
-//   let processedDescription = q.description.replace(/\n/g, "<br>");
-
-//   // 2. Safely swap the [[svg]] tag with the actual inline SVG code if it exists
-//   if (q.svg) {
-//     processedDescription = processedDescription.replace("[[svg]]", q.svg);
-//   } else {
-//     // Fallback if there is no SVG, clear out the placeholder token
-//     processedDescription = processedDescription.replace("[[svg]]", "");
-//   }
-
-//   // 3. Inject the finalized markup into the container
-//   DOM.lsmcq__qDescription.innerHTML = processedDescription;
-
-//   DOM.lsmcq__options.innerHTML = "";
-
-//   const options = ["A", "B", "C", "D"];
-
-//   options.forEach(opt => {
-//     const label = document.createElement("label");
-//     label.classList.add("option");
-
-//     label.innerHTML = `
-//             <input type="radio" name="q${q.num}" value="${opt}">
-//             ${q["option" + opt]}
-//         `;
-
-//     const input = label.querySelector("input");
-//     input.addEventListener("change", (e) => handleAnswer(e.target.value));
-
-//     DOM.lsmcq__options.appendChild(label);
-//   });
-
-//   DOM.lsmcq__qBox.disabled = false;
-
-//   if (window.MathJax && MathJax.typesetPromise) {
-//     MathJax.typesetPromise();
-//   }
-// }
-
-// function handleAnswer(selected) {
-//   const q = ls__math.LMA11[mcqState.currentIndex];
-
-//   // check answer
-//   if (selected === q.answer) {
-//     mcqState.score++;
-//   }
-
-//   // highlight correct answer
-//   const labels = document.querySelectorAll(".option");
-
-//   labels.forEach(label => {
-//     const input = label.querySelector("input");
-
-//     if (input.value === q.answer) {
-//       label.style.background = "#c8f7c5"; // correct
-//     } else if (input.checked) {
-//       label.style.background = "#f7c5c5"; // wrong
-//     }
-//   });
-
-//   // FIX 2: Lock the question AFTER the grading logic runs
-//   DOM.lsmcq__qBox.disabled = true;
-// }
-
-// DOM.lsmcq__nextBtn.addEventListener("click", () => {
-//   mcqState.currentIndex++;
-
-//   if (mcqState.currentIndex < ls__math.LMA11.length) {
-//     loadLSMathMCQ();
-//   } else {
-//     showResult();
-//   }
-// });
-
-// function showResult() {
-//   document.getElementById("lsmcq--result").innerHTML = `
-//         <h2>Quiz Completed</h2>
-//         <p>Your score: ${mcqState.score} / ${ls__math.LMA11.length}</p>
-//     `;
-// }
-
-// loadLSMathMCQ();
