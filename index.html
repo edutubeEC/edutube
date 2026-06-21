@@ -25,8 +25,8 @@
   </main>
 
   <script type="module">
-    import * as utils from "/js/utils.js";
-    import * as classes from "/js/class.js";
+    import * as utils from "./js/utils.js";
+    import * as classes from "./js/class.js";
 
     let syllabusData = [];
 
@@ -36,7 +36,7 @@
 
     async function init() {
       utils.loadTopbar();
-      const data = await import("/data/syllabus.js");
+      const data = await import("./data/syllabus.js");
       syllabusData = data.syllabusData;
       console.log(syllabusData);
       loadHome();
