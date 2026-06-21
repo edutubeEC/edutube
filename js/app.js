@@ -159,7 +159,7 @@ function loadTopics() {
   selectedChapterNotes = selectedSubjectNotes.filter(note => note.type === "title");
 
   selectedChapterNotes.forEach((topic, index) => {
-    const card = new classes.SelectableCard({
+    const card = new classes.NavCard({
       className: "topic-card",
       label: topic.label,
       onClick: () => {
