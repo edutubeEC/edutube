@@ -1,9 +1,9 @@
-export class SelectableCard {
+export class NavCard {
     constructor(data = {}) { this.data = data; }
 
     cardUI() {
         const card = document.createElement("div");
-        card.className = `${this.data.className}` || "";
+        card.className = this.data.className || "";
 
         if (this.data.onClick) {
             card.addEventListener("click", (e) => {
@@ -34,11 +34,14 @@ export class SelectableCard {
     }
 }
 
-export class SyllabusCard extends SelectableCard {
+export class SyllabusCard extends NavCard {
     constructor(data = {}) { super(data); }
 
     cardUI() {
         const card = super.cardUI();
+
+        const textContainer = document.createElement("div");
+        textContainer.className = "card-text-container";
 
         if (this.data.code) {
             const code = document.createElement("div");
@@ -46,11 +49,31 @@ export class SyllabusCard extends SelectableCard {
             code.innerHTML = `<h6>[${this.data.code}]</h6>`;
             card.appendChild(code);
         }
+
+        const label = card.querySelector(".card-label");
+        if (label) textContainer.appendChild(label);
+        card.prepend(textContainer);
+
+        const actions = document.createElement("div");
+        actions.className = "card-actions";
+
+        if (Array.isArray(this.data.navigation)) {
+            this.data.navigation.forEach(nav => {
+                const btn = document.createElement("a");
+                btn.href = nav.href;
+                btn.className = "nav-btn";
+                btn.textContent = nav.label; // Use the label from your object
+                btn.addEventListener("click", (e) => e.stopPropagation());
+                actions.appendChild(btn);
+            });
+        }
+
+        card.appendChild(actions);
         return card;
     }
 }
 
-export class ChapterCard extends SelectableCard {
+export class ChapterCard extends NavCard {
     constructor(data = {}) { super(data); }
 
     cardUI() {

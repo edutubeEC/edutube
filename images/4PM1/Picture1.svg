@@ -1,0 +1,40 @@
+<svg width="1817" height="746" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
+    <g transform="translate(2 17)" font-size="55"
+        font-family="Times New Roman,Times New Roman_MSFontService,sans-serif" font-weight="400">
+        <text transform="matrix(1 0 0 1 1403.19 53)">
+            <tspan>Diagram</tspan>
+            <tspan font-weight="700" x="206.823" y="0">NOT</tspan>
+            <tspan x="0" y="66">accurately drawn</tspan>
+        </text>
+        <text font-style="italic" transform="matrix(1 0 0 1 623.683 120)">
+            <tspan>A</tspan>
+            <tspan x="0" y="271">R</tspan>
+            <tspan x="0" y="527">B</tspan>
+            <tspan x="311.94" y="271">O</tspan>
+            <tspan x="102.79" y="271">θ</tspan>
+            <tspan font-style="normal" x="143.468" y="271">rad</tspan>
+            <tspan font-style="normal" x="139.487" y="117">7 cm</tspan>
+            <tspan font-style="normal" x="139.487" y="425">7 cm</tspan>
+        </text>
+        <path
+            d="M641 163 649.194 172.884C687.584 229.437 710 297.613 710 371 710 444.387 687.584 512.563 649.194 569.116L641 579 632.806 569.116C594.416 512.563 572 444.387 572 371 572 297.613 594.416 229.437 632.806 172.884Z"
+            fill="#D3D2D2" fill-rule="evenodd" />
+        <path
+            d="M572.5 372C572.5 176.215 731.439 17.5 927.5 17.5 1123.56 17.5 1282.5 176.215 1282.5 372 1282.5 567.785 1123.56 726.5 927.5 726.5 731.439 726.5 572.5 567.785 572.5 372Z"
+            stroke="#000000" stroke-width="4.58333" stroke-miterlimit="8" fill="none"
+            fill-rule="evenodd" />
+        <path
+            d="M0.499836 372C0.499836 176.215 159.439 17.5 355.5 17.5 551.561 17.5 710.5 176.215 710.5 372 710.5 567.785 551.561 726.5 355.5 726.5 159.439 726.5 0.499836 567.785 0.499836 372Z"
+            stroke="#000000" stroke-width="4.58333" stroke-miterlimit="8" fill="none"
+            fill-rule="evenodd" />
+        <path d="M641.5 163.5 927.5 371.739" stroke="#000000" stroke-width="4.58333"
+            stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none"
+            fill-rule="evenodd" />
+        <path d="M0 0 286 209.315" stroke="#000000" stroke-width="4.58333" stroke-linecap="round"
+            stroke-linejoin="round" stroke-miterlimit="10" fill="none" fill-rule="evenodd"
+            transform="matrix(1 0 0 -1 641.5 580.815)" />
+        <path d="M856.626 423.997C833.654 392.906 833.806 350.426 857 319.5" stroke="#000000"
+            stroke-width="3.4375" stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+    </g>
+</svg>

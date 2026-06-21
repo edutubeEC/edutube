@@ -258,6 +258,70 @@
         DOM.nextBtn.disabled = false;
     }
 
+    // async function renderAllQuestions() {
+    //     DOM.qDescription.innerHTML = ""; // Clear existing
+    //     DOM.options.innerHTML = "";      // Clear existing
+
+    //     // Preload all images first
+    //     await Promise.all(mcqState.selectedQuestions.map(q => preloadQuestionImages(q)));
+
+    //     mcqState.selectedQuestions.forEach((q, index) => {
+    //         const questionBlock = document.createElement("div");
+    //         questionBlock.className = "question-card";
+    //         questionBlock.dataset.index = index;
+
+    //         // Add description
+    //         const desc = document.createElement("div");
+    //         desc.innerHTML = `<strong>Q${index + 1}:</strong> ${formatQuestionDescription(q)}`;
+    //         questionBlock.appendChild(desc);
+
+    //         // Add options
+    //         const opts = createOptionsForBulk(q, index);
+    //         questionBlock.appendChild(opts);
+
+    //         DOM.qDescription.appendChild(questionBlock);
+    //     });
+    // }
+
+    // function createOptionsForBulk(q, index) {
+    //     const optionsWrapper = document.createElement("div");
+    //     optionsWrapper.classList.add("options-wrapper", "block-options");
+
+    //     OPTIONS.forEach(opt => {
+    //         const label = document.createElement("label");
+    //         label.classList.add("option");
+    //         label.innerHTML = `
+    //         <input type="radio" name="question-${index}" value="${opt}">
+    //         <span>${opt}: ${q[opt] ?? ""}</span>
+    //     `;
+    //         optionsWrapper.appendChild(label);
+    //     });
+    //     return optionsWrapper;
+    // }
+
+    // function handleSubmitQuiz() {
+    //     let score = 0;
+    //     mcqState.selectedQuestions.forEach((q, index) => {
+    //         const selected = document.querySelector(`input[name="question-${index}"]:checked`)?.value;
+    //         const labels = document.querySelectorAll(`input[name="question-${index}"]`);
+
+    //         // Visual feedback
+    //         labels.forEach(input => {
+    //             const parent = input.closest(".option");
+    //             if (input.value === q.ans) {
+    //                 parent.style.background = "#c8f7c5";
+    //             } else if (input.checked && input.value !== q.ans) {
+    //                 parent.style.background = "#f7c5c5";
+    //             }
+    //         });
+
+    //         if (selected === q.ans) score++;
+    //     });
+
+    //     mcqState.score = score;
+    //     showResult();
+    // }
+
     function formatQuestionDescription(q) {
         let description = q.desc.replace(/\n/g, "<br>");
 

@@ -8,7 +8,7 @@
     content="Free IGCSE Biology Notes for Edexcel and CIE students. Clear, exam-focused revision notes.">
   <title>Edutube</title>
   <link rel="stylesheet" href="css/style.css">
-  <script type="module" src="js/app.js"></script>
+  <!-- <script type="module" src="js/app.js"></script> -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYWV6MV4GQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -20,7 +20,71 @@
 
 <body>
   <nav id="topbar"> </nav>
-  <main id="homeScreen"> </main>
+  <main id="homeScreen">
+    <div id="homeContent"> </div>
+  </main>
+
+  <script type="module">
+    import * as utils from "/js/utils.js";
+    import * as classes from "/js/class.js";
+
+    let syllabusData = [];
+
+    const DOM = {
+      contentWrapper: document.getElementById("homeContent")
+    };
+
+    async function init() {
+      utils.loadTopbar();
+      const data = await import("/data/syllabus.js");
+      syllabusData = data.syllabusData;
+      console.log(syllabusData);
+      loadHome();
+    }
+
+    function loadHome() {
+      const contentWrapper = DOM.contentWrapper;
+      if (!contentWrapper) return;
+      contentWrapper.innerHTML = "";
+
+      // 1. Group data by board
+      const groups = {
+        "Pearson Edexcel": [],
+        "Cambridge International": []
+      };
+
+      Object.values(syllabusData).forEach(s => {
+        if (groups[s.board]) {
+          groups[s.board].push(s);
+        }
+      });
+
+      // 2. Render each group
+      Object.entries(groups).forEach(([boardName, subjects]) => {
+        // Create a section title
+        const sectionTitle = document.createElement("h2");
+        sectionTitle.textContent = boardName;
+        sectionTitle.style.margin = "20px 0 10px 20px";
+        contentWrapper.appendChild(sectionTitle);
+
+        // Render cards for this board
+        subjects.forEach(syllabus => {
+          const card = new classes.SyllabusCard({
+            className: "syllabus-card",
+            label: syllabus.label,
+            code: syllabus.code,
+            color: syllabus.color,
+            navigation: syllabus.navigation
+          });
+          contentWrapper.appendChild(card.cardUI());
+        });
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      init();
+    });
+  </script>
 </body>
 
 </html>

@@ -62,11 +62,10 @@ fieldset {
   cursor: pointer;
 }
 
-#homeScreen {
+#homeContent {
   padding-top: 20px;
   height: calc(100vh - 40px);
   display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
   justify-content: center;
   gap: 10px;
   align-content: start;
@@ -74,34 +73,13 @@ fieldset {
 }
 
 .syllabus-card {
-  width: 250px;
-  height: 70px;
-  padding: 10px;
-  font-size: 1.3em;
-  font-weight: 600;
-  color: #111;
-  background: var(--surface);
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 18px;
-  box-shadow: var(--shadow-card);
-  cursor: pointer;
-  transition:
-    background-color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
-  text-align: center;
-  animation: popIn 0.4s ease;
-}
-
-.syllabus-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-  background: #f8fbff;
-}
-
-#content-wrapper {
-  padding: 10px 20px 50px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
 
 #navBtns-wrapper {
@@ -109,6 +87,21 @@ fieldset {
   justify-content: center;
   align-content: center;
   gap: 10px;
+}
+
+.card-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.nav-btn {
+  padding: 6px 12px;
+  background: #e2e8f0;
+  text-decoration: none;
+  color: #333;
+  border-radius: 4px;
+  font-size: 0.8rem;
 }
 
 #navBtns-wrapper.hidden {

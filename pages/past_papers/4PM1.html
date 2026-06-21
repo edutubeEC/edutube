@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description">
+    <title>Edutube</title>
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYWV6MV4GQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QYWV6MV4GQ');
+    </script>
+    <style>
+        /* Force Times New Roman globally */
+        #mathQ * {
+            font-family: "Times New Roman", Times, serif !important;
+        }
+
+        /* Proper structural alignment for list blocks */
+        .list-item {
+            display: flex;
+            align-items: baseline;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+
+        /* Indentation for main subquestions (a), (b) */
+        .alpha-list {
+            margin-left: 0;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .alpha-text-indent {
+            padding-left: 35px;
+        }
+
+        /* Deeper nested indentation for roman numeral lists (i), (ii) */
+        .roman-list {
+            margin-left: 35px;
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+
+        .roman-text-indent {
+            padding-left: 70px;
+        }
+
+        /* Fixed tab-width marker to align all following text perfectly */
+        .list-marker {
+            min-width: 35px;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        .list-content {
+            flex-grow: 1;
+        }
+
+        .regular-text {
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        /* Extra separation spacing when a new text paragraph follows right after a list list block */
+        .list-item+.regular-text {
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                processEscapes: true
+            },
+            chtml: {
+                mtextInheritFont: true,
+                merrorInheritFont: true
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</head>
+
+<body>
+    <nav id="topbar"> </nav>
+    <main id="quiz-screen">
+        <div id="loading-wrapper" role="status" aria-live="polite">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <span>Loading</span>
+        </div>
+
+        <div id="mathQ">
+            <div id="quiz-setting" class="hidden"> </div>
+
+            <div id="quiz-wrapper" class="hidden">
+                <div id="counter"></div>
+                <fieldset id="qBox">
+                    <div id="qDescription"> </div>
+                </fieldset>
+                <div id="btn-wrapper">
+                    <button id="nextBtn">Next</button>
+                </div>
+            </div>
+            <div id="result-wrapper" class="hidden">
+                <div id="result"></div><br><br>
+                <button id="backBtn">Back to Selection</button>
+            </div>
+        </div>
+    </main>
+</body>
+<script type="module">
+    import * as utils from "../../js/utils.js";
+
+    const VIEWS = {
+        LOADING: "loading",
+        SETTINGS: "settings",
+        QUIZ: "quiz",
+        RESULT: "result"
+    };
+
+    const QUESTION_COUNT_CHOICES = [
+        { text: "10 Questions", value: "10" },
+        { text: "20 Questions", value: "20" },
+        { text: "All Questions", value: "all" }
+    ];
+
+    const DOM = {
+        loadingWrapper: document.getElementById("loading-wrapper"),
+        counter: document.getElementById("counter"),
+        quizSetting: document.getElementById("quiz-setting"),
+        quizWrapper: document.getElementById("quiz-wrapper"),
+        qBox: document.getElementById("qBox"),
+        qDescription: document.getElementById("qDescription"),
+        resultWrapper: document.getElementById("result-wrapper"),
+        result: document.getElementById("result"),
+        nextBtn: document.getElementById("nextBtn"),
+        backBtn: document.getElementById("backBtn")
+    };
+
+    const viewState = {
+        groupedQuestions: [],
+        currentIndex: 0
+    };
+
+    let questions = [];
+    let yearList = [];
+    let selectedPaper;
+    let urlTopicFilter = null;
+
+    async function init() {
+        showView(VIEWS.LOADING);
+        utils.loadTopbar();
+
+        const data = await import("../../data/4PM1.js");
+        questions = data.qp_4PM1_questions;
+        yearList = data.qp_4PM1_list;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        urlTopicFilter = urlParams.get("title");
+
+        if (urlTopicFilter) {
+            renderPaperListByTopic();
+        } else {
+            renderPaperListByYear();
+        }
+
+        showView(VIEWS.SETTINGS);
+    }
+
+    function showView(view) {
+        DOM.loadingWrapper.classList.toggle("hidden", view !== VIEWS.LOADING);
+        DOM.quizSetting.classList.toggle("hidden", view !== VIEWS.SETTINGS);
+        DOM.quizWrapper.classList.toggle("hidden", view !== VIEWS.QUIZ);
+        DOM.resultWrapper.classList.toggle("hidden", view !== VIEWS.RESULT);
+    }
+
+    function waitForLoadingPaint() {
+        return new Promise(resolve => requestAnimationFrame(resolve));
+    }
+
+    function groupQuestionsByQid(questionList) {
+        const grouped = {};
+        questionList.forEach(q => {
+            if (!grouped[q.qid]) {
+                grouped[q.qid] = [];
+            }
+            grouped[q.qid].push(q);
+        });
+        return Object.values(grouped);
+    }
+
+    function sortQuestionGroup(group) {
+        return group.sort((a, b) => {
+            if (a.num1 && b.num1) {
+                return a.num1.localeCompare(b.num1);
+            }
+            return 0;
+        });
+    }
+
+    function renderPaperListByYear() {
+        const quizSetting = DOM.quizSetting;
+        quizSetting.innerHTML = "";
+
+        const list = yearList;
+        const years = utils.getYears(list);
+        const grouped = utils.groupByYear(list);
+
+        years.forEach(year => {
+            const block = utils.createYearWrapper(year, grouped[year]);
+            quizSetting.appendChild(block);
+        });
+
+        utils.addAllClassesProperty(".year-content", "hidden");
+
+        quizSetting.onclick = (e) => {
+            const header = e.target.closest(".year-header");
+            if (!header) return;
+
+            const year = header.dataset.year;
+
+            utils.addAllClassesProperty(".year-content", "hidden");
+            utils.removeIdProperty(`year-${year}`, "hidden");
+        };
+
+        quizSetting.onchange = (e) => {
+            if (e.target.name !== "paper") return;
+
+            selectedPaper = e.target.value;
+            startYearQuiz();
+        };
+    }
+
+    async function startYearQuiz() {
+        showView(VIEWS.LOADING);
+        await waitForLoadingPaint();
+
+        const filtered = questions.filter(q => q.paper === selectedPaper);
+        const rawGroups = groupQuestionsByQid(filtered);
+        viewState.groupedQuestions = groupQuestionsByQid(filtered);
+
+        await startQuiz();
+    }
+
+    function renderPaperListByTopic() {
+        const quizSetting = DOM.quizSetting;
+        quizSetting.innerHTML = "";
+
+        const labelTitle = document.createElement("div");
+        labelTitle.className = "title";
+        labelTitle.textContent = "Number of Questions";
+
+        const numSelector = document.createElement("div");
+
+        QUESTION_COUNT_CHOICES.forEach(choice => {
+            numSelector.appendChild(createQuestionCountOption(choice));
+        });
+
+        quizSetting.appendChild(labelTitle);
+        quizSetting.appendChild(numSelector);
+
+        quizSetting.onchange = (e) => {
+            if (e.target.name !== "num-questions") return;
+
+            startTopicQuiz();
+        };
+    }
+
+    function createQuestionCountOption(choice) {
+        const label = document.createElement("label");
+        label.className = "num-selector";
+
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "num-questions";
+        radio.value = choice.value;
+
+        label.appendChild(radio);
+        label.append(choice.text);
+
+        return label;
+    }
+
+    async function startTopicQuiz() {
+        showView(VIEWS.LOADING);
+        await waitForLoadingPaint();
+
+        const filteredQuestions = questions.filter(q =>
+            q.topic === urlTopicFilter && (!q.show || q.show === "yes")
+        );
+
+        const selectedRadio = DOM.quizSetting.querySelector('input[name="num-questions"]:checked');
+        const numQuestions = selectedRadio ? selectedRadio.value : "all";
+
+        let finalQuestions = filteredQuestions;
+        if (numQuestions !== "all") {
+            const limit = parseInt(numQuestions, 10);
+            finalQuestions = shuffleQuestions(filteredQuestions).slice(0, limit);
+        }
+
+        viewState.groupedQuestions = groupQuestionsByQid(finalQuestions);
+
+        await startQuiz();
+    }
+
+    function shuffleQuestions(questionList) {
+        const shuffled = [...questionList];
+
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+
+        return shuffled;
+    }
+
+    async function startQuiz() {
+        viewState.currentIndex = 0;
+        await renderQuestion();
+        showView(VIEWS.QUIZ);
+    }
+
+    async function renderQuestion() {
+        if (viewState.groupedQuestions.length === 0) {
+            DOM.counter.textContent = "";
+            DOM.qDescription.textContent = "No questions found for this selection.";
+            DOM.qBox.disabled = true;
+            return;
+        }
+
+        const qGroup = viewState.groupedQuestions[viewState.currentIndex];
+        await Promise.all(qGroup.map(q => preloadQuestionImages(q)));
+
+        DOM.counter.textContent = `Question ${viewState.currentIndex + 1} / ${viewState.groupedQuestions.length}`;
+
+        let groupHtml = `<h3 style="margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">Question ${qGroup[0].num}</h3>`;
+
+        qGroup.forEach(q => {
+            groupHtml += formatQuestionDescription(q);
+        });
+
+        DOM.qDescription.innerHTML = groupHtml;
+        DOM.qBox.disabled = false;
+        DOM.nextBtn.disabled = false;
+
+        if (window.MathJax) {
+            MathJax.typesetPromise([DOM.qDescription]).catch((err) => console.log(err.message));
+        }
+    }
+
+    function formatQuestionDescription(q) {
+        const lines = q.desc.split('\n');
+        let processedLines = [];
+
+        let currentState = 'root';
+
+        const romanMap = { "1": "i", "2": "ii", "3": "iii", "4": "iv", "5": "v", "6": "vi" };
+
+        lines.forEach(line => {
+            let trimmed = line.trim();
+            if (!trimmed) return;
+
+            // 1. Process #1, #2, #3 structures -> Render as (i), (ii), (iii)
+            const romanMatch = trimmed.match(/^#(\d+)\s*(.*)/);
+            if (romanMatch) {
+                currentState = 'roman';
+                const markerDigit = romanMatch[1];
+                const content = romanMatch[2];
+                const romanNumeral = romanMap[markerDigit] || markerDigit;
+                processedLines.push(`
+                    <div class="list-item roman-list">
+                        <span class="list-marker">(${romanNumeral})</span>
+                        <span class="list-content">${content}</span>
+                    </div>
+                `);
+                return;
+            }
+
+            // 2. Process #a, #b, #c structures -> Render as (a), (b), (c)
+            const alphaMatch = trimmed.match(/^#([a-zA-Z]+)\s*(.*)/);
+            if (alphaMatch) {
+                currentState = 'alpha';
+                const letter = alphaMatch[1];
+                let content = alphaMatch[2].trim();
+
+                const inlineRomanMatch = content.match(/^#(\d+)\s*(.*)/);
+
+                if (inlineRomanMatch) {
+                    currentState = 'roman'; // Update state for any following standalone lines (like #2)
+                    const markerDigit = inlineRomanMatch[1];
+                    const actualContent = inlineRomanMatch[2];
+                    const romanNumeral = romanMap[markerDigit] || markerDigit;
+
+                    processedLines.push(`
+                        <div class="list-item alpha-list">
+                            <span class="list-marker"><strong>(${letter})</strong></span>
+                            <span class="list-content" style="display: flex; align-items: baseline; width: 100%;">
+                                <span class="list-marker">(${romanNumeral})</span>
+                                <span class="list-content">${actualContent}</span>
+                            </span>
+                        </div>
+                    `);
+                } else {
+                    // Fallback for regular alpha lines without a leading sub-question
+                    content = content.replace(/#([1-6])\b/g, (match, digit) => `(${romanMap[digit]})`);
+                    processedLines.push(`
+                        <div class="list-item alpha-list">
+                            <span class="list-marker"><strong>(${letter})</strong></span>
+                            <span class="list-content">${content}</span>
+                        </div>
+                    `);
+                }
+                return;
+            }
+
+            let indentClass = "";
+            if (currentState === 'alpha') indentClass = "alpha-text-indent";
+            if (currentState === 'roman') indentClass = "roman-text-indent";
+
+            processedLines.push(`<div class="regular-text ${indentClass}">${line}</div>`);
+        });
+
+        let description = processedLines.join("");
+
+        if (q.i) { description = description.replace("[[i]]", utils.renderImage(`../../${q.i}`)); }
+        if (q.i2) { description = description.replace("[[i2]]", utils.renderImage(`../../${q.i2}`)); }
+        if (q.t) { description = description.replace("[[t]]", utils.convertToTable(q.t)); }
+        if (q.t2) { description = description.replace("[[t2]]", utils.convertToTable(q.t2)); }
+
+        let marks = q.mark ? `<div style="text-align: right; font-weight: bold; margin-top: 10px; margin-bottom: 20px;">[${q.mark}]</div>` : "";
+
+        // Wrap each part in a div for spacing
+        return `<div class="question-part">${description} ${marks}</div>`;
+    }
+
+    function preloadQuestionImages(q) {
+        const imagePaths = ["i", "i2"]
+            .map(key => q[key])
+            .filter(Boolean)
+            .map(src => `../../${src}`);
+
+        return Promise.all(imagePaths.map(preloadImage));
+    }
+
+    function preloadImage(src) {
+        return new Promise(resolve => {
+            const image = new Image();
+            image.onload = resolve;
+            image.onerror = resolve;
+            image.src = src;
+        });
+    }
+
+    async function handleNextQuestion() {
+        viewState.currentIndex++;
+        if (viewState.currentIndex < viewState.groupedQuestions.length) {
+            showView(VIEWS.LOADING);
+            await waitForLoadingPaint();
+            await renderQuestion();
+            showView(VIEWS.QUIZ);
+        } else {
+            showResult();
+        }
+    }
+
+    function handleBack() {
+        viewState.currentIndex = 0;
+        viewState.groupedQuestions = []; // Reset the grouped array
+
+        if (urlTopicFilter) {
+            renderPaperListByTopic();
+        } else {
+            renderPaperListByYear();
+        }
+
+        showView(VIEWS.SETTINGS);
+    }
+
+    document.addEventListener("click", async (event) => {
+        const clickedButton = event.target.closest("button");
+        if (!clickedButton) return;
+
+        switch (true) {
+            case clickedButton === DOM.nextBtn:
+                DOM.nextBtn.disabled = true;
+                await handleNextQuestion();
+                break;
+
+            case clickedButton === DOM.backBtn:
+                handleBack();
+                break;
+
+            default:
+                break;
+        }
+    });
+
+    function showResult() {
+        const result = DOM.result;
+        result.textContent = "";
+
+        const heading = document.createElement("h2");
+        heading.textContent = "Questions Completed";
+
+        const text = document.createElement("p");
+        text.textContent = `All questions inside this block have been generated.`;
+
+        result.appendChild(heading);
+        result.appendChild(text);
+
+        showView(VIEWS.RESULT);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        init();
+    });
+</script>
+
+</html>
